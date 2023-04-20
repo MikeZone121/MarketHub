@@ -1,2 +1,0 @@
-# MarketHub
-Webshop project
