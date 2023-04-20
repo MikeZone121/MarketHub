@@ -1,7 +1,7 @@
 export interface TextProps {
     text?: string;
     variant?: string;
-    classNames?: string;
+    className?: string;
   }
 
 export enum TextVariantEnum {

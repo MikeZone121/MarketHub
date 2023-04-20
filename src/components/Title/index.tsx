@@ -2,7 +2,7 @@ import { createElement } from "react";
 import { TitleProps, TitleSizeEnum } from "./types";
 import clsx from "clsx";
 
-function Title({ text, size = TitleSizeEnum.H2, classNames }: TitleProps) {
+function Title({ text, size = TitleSizeEnum.H2, className }: TitleProps) {
   const titleClassName = clsx(
     size === TitleSizeEnum.H1 &&
       "tw-mb-2 tw-mt-0 tw-text-5xl tw-font-medium -twleading-tight tw-text-primary",
@@ -17,7 +17,7 @@ function Title({ text, size = TitleSizeEnum.H2, classNames }: TitleProps) {
   );
   return createElement(
     size,
-    { className: clsx(titleClassName, classNames) },
+    { className: clsx(titleClassName, className) },
     text
   );
 }

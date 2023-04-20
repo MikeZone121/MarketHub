@@ -4,7 +4,7 @@ import { clsx } from "clsx";
 function Text({
   text,
   variant = TextVariantEnum.NORMAL,
-  classNames,
+  className,
 }: TextProps) {
   const textClassName = clsx(
     variant === TextVariantEnum.SMALL &&
@@ -16,7 +16,7 @@ function Text({
     variant === TextVariantEnum.LEAD &&
       "tw-mb-4 tw-mt-6 tw-text-xl tw-font-light tw-leading-relaxed tw-text-black"
   );
-  return <p className={clsx(textClassName, classNames)}>{text}</p>;
+  return <p className={clsx(textClassName, className)}>{text}</p>;
 }
 
 export default Text;

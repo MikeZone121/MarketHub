@@ -1,7 +1,7 @@
 export interface TitleProps {
     text?: string;
     size?: string;
-    classNames?: string;
+    className?: string;
   }
 
   export enum TitleSizeEnum{

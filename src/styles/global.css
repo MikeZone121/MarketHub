@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.nav-animation{
+    position: relative;
+}
+
+.nav-animation::after{
+    position: absolute;
+    content: "";
+    background-color: #941000;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -5px;
+    border-radius: 20px;
+    transition-duration: 300ms;
+}
+
+.nav-animation:hover::after{
+    width: 100%;
+}
