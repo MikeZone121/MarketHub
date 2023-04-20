@@ -1,3 +1,4 @@
+import Text from "./components/Text";
 import Title from "./components/Title";
 import "./styles/global.css";
 
@@ -9,6 +10,11 @@ function App() {
       <Title size="h3" text="Dit is een titel h3" />
       <Title size="h4" text="Dit is een titel h4" />
       <Title size="h5" text="Dit is een titel h5" />
+
+      <Text variant="small" text="Dit is smalle tekst" />
+      <Text variant="normal" text="Dit is smalle tekst" />
+      <Text variant="quote" text="Dit is smalle tekst" />
+      <Text variant="lead" text="Dit is smalle tekst" />
     </div>
   );
 }
