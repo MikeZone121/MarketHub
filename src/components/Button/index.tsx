@@ -38,7 +38,8 @@ function Button({
       "tw-bg-white tw-text-primary tw-border tw-border-primary hover:tw-bg-primary tw-border hover:tw-text-white",
   };
 
-  const variantClassnames = clsx(variant && variantClassnamesMap[variant]);
+  const variantClassnames = clsx(variantClassnamesMap[variant]);
+
   return (
     <button
       disabled={isDisabled}
