@@ -12,7 +12,7 @@ export interface ButtonProps {
 }
 
 export enum PositionEnum {
-  LEFT = "lefst",
+  LEFT = "left",
   RIGHT = "right",
   BOTTOM = "bottom",
   TOP = "top",

@@ -55,10 +55,10 @@ function Button({
         <span
           className={clsx(
             isLoading && "tw-animate-spin",
-            iconPosition === PositionEnum.LEFT && "tw-mr-2",
-            iconPosition === PositionEnum.RIGHT && "tw-ml-2",
-            iconPosition === PositionEnum.TOP && "tw-mb-1",
-            iconPosition === PositionEnum.BOTTOM && "tw-mt-1",
+            iconPosition === PositionEnum.LEFT && text && "tw-mr-2",
+            iconPosition === PositionEnum.RIGHT && text && "tw-ml-2",
+            iconPosition === PositionEnum.TOP && text && "tw-mb-1",
+            iconPosition === PositionEnum.BOTTOM && text && "tw-mt-1",
             variant === BtnVariantEnum.TEXTICON &&
               "tw-bg-primary tw-text-white tw-rounded-full tw-w-5 tw-h-5 tw-p-1 tw-flex tw-items-center tw-justify-center"
           )}

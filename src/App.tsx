@@ -73,16 +73,17 @@ function App() {
         className="tw-underline"
         text="Normale link"
       />
-      <br />
-      <InputField
-        onChange={change}
-        id="test"
-        name="Name"
-        label="Labeltext"
-        value={val}
-        type={InputFieldTypesEnum.TEXT}
-        placeholder="Placeholder"
-      />
+      <div className="tw-mt-10">
+        <InputField
+          onChange={change}
+          id="test"
+          name="Name"
+          label="Password"
+          value={val}
+          type={InputFieldTypesEnum.PASSWORD}
+          placeholder="Placeholder"
+        />
+      </div>
     </div>
   );
 }
