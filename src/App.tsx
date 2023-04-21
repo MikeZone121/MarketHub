@@ -15,9 +15,6 @@ import "./styles/global.css"
 
 function App() {
   const [val, setVal] = useState("")
-  const change = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setVal(event.target.value)
-  }
 
   return (
     <div className="App">
@@ -69,7 +66,7 @@ function App() {
       <HyperLink href="https://www.google.com" className="tw-underline" text="Normale link" />
       <div className="tw-mt-10">
         <InputField
-          onChange={change}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setVal(e.target.value)}
           id="test"
           name="Name"
           label="Password"
