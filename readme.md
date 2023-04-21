@@ -1,7 +1,8 @@
 <div id="top"></div>
 
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+
+<!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
 
 <!-- PROJECT LOGO -->
 <br />
@@ -105,8 +106,10 @@ Project Link: [https://github.com/MikeZone121/MarketHub](https://github.com/Mike
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[license-url]: https://github.com/MikeZone121/MarketHub/LICENSE.txt
-[linkedin-url]: hhttps://www.linkedin.com/in/andres-vergauwen-56261988/
+[license-url]: https://github.com/MikeZone121/MarketHub/blob/main/LICENSE.txt
+
+<!-- [linkedin-url]: hhttps://www.linkedin.com/in/andres-vergauwen-56261988/ -->
+
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [product-screenshot]: src/img/screenshot.png
