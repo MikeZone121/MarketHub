@@ -3,5 +3,4 @@ export interface HyperlinkProps {
   text?: string
   className?: string
   target?: string
-  animation?: string
 }
