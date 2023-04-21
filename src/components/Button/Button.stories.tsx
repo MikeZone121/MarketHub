@@ -19,7 +19,6 @@ export const FULL: Story = {
   args: {
     text: "Button",
     onClick: () => alert("Clicked!"),
-    iconPosition: PositionEnum.LEFT,
     variant: BtnVariantEnum.FULL,
     isFullWidth: false,
     isLoading: false,
@@ -31,7 +30,6 @@ export const INVERT: Story = {
   args: {
     text: "Button",
     onClick: () => alert("Clicked!"),
-    iconPosition: PositionEnum.LEFT,
     variant: BtnVariantEnum.INVERT,
     isFullWidth: false,
     isLoading: false,
@@ -56,7 +54,6 @@ export const OUTLINED: Story = {
   args: {
     text: "Button",
     onClick: () => alert("Clicked!"),
-    iconPosition: PositionEnum.LEFT,
     variant: BtnVariantEnum.OUTLINED,
     isFullWidth: false,
     isLoading: false,
