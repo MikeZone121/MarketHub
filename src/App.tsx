@@ -1,10 +1,12 @@
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
-import Button from "./components/Button";
-import { BtnVariantEnum, PositionEnum } from "./components/Button/types";
-import HyperLink from "./components/HyperLink";
-import Text from "./components/Text";
-import Title from "./components/Title";
-import "./styles/global.css";
+import { faCoffee } from "@fortawesome/free-solid-svg-icons"
+
+import Button from "./components/Button"
+import { BtnVariantEnum, PositionEnum } from "./components/Button/types"
+import HyperLink from "./components/HyperLink"
+import Text from "./components/Text"
+import Title from "./components/Title"
+
+import "./styles/global.css"
 
 function App() {
   return (
@@ -52,19 +54,11 @@ function App() {
       <Text variant="quote" text="Dit is smalle tekst" />
       <Text variant="lead" text="Dit is smalle tekst" />
 
-      <HyperLink
-        href="https://www.google.com"
-        className="nav-animation"
-        text="Navlink"
-      />
+      <HyperLink href="https://www.google.com" className="nav-animation" text="Navlink" />
       <br />
-      <HyperLink
-        href="https://www.google.com"
-        className="tw-underline"
-        text="Normale link"
-      />
+      <HyperLink href="https://www.google.com" className="tw-underline" text="Normale link" />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
