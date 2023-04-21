@@ -44,7 +44,8 @@ function Button({
     <button
       disabled={isDisabled}
       onClick={() => onClick()}
-      className={clsx(buttonClassnames, positionClassnames, variantClassnames, classNames)}>
+      className={clsx(buttonClassnames, positionClassnames, variantClassnames, classNames)}
+    >
       {(isLoading || icon) && (
         <span
           className={clsx(
@@ -55,7 +56,8 @@ function Button({
             iconPosition === PositionEnum.BOTTOM && text && "tw-mt-1",
             variant === BtnVariantEnum.TEXTICON &&
               "tw-bg-primary tw-text-white tw-rounded-full tw-w-5 tw-h-5 tw-p-1 tw-flex tw-items-center tw-justify-center"
-          )}>
+          )}
+        >
           {isLoading && <FontAwesomeIcon icon={faSpinner} />}
           {!isLoading && icon && <FontAwesomeIcon icon={icon} />}
         </span>

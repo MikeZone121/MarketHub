@@ -72,7 +72,7 @@
         "tabWidth": 2,
         "singleQuote": false,
         "bracketSpacing": true,
-        "jsxBracketSameLine": true,
+        "jsxBracketSameLine": false,
         "useTabs": false,
         "arrowParens": "avoid",
         "jsxSingleQuote": false,

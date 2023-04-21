@@ -1,15 +1,11 @@
-import Button from "../Button";
-import { BtnVariantEnum } from "../Button/types";
-import { InputFieldTypesEnum } from "./types";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"
 
-function TogglePassword({
-  onClick,
-  type,
-}: {
-  onClick: () => void;
-  type: InputFieldTypesEnum;
-}) {
+import Button from "../Button"
+import { BtnVariantEnum } from "../Button/types"
+
+import { InputFieldTypesEnum } from "./types"
+
+function TogglePassword({ onClick, type }: { onClick: () => void; type: InputFieldTypesEnum }) {
   return (
     <Button
       onClick={onClick}
@@ -17,7 +13,7 @@ function TogglePassword({
       classNames="tw-absolute tw-top-0 tw-right-0 tw-border-0 tw-px-0 hover:tw-shadow-none hover:tw-border-0 hover:tw-bg-transparent"
       variant={BtnVariantEnum.TEXTICON}
     />
-  );
+  )
 }
 
-export default TogglePassword;
+export default TogglePassword
