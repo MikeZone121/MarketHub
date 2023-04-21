@@ -10,6 +10,15 @@ import "./styles/global.css";
 import { InputFieldTypesEnum } from "./components/InputField/types";
 import { TextVariantEnum } from "./components/Text/types";
 import { TitleSizeEnum } from "./components/Title/types";
+import { faCoffee } from "@fortawesome/free-solid-svg-icons"
+
+import Button from "./components/Button"
+import { BtnVariantEnum, PositionEnum } from "./components/Button/types"
+import HyperLink from "./components/HyperLink"
+import Text from "./components/Text"
+import Title from "./components/Title"
+
+import "./styles/global.css"
 
 function App() {
   const [val, setVal] = useState("");
@@ -62,11 +71,7 @@ function App() {
       <Text variant={TextVariantEnum.QUOTE} text="Dit is smalle tekst" />
       <Text variant={TextVariantEnum.LEAD} text="Dit is smalle tekst" />
 
-      <HyperLink
-        href="https://www.google.com"
-        className="nav-animation"
-        text="Navlink"
-      />
+      <HyperLink href="https://www.google.com" className="nav-animation" text="Navlink" />
       <br />
       <HyperLink
         href="https://www.google.com"
@@ -85,7 +90,7 @@ function App() {
         />
       </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
