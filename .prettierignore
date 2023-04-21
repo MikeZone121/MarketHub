@@ -1,0 +1,10 @@
+**/node_modules
+**/build
+**/package.json
+**/yarn.lock
+**/package-lock.json
+**/.eslintrc.js
+**/tsconfig.json
+**/tsconfig.eslint.json
+**/.eslintrc.ci.js 
+**/.prettierrc.json

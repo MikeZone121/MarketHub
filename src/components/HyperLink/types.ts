@@ -1,7 +1,7 @@
 export interface HyperlinkProps {
-    href?: string,
-    text?: string,
-    className?: string;
-    target?: string,
-    animation?: string,
+  href?: string
+  text?: string
+  className?: string
+  target?: string
+  animation?: string
 }
