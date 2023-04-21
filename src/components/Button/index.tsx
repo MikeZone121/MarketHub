@@ -26,7 +26,7 @@ function Button({
     [PositionEnum.TOP]: "tw-flex-col tw-items-center",
     [PositionEnum.BOTTOM]: "tw-flex-col-reverse tw-items-center"
   }
-  const positionClassnames = clsx(icon && positionClassnamesMap[iconPosition])
+  const positionClassnames = clsx(positionClassnamesMap[iconPosition])
 
   const variantClassnamesMap = {
     [BtnVariantEnum.FULL]:

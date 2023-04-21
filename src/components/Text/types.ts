@@ -1,6 +1,6 @@
 export interface TextProps {
   text?: string
-  variant?: string
+  variant?: TextVariantEnum
   className?: string
 }
 

@@ -26,7 +26,7 @@
     "project": ["./tsconfig.json"]
   },
   // Configuring third-party plugins
-  "plugins": ["react", "@typescript-eslint", "simple-import-sort"],
+  "plugins": ["react", "@typescript-eslint", "simple-import-sort", "unused-imports"],
   // Resolve imports
   "settings": {
     "import/resolver": {
@@ -39,6 +39,7 @@
     }
   },
   "rules": {
+    "unused-imports/no-unused-imports": "error",
     "simple-import-sort/exports": "error",
     "import/first": "error",
     "import/newline-after-import": "error",
