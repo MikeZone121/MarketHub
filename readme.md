@@ -64,6 +64,7 @@ MarketHub Webshop, maintained and hosted by Andres Vergauwen & Mike Livis
 - [Vitejs.dev](https://vitejs.dev/)
 - [React.js](https://reactjs.org/)
 - [Tailwindcss](https://tailwindcss.com/)
+- [Storybook](https://storybook.js.org/)
 
 <!-- GETTING STARTED -->
 
@@ -78,12 +79,12 @@ Follow the steps below to run the application.
    git clone https://github.com/MikeZone121/MarketHub
    ```
 2. Install NPM packages
+
    ```sh
    npm install or yarn
    ```
-3. Create `.env` file in the root folder
 
-4. Run the application
+3. Run the application
    ```sh
    npm run dev or yarn dev
    ```
@@ -102,7 +103,9 @@ Andres Vergauwen - andres.vergauwen@pau.be
 
 Mike Livis - mike@pau.be
 
-Project Link: [https://github.com/MikeZone121/MarketHub](https://github.com/MikeZone121/MarketHub)
+Project Link: [Demo MarketHub](https://github.com/MikeZone121/MarketHub)
+
+Storybook Link: [Component Library MarketHub](https://6443dc8834f188b03c64c511-qotnyqynkj.chromatic.com/)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
