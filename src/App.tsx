@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="tw-space-x-2 tw-items-center tw-flex tw-justify-center tw-my-4">
+      <div className="tw-my-4 tw-flex tw-items-center tw-justify-center tw-space-x-2">
         <Button
           onClick={() => null}
           text="Button"

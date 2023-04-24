@@ -38,7 +38,7 @@ function InputField(props: InputFieldProps) {
             setIsFocused(false)
           }}
           className={clsx(
-            "tw-border-b tw-border-grey-800 tw-p-2 focus-within:!tw-outline-gray-300 focus-within:tw-outline-0 tw-pr-8",
+            "tw-border-grey-800 tw-border-b tw-p-2 tw-pr-8 focus-within:tw-outline-0 focus-within:!tw-outline-gray-300",
             typeClassName,
             className
           )}
@@ -46,8 +46,8 @@ function InputField(props: InputFieldProps) {
         />
         <span
           className={clsx(
-            isFocused || value ? "tw-absolute tw-left-2 tw--top-4 tw-bg-white" : "tw-absolute tw-left-2 tw-top-2",
-            "tw-duration-100 tw-transition-all tw-ease-in-out"
+            isFocused || value ? "tw-absolute tw--top-4 tw-left-2 tw-bg-white" : "tw-absolute tw-left-2 tw-top-2",
+            "tw-transition-all tw-duration-100 tw-ease-in-out"
           )}
         >
           {label}
