@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { faCoffee } from "@fortawesome/free-solid-svg-icons"
+import { faCoffee, faSearch } from "@fortawesome/free-solid-svg-icons"
 
 import Button from "../components/Button"
 import { BtnVariantEnum, PositionEnum } from "../components/Button/types"
@@ -69,6 +69,53 @@ function UI() {
           label="Password"
           value={val}
           type={InputFieldTypesEnum.PASSWORD}
+        />
+      </div>
+
+      <div className="tw-mt-10">
+        <InputField
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setVal(e.target.value)}
+          id="test"
+          name="Name"
+          label="Search..."
+          value={val}
+          type={InputFieldTypesEnum.TEXT}
+          icon={faSearch}
+          onClick={() => alert("Clicked")}
+        />
+      </div>
+
+      <div className="tw-mt-10">
+        <InputField
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setVal(e.target.value)}
+          id="test"
+          name="Name"
+          label="Firstname"
+          value={val}
+          type={InputFieldTypesEnum.TEXT}
+        />
+      </div>
+
+      <div className="tw-mt-10">
+        <InputField
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setVal(e.target.value)}
+          id="test"
+          name="tem"
+          label="Tel"
+          value={val}
+          type={InputFieldTypesEnum.TEL}
+        />
+      </div>
+
+      <div className="tw-mt-10">
+        <InputField
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setVal(e.target.value)}
+          id="test"
+          name="Name"
+          value={val}
+          label=""
+          type={InputFieldTypesEnum.DATE}
+          error={{ message: "Foute datum" }}
         />
       </div>
     </>

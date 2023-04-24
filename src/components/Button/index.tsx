@@ -34,7 +34,7 @@ function Button({
     [BtnVariantEnum.INVERT]:
       "tw-bg-white tw-text-primary hover:tw-bg-primary tw-border tw-border-transparent hover:tw-border-primary hover:tw-text-white",
     [BtnVariantEnum.TEXTICON]:
-      "tw-bg-white tw-text-primary hover:tw-bg-primary tw-border tw-border-transparent hover:tw-border-primary hover:tw-text-white",
+      "tw-bg-white tw-text-black hover:tw-bg-primary tw-border tw-border-transparent hover:tw-border-primary hover:tw-text-white",
     [BtnVariantEnum.OUTLINED]:
       "tw-bg-white tw-text-primary tw-border tw-border-primary hover:tw-bg-primary tw-border hover:tw-text-white"
   }
@@ -55,7 +55,7 @@ function Button({
             iconPosition === PositionEnum.TOP && text && "tw-mb-1",
             iconPosition === PositionEnum.BOTTOM && text && "tw-mt-1",
             variant === BtnVariantEnum.TEXTICON &&
-              "tw-flex tw-h-5 tw-w-5 tw-items-center tw-justify-center tw-rounded-full tw-bg-primary tw-p-1 tw-text-white"
+              "tw-flex tw-h-5 tw-w-5 tw-items-center tw-justify-center tw-rounded-full tw-p-1 tw-text-gray-500 tw-transition-all tw-duration-200 tw-ease-out hover:tw-text-black"
           )}
         >
           {isLoading && <FontAwesomeIcon icon={faSpinner} />}
