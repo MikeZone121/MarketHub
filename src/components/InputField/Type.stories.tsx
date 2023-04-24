@@ -41,6 +41,7 @@ export const Search = () => {
       label="Search"
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value)}
       type={InputFieldTypesEnum.TEXT}
+      onClick={() => alert("Clicked")}
     />
   )
 }
