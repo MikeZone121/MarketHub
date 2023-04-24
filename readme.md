@@ -65,6 +65,7 @@ MarketHub Webshop, maintained and hosted by Andres Vergauwen & Mike Livis
 - [React.js](https://reactjs.org/)
 - [Tailwindcss](https://tailwindcss.com/)
 - [Storybook](https://storybook.js.org/)
+- [Vite PWA](https://vite-pwa-org.netlify.app/)
 
 <!-- GETTING STARTED -->
 
