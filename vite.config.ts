@@ -11,19 +11,23 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: "autoUpdate",
-      includeAssets: ["favicon.ico", "apple-touch-icon.png", "masked-icon.svg"],
+      includeAssets: [
+        "images/branding/favicon.ico",
+        "images/branding/apple-touch-icon.png",
+        "images/branding/masked-icon.svg"
+      ],
       manifest: {
         name: "MarketHub",
         short_name: "MarketHub",
         description: "MarketHub Webshop, maintained and hosted by Andres Vergauwen & Mike Livis",
         icons: [
           {
-            src: "/android-chrome-192x192.png",
+            src: "images/branding/android-chrome-192x192.png",
             sizes: "192x192",
             type: "image/png"
           },
           {
-            src: "/android-chrome-512x512.png",
+            src: "images/branding/android-chrome-512x512.png",
             sizes: "512x512",
             type: "image/png"
           }
