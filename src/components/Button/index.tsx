@@ -55,7 +55,7 @@ function Button({
             iconPosition === PositionEnum.TOP && text && "tw-mb-1",
             iconPosition === PositionEnum.BOTTOM && text && "tw-mt-1",
             variant === BtnVariantEnum.TEXTICON &&
-              "tw-bg-primary tw-text-white tw-rounded-full tw-w-5 tw-h-5 tw-p-1 tw-flex tw-items-center tw-justify-center"
+              "tw-flex tw-h-5 tw-w-5 tw-items-center tw-justify-center tw-rounded-full tw-bg-primary tw-p-1 tw-text-white"
           )}
         >
           {isLoading && <FontAwesomeIcon icon={faSpinner} />}
