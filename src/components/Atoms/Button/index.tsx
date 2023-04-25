@@ -4,6 +4,12 @@ import clsx from "clsx"
 
 import { BtnVariantEnum, ButtonProps, PositionEnum } from "./types"
 
+export const positionClassnamesMap = {
+  [PositionEnum.LEFT]: "tw-flex-row",
+  [PositionEnum.RIGHT]: "tw-flex-row-reverse",
+  [PositionEnum.TOP]: "tw-flex-col tw-items-center",
+  [PositionEnum.BOTTOM]: "tw-flex-col-reverse tw-items-center"
+}
 function Button({
   icon,
   onClick,
@@ -20,12 +26,6 @@ function Button({
     isDisabled && "tw-opacity-50 tw-cursor-not-allowed tw-pointer-events-none",
     "tw-flex tw-bg-primary tw-px-4 tw-py-2 tw-rounded-sm tw-items-center tw-justify-center tw-transition-all tw-duration-200 tw-ease-out active:tw-scale-90 hover:tw-shadow-md"
   )
-  const positionClassnamesMap = {
-    [PositionEnum.LEFT]: "tw-flex-row",
-    [PositionEnum.RIGHT]: "tw-flex-row-reverse",
-    [PositionEnum.TOP]: "tw-flex-col tw-items-center",
-    [PositionEnum.BOTTOM]: "tw-flex-col-reverse tw-items-center"
-  }
   const positionClassnames = clsx(positionClassnamesMap[iconPosition])
 
   const variantClassnamesMap = {
