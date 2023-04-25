@@ -1,11 +1,13 @@
-import { IconProp } from "@fortawesome/fontawesome-svg-core"
+import { IconProp, SizeProp } from "@fortawesome/fontawesome-svg-core"
 
 export interface ButtonProps {
   text?: string
   onClick: () => void
   iconPosition?: PositionEnum
-  classNames?: string
+  className?: string
+  iconClassName?: string
   icon?: IconProp
+  iconSize?: SizeProp
   variant?: BtnVariantEnum
   isFullWidth?: boolean
   isDisabled?: boolean
