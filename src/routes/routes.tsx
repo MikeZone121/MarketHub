@@ -1,5 +1,5 @@
 import App from "../App"
-import NotFound from "../pages/Errors/NotFound"
+import Error from "../pages/Errors/Error"
 import Home from "../pages/Home"
 import UI from "../pages/Ui"
 
@@ -7,10 +7,10 @@ export const routes = [
   {
     path: "/",
     element: <App />,
-    errorElement: <NotFound />,
+    errorElement: <Error />,
     children: [
       {
-        errorElement: <NotFound />,
+        errorElement: <Error />,
         children: [
           { index: true, element: <Home /> },
           {
