@@ -1,15 +1,15 @@
 import React, { useState } from "react"
 import { faCoffee, faSearch } from "@fortawesome/free-solid-svg-icons"
 
-import Button from "../components/Button"
-import { BtnVariantEnum, PositionEnum } from "../components/Button/types"
-import Hyperlink from "../components/HyperLink"
-import InputField from "../components/InputField"
-import { InputFieldTypesEnum } from "../components/InputField/types"
-import Text from "../components/Text"
-import { TextVariantEnum } from "../components/Text/types"
-import Title from "../components/Title"
-import { TitleSizeEnum } from "../components/Title/types"
+import Button from "../components/Atoms/Button"
+import { BtnVariantEnum, PositionEnum } from "../components/Atoms/Button/types"
+import Hyperlink from "../components/Atoms/HyperLink"
+import InputField from "../components/Atoms/InputField"
+import { InputFieldTypesEnum } from "../components/Atoms/InputField/types"
+import Text from "../components/Atoms/Text"
+import { TextVariantEnum } from "../components/Atoms/Text/types"
+import Title from "../components/Atoms/Title"
+import { TitleSizeEnum } from "../components/Atoms/Title/types"
 
 function UI() {
   const [val, setVal] = useState("")

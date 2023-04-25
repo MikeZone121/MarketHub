@@ -1,5 +1,5 @@
-import Title from "../components/Title"
-import { TitleSizeEnum } from "../components/Title/types"
+import Title from "../components/Atoms/Title"
+import { TitleSizeEnum } from "../components/Atoms/Title/types"
 
 function Home() {
   return (
