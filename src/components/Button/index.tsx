@@ -11,14 +11,17 @@ function Button({
   isFullWidth,
   isLoading,
   isDisabled,
-  classNames,
+  className,
   iconPosition = PositionEnum.LEFT,
+  iconClassName,
+  iconSize = "1x",
   variant = BtnVariantEnum.INVERT
 }: ButtonProps) {
   const buttonClassnames = clsx(
     isFullWidth && "tw-w-full",
     isDisabled && "tw-opacity-50 tw-cursor-not-allowed tw-pointer-events-none",
-    "tw-flex tw-bg-primary tw-px-4 tw-py-2 tw-rounded-sm tw-items-center tw-justify-center tw-transition-all tw-duration-200 tw-ease-out active:tw-scale-90 hover:tw-shadow-md"
+    (!icon || (icon && text)) &&
+      "tw-flex tw-bg-primary tw-px-4 tw-py-2 tw-rounded-sm tw-items-center tw-justify-center tw-transition-all tw-duration-200 tw-ease-out active:tw-scale-90 hover:tw-shadow-md"
   )
   const positionClassnamesMap = {
     [PositionEnum.LEFT]: "tw-flex-row",
@@ -33,8 +36,7 @@ function Button({
       "tw-bg-primary tw-text-white hover:tw-bg-white tw-border tw-border-transparent hover:tw-border-primary hover:tw-text-primary",
     [BtnVariantEnum.INVERT]:
       "tw-bg-white tw-text-primary hover:tw-bg-primary tw-border tw-border-transparent hover:tw-border-primary hover:tw-text-white",
-    [BtnVariantEnum.TEXTICON]:
-      "tw-bg-white tw-text-black hover:tw-bg-primary tw-border tw-border-transparent hover:tw-border-primary hover:tw-text-white",
+    [BtnVariantEnum.TEXTICON]: "tw-bg-white tw-text-black tw-border tw-border-transparent hover:tw-text-white",
     [BtnVariantEnum.OUTLINED]:
       "tw-bg-white tw-text-primary tw-border tw-border-primary hover:tw-bg-primary tw-border hover:tw-text-white"
   }
@@ -44,7 +46,7 @@ function Button({
     <button
       disabled={isDisabled}
       onClick={() => onClick()}
-      className={clsx(buttonClassnames, positionClassnames, variantClassnames, classNames)}
+      className={clsx(buttonClassnames, positionClassnames, variantClassnames, className)}
     >
       {(isLoading || icon) && (
         <span
@@ -55,11 +57,12 @@ function Button({
             iconPosition === PositionEnum.TOP && text && "tw-mb-1",
             iconPosition === PositionEnum.BOTTOM && text && "tw-mt-1",
             variant === BtnVariantEnum.TEXTICON &&
-              "tw-flex tw-h-5 tw-w-5 tw-items-center tw-justify-center tw-rounded-full tw-p-1 tw-text-gray-500 tw-transition-all tw-duration-200 tw-ease-out hover:tw-text-black"
+              "tw-flex tw-h-5 tw-w-5 tw-items-center tw-justify-center tw-rounded-full tw-p-1 tw-text-gray-500 tw-transition-all tw-duration-200 tw-ease-out hover:tw-text-black",
+            iconClassName
           )}
         >
-          {isLoading && <FontAwesomeIcon icon={faSpinner} />}
-          {!isLoading && icon && <FontAwesomeIcon icon={icon} />}
+          {isLoading && <FontAwesomeIcon icon={faSpinner} size={iconSize} />}
+          {!isLoading && icon && <FontAwesomeIcon icon={icon} size={iconSize} />}
         </span>
       )}
       <span>{text}</span>
