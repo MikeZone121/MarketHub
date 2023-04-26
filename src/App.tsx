@@ -8,7 +8,7 @@ function App() {
     return <Maintenance />
   } else {
     return (
-      <div className="App">
+      <div className="App tw-relative tw-overflow-hidden">
         <Nav />
       </div>
     )
