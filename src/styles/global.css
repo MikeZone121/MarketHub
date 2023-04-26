@@ -30,7 +30,7 @@
 .inputSearch{
   -webkit-transition: width 400ms ease, background 400ms ease;
 	transition:         width 400ms ease, background 400ms ease;
-	width:0px;
+	width:10px;
   border: 0;
   padding: 0;
 }
