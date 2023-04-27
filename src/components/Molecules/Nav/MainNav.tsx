@@ -86,7 +86,7 @@ function MainNav() {
       </nav>
       <div>
         <div
-          className={`tw-absolute tw-top-0 tw-z-10 tw-flex tw-min-h-screen tw-w-full tw-justify-center tw-bg-primary tw-p-3 tw-text-white tw-transition-all tw-duration-500 tw-ease-in-out md:tw-hidden ${
+          className={`tw-fixed tw-top-0 tw-z-10 tw-flex tw-min-h-screen tw-w-full tw-justify-center tw-bg-primary tw-p-3 tw-text-white tw-transition-all tw-duration-500 tw-ease-in-out md:tw-hidden ${
             toggleHamburger ? "tw-right-0 tw-opacity-100" : "tw-right-[-100%] tw-opacity-0"
           }`}
         >
