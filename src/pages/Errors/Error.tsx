@@ -1,7 +1,6 @@
 import { useRouteError } from "react-router-dom"
-
-import Title from "../../components/Title"
-import { TitleSizeEnum } from "../../components/Title/types"
+import { TitleSizeEnum } from "../../components/Atoms/Title/types"
+import Title from "../../components/Atoms/Title"
 
 function Error() {
   const error: any = useRouteError()

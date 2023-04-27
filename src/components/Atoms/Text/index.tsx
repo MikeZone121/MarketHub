@@ -1,6 +1,6 @@
 import { clsx } from "clsx"
 
-import { TextProps, TextVariantEnum } from "../Text/types"
+import { TextProps, TextVariantEnum } from "./types"
 
 function Text({ text, variant = TextVariantEnum.NORMAL, className }: TextProps) {
   const textClassName = clsx(
