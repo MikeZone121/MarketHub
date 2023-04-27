@@ -1,9 +1,8 @@
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
 
-import Button from "../Button"
-import { BtnVariantEnum } from "../Button/types"
-
 import { CardProps } from "./types"
+import Button from "../Atoms/Button"
+import { BtnVariantEnum } from "../Atoms/Button/types"
 
 function Card({ id, title, subtitle, description, image, price }: CardProps) {
   return (
