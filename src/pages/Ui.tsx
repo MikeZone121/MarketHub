@@ -141,7 +141,7 @@ function UI() {
             id="1"
           />
           <Card
-            image="images/branding/safari-pinned-tab.svgs"
+            image="images/branding/safari-pinned-tab.svg"
             title="Test product"
             subtitle="test subtitle"
             description="hello this is a test"
@@ -149,7 +149,7 @@ function UI() {
             id="2"
           />
           <Card
-            image="images/branding/safari-pinned-tab.svgs"
+            image="images/branding/safari-pinned-tab.svg"
             title="Test product"
             subtitle="test subtitle"
             description="hello this is a test"
