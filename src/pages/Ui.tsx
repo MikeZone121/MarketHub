@@ -1,17 +1,17 @@
 import React, { useState } from "react"
 import { faCoffee, faSearch } from "@fortawesome/free-solid-svg-icons"
 
-import Button from "../components/Button"
-import { BtnVariantEnum, PositionEnum } from "../components/Button/types"
 import Card from "../components/Card"
+import Button from "../components/Atoms/Button"
+import { BtnVariantEnum, PositionEnum } from "../components/Atoms/Button/types"
+import { TitleSizeEnum } from "../components/Atoms/Title/types"
+import { TextVariantEnum } from "../components/Atoms/Text/types"
+import Text from "../components/Atoms/Text"
+import { InputFieldTypesEnum } from "../components/Atoms/InputField/types"
+import InputField from "../components/Atoms/InputField"
+import Hyperlink from "../components/Atoms/HyperLink"
+import Title from "../components/Atoms/Title"
 import Hero from "../components/Hero"
-import Hyperlink from "../components/HyperLink"
-import InputField from "../components/InputField"
-import { InputFieldTypesEnum } from "../components/InputField/types"
-import Text from "../components/Text"
-import { TextVariantEnum } from "../components/Text/types"
-import Title from "../components/Title"
-import { TitleSizeEnum } from "../components/Title/types"
 
 function UI() {
   const [val, setVal] = useState("")
@@ -145,7 +145,7 @@ function UI() {
             id="1"
           />
           <Card
-            image="images/branding/safari-pinned-tab.svgs"
+            image="images/branding/safari-pinned-tab.svg"
             title="Test product"
             subtitle="test subtitle"
             description="hello this is a test"
@@ -153,7 +153,7 @@ function UI() {
             id="2"
           />
           <Card
-            image="images/branding/safari-pinned-tab.svgs"
+            image="images/branding/safari-pinned-tab.svg"
             title="Test product"
             subtitle="test subtitle"
             description="hello this is a test"
