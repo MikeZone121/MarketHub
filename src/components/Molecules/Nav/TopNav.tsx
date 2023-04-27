@@ -20,7 +20,7 @@ function TopNav() {
 
   return (
     <div className="tw-bg-primary">
-      <div className="tw-container tw-m-auto tw-flex tw-items-center tw-justify-between tw-py-1 tw-text-white">
+      <div className="tw-m-auto tw-flex tw-max-w-screen-xl tw-items-center tw-justify-between tw-py-1 tw-text-white">
         <div className="tw-flex tw-flex-row">
           <div>
             <Hyperlink

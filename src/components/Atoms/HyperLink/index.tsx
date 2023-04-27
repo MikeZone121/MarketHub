@@ -7,7 +7,7 @@ import { PositionEnum } from "../Button/types"
 import { HyperlinkProps } from "./types"
 
 function Hyperlink(props: HyperlinkProps) {
-  const { text, className, target = "_blank", icon, iconPosition = PositionEnum.LEFT } = props
+  const { text, className, target = "", icon, iconPosition = PositionEnum.LEFT } = props
   const positionClassnames = clsx(positionClassnamesMap[iconPosition])
   return (
     <a

@@ -21,7 +21,7 @@ function MainNav() {
   ]
   return (
     <div id="main-nav" className="tw-shadow-sm">
-      <nav className="tw-container tw-m-auto tw-flex tw-w-full tw-flex-row tw-items-center tw-justify-between">
+      <nav className="tw-m-auto tw-flex tw-w-full tw-max-w-screen-xl tw-flex-row tw-items-center tw-justify-between">
         <a
           href="/"
           className="md:block tw-hidden md:tw-flex md:tw-items-center md:tw-text-2xl md:tw-font-bold md:tw-text-primary"

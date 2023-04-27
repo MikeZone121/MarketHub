@@ -22,20 +22,19 @@
   width: 100%;
 }
 
-
 .search label > span {
   display: none;
 }
 
-.inputSearch{
+.inputSearch {
   -webkit-transition: width 400ms ease, background 400ms ease;
-	transition:         width 400ms ease, background 400ms ease;
-	width:10px;
+  transition: width 400ms ease, background 400ms ease;
+  width: 10px;
   border: 0;
   padding: 0;
 }
 
-.inputSearch:focus{
+.inputSearch:focus {
   width: 100px;
   padding-right: 2rem;
   padding: 0.5rem;
@@ -44,6 +43,6 @@
   border-bottom: 1px solid #e5e7eb;
 }
 
-.searchInputLg span:nth-child(3){
+.searchInputLg span:nth-child(3) {
   background-color: transparent;
 }
