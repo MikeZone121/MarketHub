@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* TODO: add css to component iso global */
 .nav-animation {
   position: relative;
 }

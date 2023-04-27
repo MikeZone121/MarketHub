@@ -7,6 +7,7 @@ import Nav from "./index"
 
 const meta: Meta<typeof Nav> = {
   title: "ATOMS/Navigation",
+  // TODO: define if this should be a 'plain' ui component if the data is hardcoded in the component
   component: Nav,
   tags: ["autodocs"]
 } satisfies Meta<typeof Nav>

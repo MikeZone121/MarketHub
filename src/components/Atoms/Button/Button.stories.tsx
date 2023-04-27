@@ -10,6 +10,9 @@ const meta: Meta<typeof Button> = {
   title: "ATOMS/Button",
   component: Button,
   tags: ["autodocs"]
+  // args: {
+  //   text: "Button"
+  // }
 } satisfies Meta<typeof Button>
 
 export default meta
@@ -18,6 +21,7 @@ type Story = StoryObj<typeof Button>
 export const FULL: Story = {
   args: {
     text: "Button",
+    // TODO: actions can be used https://storybook.js.org/docs/react/essentials/actions
     onClick: () => alert("Clicked!"),
     variant: BtnVariantEnum.FULL,
     isFullWidth: false,
@@ -28,6 +32,7 @@ export const FULL: Story = {
 
 export const INVERT: Story = {
   args: {
+    // TODO: duplicate args can be removed
     text: "Button",
     onClick: () => alert("Clicked!"),
     variant: BtnVariantEnum.INVERT,

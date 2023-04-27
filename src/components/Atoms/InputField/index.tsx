@@ -7,6 +7,7 @@ import { BtnVariantEnum } from "../Button/types"
 import TogglePassword from "./TogglePassword"
 import { InputFieldProps, InputFieldTypesEnum } from "./types"
 
+// TODO: rename to textfield
 function InputField(props: InputFieldProps) {
   const {
     id,

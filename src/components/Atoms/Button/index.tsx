@@ -10,6 +10,8 @@ export const positionClassnamesMap = {
   [PositionEnum.TOP]: "tw-flex-col tw-items-center",
   [PositionEnum.BOTTOM]: "tw-flex-col-reverse tw-items-center"
 }
+
+// TODO: add forward ref https://react.dev/reference/react/forwardRef
 function Button({
   icon,
   onClick,
@@ -45,6 +47,7 @@ function Button({
   return (
     <button
       disabled={isDisabled}
+      // TODO: === onClick={onClick}
       onClick={() => onClick()}
       className={clsx(buttonClassnames, positionClassnames, variantClassnames, className)}
     >

@@ -8,6 +8,7 @@ import { PositionEnum } from "../../Atoms/Button/types"
 import Hyperlink from "../../Atoms/HyperLink"
 
 function TopNav() {
+  // TODO: setDropdownIsOpen iso setdropdown,
   const [dropdownLanguage, setdropdownLanguage] = useState(false)
 
   const languages = [
@@ -28,6 +29,7 @@ function TopNav() {
               iconPosition={PositionEnum.LEFT}
               href="mailto:info@markethub.com"
               text="info@markethub.com"
+              // TODO: rm custom styling to abstract component
               className="tw-ml-2 tw-text-white hover:tw-text-secondary"
             />
           </div>
@@ -44,7 +46,9 @@ function TopNav() {
         <div>
           <ul className="tw-relative tw-flex tw-items-center tw-space-x-6 tw-p-3 tw-text-black">
             <div>
+              {/* TODO: do not use a span for components to interact with */}
               <span className="tw-text-white" onClick={() => setdropdownLanguage(prev => !prev)}>
+                {/* TODO: use a array.find */}
                 {currentLanguage && languages.filter(l => l.languageCode === currentLanguage)[0]?.name}
                 <FontAwesomeIcon
                   icon={faChevronDown}
@@ -63,6 +67,7 @@ function TopNav() {
                 >
                   {languages
                     .filter(l => l.languageCode !== currentLanguage)
+                    // TODO: what is a l?
                     .map(l => (
                       <li key={l.id} className="tw-my-1">
                         <NavLink to={`/${l.languageCode}`} className="tw-text-white">
@@ -74,6 +79,7 @@ function TopNav() {
               )}
             </div>
             <li>
+              {/* TODO: can be just strings */}
               <NavLink to={`shop`} className="tw-flex tw-items-center tw-text-white">
                 <span className="tw-hidden md:tw-block">Login</span>
                 <FontAwesomeIcon icon={faUser} className="tw-ml-2" />

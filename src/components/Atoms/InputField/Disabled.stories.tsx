@@ -1,5 +1,5 @@
 // Button.stories.ts|tsx
-
+// TODO: use one story file per component
 import React, { useState } from "react"
 import { faSearch } from "@fortawesome/free-solid-svg-icons"
 import type { Meta } from "@storybook/react"

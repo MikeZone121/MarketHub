@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
 import { routes } from "./routes/routes"
 
+// TODO: rm duplicate
 import "./styles/global.css"
 
 const router = createBrowserRouter([...routes])

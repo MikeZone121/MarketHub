@@ -93,6 +93,7 @@ const Footer = () => {
           {footerNavs.map((item, idx) => (
             <ul className="tw-space-y-4" key={idx}>
               <h4 className="tw-font-medium tw-text-gray-800">{item.label}</h4>
+              {/* TODO: namings */}
               {item.items.map((el, index) => (
                 <li key={index}>
                   <Hyperlink href={el.href} text={el.name} className="!tw-text-gray-600" target={el.target} />

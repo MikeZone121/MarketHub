@@ -3,6 +3,7 @@ import { IconProp } from "@fortawesome/fontawesome-svg-core"
 import { PositionEnum } from "../Button/types"
 
 export interface HyperlinkProps {
+  // TODO: href, text should not be optional
   href?: string
   text?: string
   className?: string

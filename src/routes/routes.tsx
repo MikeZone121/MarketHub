@@ -25,6 +25,7 @@ export const routes = [
           },
           {
             path: "ui",
+            // TODO: remove ui page
             element: <UI />
           }
         ]

@@ -16,6 +16,7 @@ type Story = StoryObj<typeof Hyperlink>
 export const NavLink: Story = {
   args: {
     text: "Dit een link",
+    // TODO: custom className can be removed
     className: "nav-animation",
     target: "_blank",
     href: "https://www.google.be"

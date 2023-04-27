@@ -1,4 +1,4 @@
-import { createElement } from "react"
+import React, { createElement } from "react"
 import clsx from "clsx"
 
 import { TitleProps, TitleSizeEnum } from "./types"
@@ -12,6 +12,7 @@ function Title({ text, size = TitleSizeEnum.H2, className }: TitleProps) {
     size === TitleSizeEnum.H5 && "tw-m-0 tw-text-xl tw-font-medium tw-leading-tight tw-text-primary",
     className
   )
+
   return createElement(size, { className: titleClassName }, text)
 }
 

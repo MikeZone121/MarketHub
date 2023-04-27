@@ -3,6 +3,7 @@ import { TitleSizeEnum } from "../../components/Atoms/Title/types"
 import Title from "../../components/Atoms/Title"
 
 function Error() {
+  // TODO: remove any
   const error: any = useRouteError()
   let message = "Sorry, the page you are looking for could not be found or has been removed."
   let title = "Page not found"

@@ -11,6 +11,7 @@ import { TitleSizeEnum } from "../../Atoms/Title/types"
 function MainNav() {
   const [value, setValue] = useState("")
 
+  // TODO: naming
   const [toggleHamburger, setToggleHamburger] = useState(false)
 
   const navigation = [
@@ -54,6 +55,7 @@ function MainNav() {
         </div>
       </nav>
       {/* MOBILE */}
+      {/* TODO: make separate component */}
       <nav className="md:hidden tw-container tw-m-auto tw-flex tw-w-full tw-flex-row tw-items-center tw-justify-between">
         <div>
           <a href="/" className="tw-flex tw-items-center tw-text-2xl tw-font-bold tw-text-primary md:tw-hidden">
@@ -106,6 +108,7 @@ function MainNav() {
                     <NavLink
                       to={item.path}
                       onClick={() => setToggleHamburger(false)}
+                      // TODO: use clsx
                       className={({ isActive }) => (isActive ? "tw-underline" : "")}
                     >
                       {item.title}
@@ -115,6 +118,7 @@ function MainNav() {
               })}
             </ul>
           </div>
+          {/* TODO: maybe pick a live date */}
           <div className="tw-absolute tw-bottom-4">&copy; 2022 MarketHub</div>
         </div>
       </div>
