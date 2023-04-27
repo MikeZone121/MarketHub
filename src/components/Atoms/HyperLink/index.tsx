@@ -7,14 +7,14 @@ import { PositionEnum } from "../Button/types"
 import { HyperlinkProps } from "./types"
 
 function Hyperlink(props: HyperlinkProps) {
-  const { text, className, target = "", icon, iconPosition = PositionEnum.LEFT } = props
+  const { text, href, className, target = "", icon, iconPosition = PositionEnum.LEFT } = props
   const positionClassnames = clsx(positionClassnamesMap[iconPosition])
   return (
     <a
-      {...props}
+      href={href}
       target={target}
       className={clsx(
-        "tw-flex tw-items-center tw-text-primary tw-ease-in-out hover:tw-text-red-300",
+        "tw-flex tw-cursor-pointer tw-items-center tw-text-primary tw-ease-in-out hover:tw-text-red-300",
         positionClassnames,
         className
       )}

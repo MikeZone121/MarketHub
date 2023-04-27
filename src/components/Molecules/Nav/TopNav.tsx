@@ -45,7 +45,7 @@ function TopNav() {
           <ul className="tw-relative tw-flex tw-items-center tw-space-x-6 tw-p-3 tw-text-black">
             <div>
               <span className="tw-text-white" onClick={() => setdropdownLanguage(prev => !prev)}>
-                {currentLanguage && languages.filter(l => l.languageCode === currentLanguage)[0].name}
+                {currentLanguage && languages.filter(l => l.languageCode === currentLanguage)[0]?.name}
                 <FontAwesomeIcon
                   icon={faChevronDown}
                   className={clsx(
