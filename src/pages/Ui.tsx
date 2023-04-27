@@ -4,6 +4,7 @@ import { faCoffee, faSearch } from "@fortawesome/free-solid-svg-icons"
 import Button from "../components/Button"
 import { BtnVariantEnum, PositionEnum } from "../components/Button/types"
 import Card from "../components/Card"
+import Hero from "../components/Hero"
 import Hyperlink from "../components/HyperLink"
 import InputField from "../components/InputField"
 import { InputFieldTypesEnum } from "../components/InputField/types"
@@ -16,6 +17,9 @@ function UI() {
   const [val, setVal] = useState("")
   return (
     <section className="tw-my-10">
+      <article className="tw-flex tw-flex-wrap tw-items-center tw-justify-center tw-space-x-5">
+        <Hero />
+      </article>
       <article className="tw-flex tw-flex-wrap tw-items-center tw-justify-center tw-space-x-5">
         <Button
           onClick={() => null}
