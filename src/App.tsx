@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom"
 
+import Footer from "./components/Footer"
 import Nav from "./components/Molecules/Nav"
 import Maintenance from "./pages/Maintenance"
 
@@ -13,6 +14,8 @@ function App() {
       <div className="App tw-relative tw-overflow-hidden">
         <Nav />
         <Outlet />
+
+        <Footer />
       </div>
     )
   }

@@ -19,7 +19,7 @@ function TogglePassword({
       isDisabled={isDisabled}
       onClick={onClick}
       icon={type === InputFieldTypesEnum.TEXT ? faEye : faEyeSlash}
-      classNames="tw-absolute tw-top-0 tw-right-0 tw-border-0 tw-px-0 hover:tw-shadow-none hover:tw-border-0 hover:tw-bg-transparent"
+      className="tw-absolute tw-right-0 tw-top-0 tw-border-0 tw-px-0 hover:tw-border-0 hover:tw-bg-transparent hover:tw-shadow-none"
       variant={BtnVariantEnum.TEXTICON}
     />
   )

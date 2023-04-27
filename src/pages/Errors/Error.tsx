@@ -1,7 +1,17 @@
-import Title from "../../components/Atoms/Title"
-import { TitleSizeEnum } from "../../components/Atoms/Title/types"
+import { useRouteError } from "react-router-dom"
 
 function NotFound() {
+import Title from "../../components/Title"
+import { TitleSizeEnum } from "../../components/Title/types"
+
+function Error() {
+  const error: any = useRouteError()
+  let message = "Sorry, the page you are looking for could not be found or has been removed."
+  let title = "Page not found"
+  if (error.status !== 404) {
+    title = "Oops"
+    message = error.statusText || error.message
+  }
   return (
     <main>
       <div className="tw-mx-auto tw-flex tw-h-screen tw-max-w-screen-xl tw-items-center tw-justify-start tw-px-4 md:tw-px-8">
@@ -9,14 +19,10 @@ function NotFound() {
           <div className="tw-pb-6">
             <img src="images/branding/logo.svg" width={150} className="tw-mx-auto" />
           </div>
-          <Title
-            size={TitleSizeEnum.H4}
-            className="tw-font-semibold tw-text-gray-800 sm:tw-text-5xl"
-            text="Page not found"
-          />
+          <Title size={TitleSizeEnum.H4} className="tw-font-semibold tw-text-gray-800 sm:tw-text-5xl" text={title} />
           {/* TODO: Change below code to a text component */}
           <p className="tw-mt-3 tw-text-gray-600">
-            Sorry, the page you are looking for could not be found or has been removed.
+            {message}
             <a
               href="/"
               className="tw-ml-2 tw-inline-flex tw-items-center tw-gap-x-1 tw-font-medium tw-text-primary tw-duration-150 hover:tw-text-primary"
@@ -37,4 +43,4 @@ function NotFound() {
   )
 }
 
-export default NotFound
+export default Error
