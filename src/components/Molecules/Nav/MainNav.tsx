@@ -40,7 +40,7 @@ function MainNav() {
             )
           })}
         </ul>
-        <div className="tw-hidden md:tw-block">
+        <div className="searchInputLg tw-hidden md:tw-block">
           <InputField
             id="Search"
             label="Search..."
@@ -87,7 +87,7 @@ function MainNav() {
       <div>
         <div
           className={`tw-absolute tw-top-0 tw-z-10 tw-flex tw-min-h-screen tw-w-full tw-justify-center tw-bg-primary tw-p-3 tw-text-white tw-transition-all tw-duration-500 tw-ease-in-out md:tw-hidden ${
-            toggleHamburger ? "tw-right-0 tw-opacity-100" : "tw-right-[-500px] tw-opacity-0"
+            toggleHamburger ? "tw-right-0 tw-opacity-100" : "tw-right-[-100%] tw-opacity-0"
           }`}
         >
           <span className="tw-absolute tw-right-0 tw-top-20 tw-mr-4 tw-text-3xl tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-rotate-180">

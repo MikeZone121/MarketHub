@@ -1,5 +1,3 @@
-import { Outlet } from "react-router-dom"
-
 import MainNav from "./MainNav"
 import TopNav from "./TopNav"
 
@@ -8,7 +6,6 @@ function Nav() {
     <div>
       <TopNav />
       <MainNav />
-      <Outlet />
     </div>
   )
 }

@@ -1,3 +1,5 @@
+import { Outlet } from "react-router-dom"
+
 import Nav from "./components/Molecules/Nav"
 import Maintenance from "./pages/Maintenance"
 
@@ -10,6 +12,7 @@ function App() {
     return (
       <div className="App tw-relative tw-overflow-hidden">
         <Nav />
+        <Outlet />
       </div>
     )
   }

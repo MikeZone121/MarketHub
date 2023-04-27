@@ -1,15 +1,8 @@
 import { useState } from "react"
 import { NavLink } from "react-router-dom"
-import {
-  faCartShopping,
-  faChevronDown,
-  faChevronRight,
-  faEnvelope,
-  faHeart,
-  faPhone,
-  faUser
-} from "@fortawesome/free-solid-svg-icons"
+import { faCartShopping, faChevronDown, faEnvelope, faHeart, faPhone, faUser } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import clsx from "clsx"
 
 import { PositionEnum } from "../../Atoms/Button/types"
 import Hyperlink from "../../Atoms/HyperLink"
@@ -53,14 +46,21 @@ function TopNav() {
             <div>
               <span className="tw-text-white" onClick={() => setdropdownLanguage(prev => !prev)}>
                 {currentLanguage && languages.filter(l => l.languageCode === currentLanguage)[0].name}
-                {dropdownLanguage ? (
-                  <FontAwesomeIcon icon={faChevronDown} className="tw-ml-1 tw-text-sm" />
-                ) : (
-                  <FontAwesomeIcon icon={faChevronRight} className="tw-ml-1 tw-text-sm" />
-                )}
+                <FontAwesomeIcon
+                  icon={faChevronDown}
+                  className={clsx(
+                    "tw-ease tw-ml-1  tw-text-sm tw-transition-all tw-duration-200",
+                    !dropdownLanguage && "tw--rotate-90"
+                  )}
+                />
               </span>
               {dropdownLanguage && (
-                <div className="tw-absolute tw-left-0 tw-top-10 tw-z-10 tw-flex tw-flex-col tw-bg-primary tw-p-3">
+                <div
+                  className={clsx(
+                    !dropdownLanguage && "!tw-top-10",
+                    "tw-ease tw-absolute tw--top-20 tw-left-0 tw-z-10 tw-flex tw-flex-col tw-bg-primary tw-p-3 tw-transition-all tw-duration-200"
+                  )}
+                >
                   {languages
                     .filter(l => l.languageCode !== currentLanguage)
                     .map(l => (
