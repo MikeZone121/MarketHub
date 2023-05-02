@@ -1,18 +1,18 @@
+import { NavLink } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { clsx } from "clsx"
 
 import { positionClassnamesMap } from "../Button"
 import { PositionEnum } from "../Button/types"
 
-import { HyperlinkProps, hyperLinkVariantsEnum } from "./types"
-import { NavLink } from "react-router-dom"
+import { HyperlinkProps, HyperLinkVariantsEnum } from "./types"
 
 function Hyperlink(props: HyperlinkProps) {
   const { text, href, className, target = "", icon, variant, iconPosition = PositionEnum.LEFT } = props
   const positionClassnames = clsx(positionClassnamesMap[iconPosition])
   const variantClassnames = clsx(
-    variant === hyperLinkVariantsEnum.PRIMARY && "tw-text-primary tw-text-primary hover:tw-text-red-300",
-    variant === hyperLinkVariantsEnum.SECONDARY && "tw-text-white hover:tw-text-secondary"
+    variant === HyperLinkVariantsEnum.PRIMARY && "tw-text-primary tw-text-primary hover:tw-text-red-300",
+    variant === HyperLinkVariantsEnum.SECONDARY && "tw-text-white hover:tw-text-secondary"
   )
   return (
     <NavLink
