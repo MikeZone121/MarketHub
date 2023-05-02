@@ -4,11 +4,10 @@ import { faCartShopping, faChevronDown, faEnvelope, faHeart, faPhone, faUser } f
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 
-import { PositionEnum } from "../../Atoms/Button/types"
-import Hyperlink from "../../Atoms/HyperLink"
+import ContactInformation from "./ContactInformation"
 
 function TopNav() {
-  const [dropdownLanguage, setdropdownLanguage] = useState(false)
+  const [dropDownLanguageIsOpen, setDropdownLanguageIsOpen] = useState(false)
 
   const languages = [
     { id: "en", languageCode: "en-EN", name: "EN" },
@@ -20,73 +19,57 @@ function TopNav() {
 
   return (
     <div className="tw-bg-primary">
-      <div className="tw-m-auto tw-flex tw-max-w-screen-xl tw-items-center tw-justify-between tw-py-1 tw-text-white">
+      <div className="tw-m-auto tw-flex tw-w-11/12 tw-max-w-screen-xl tw-items-center tw-justify-between tw-py-1 tw-text-white">
         <div className="tw-flex tw-flex-row">
-          <div>
-            <Hyperlink
-              icon={faEnvelope}
-              iconPosition={PositionEnum.LEFT}
-              href="mailto:info@markethub.com"
-              text="info@markethub.com"
-              className="tw-ml-2 tw-text-white hover:tw-text-secondary"
-            />
-          </div>
-          <div className="tw-hidden md:tw-block">
-            <Hyperlink
-              icon={faPhone}
-              iconPosition={PositionEnum.LEFT}
-              href="tel:+32412345678"
-              text="+32412345678"
-              className="tw-ml-4 tw-text-white hover:tw-text-secondary"
-            />
-          </div>
+          <ContactInformation />
         </div>
-        <div>
-          <ul className="tw-relative tw-flex tw-items-center tw-space-x-6 tw-p-3 tw-text-black">
-            <div>
-              <span className="tw-text-white" onClick={() => setdropdownLanguage(prev => !prev)}>
-                {currentLanguage && languages.filter(l => l.languageCode === currentLanguage)[0]?.name}
+        <div className="tw-w-full md:tw-w-auto">
+          <ul className="tw-relative tw-flex tw-items-center tw-p-3 tw-text-black md:tw-space-x-6">
+            <div className="tw-hidden md:tw-block">
+              <button className="tw-text-white" onClick={() => setDropdownLanguageIsOpen(prev => !prev)}>
+                {(currentLanguage && languages.find(language => language.languageCode === currentLanguage)?.name) ??
+                  "NL"}
                 <FontAwesomeIcon
                   icon={faChevronDown}
                   className={clsx(
                     "tw-ease tw-ml-1  tw-text-sm tw-transition-all tw-duration-200",
-                    !dropdownLanguage && "tw--rotate-90"
+                    !dropDownLanguageIsOpen && "tw--rotate-90"
                   )}
                 />
-              </span>
-              {dropdownLanguage && (
-                <div
-                  className={clsx(
-                    !dropdownLanguage && "!tw-top-10",
-                    "tw-ease tw-absolute tw--top-20 tw-left-0 tw-z-10 tw-flex tw-flex-col tw-bg-primary tw-p-3 tw-transition-all tw-duration-200"
-                  )}
-                >
-                  {languages
-                    .filter(l => l.languageCode !== currentLanguage)
-                    .map(l => (
-                      <li key={l.id} className="tw-my-1">
-                        <NavLink to={`/${l.languageCode}`} className="tw-text-white">
-                          {l.name}
-                        </NavLink>
-                      </li>
-                    ))}
-                </div>
-              )}
+              </button>
+              <div
+                className={clsx(
+                  "tw-ease tw-absolute tw-left-0 tw-flex tw-flex-col tw-bg-primary tw-p-3  tw-transition-all tw-duration-200",
+                  dropDownLanguageIsOpen
+                    ? "tw-top-10 tw-z-10 tw-opacity-100"
+                    : "tw--top-[100%] tw--z-20 tw-p-0 tw-opacity-0"
+                )}
+              >
+                {languages
+                  .filter(language => language.languageCode !== currentLanguage)
+                  .map(language => (
+                    <li key={language.id} className="tw-my-1">
+                      <NavLink to={`/${language.languageCode}`} className="tw-text-white">
+                        {language.name}
+                      </NavLink>
+                    </li>
+                  ))}
+              </div>
             </div>
-            <li>
-              <NavLink to={`shop`} className="tw-flex tw-items-center tw-text-white">
+            <li className="tw-ml-0 tw-flex tw-flex-grow md:tw-block">
+              <NavLink to="shop" className="tw-flex tw-items-center tw-text-white">
                 <span className="tw-hidden md:tw-block">Login</span>
                 <FontAwesomeIcon icon={faUser} className="tw-ml-2" />
               </NavLink>
             </li>
-            <li>
-              <NavLink to={`ui`} className="tw-flex tw-items-center tw-text-white">
+            <li className="tw-mr-6 md:tw-mr-0">
+              <NavLink to="ui" className="tw-flex tw-items-center tw-text-white">
                 <span className="tw-hidden md:tw-block">Wishlist</span>
                 <FontAwesomeIcon icon={faHeart} className="tw-ml-2" />
               </NavLink>
             </li>
             <li>
-              <NavLink to={`contact`} className="tw-text-white">
+              <NavLink to="contact" className="tw-text-white">
                 <FontAwesomeIcon icon={faCartShopping} />
               </NavLink>
             </li>

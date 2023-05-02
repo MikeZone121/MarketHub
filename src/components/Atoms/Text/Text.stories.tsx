@@ -6,38 +6,37 @@ import Text from "./index"
 import { TextVariantEnum } from "./types"
 
 const meta: Meta<typeof Text> = {
-  title: "ATOMS/Text",
+  title: "UI/Atoms/Text",
   component: Text,
-  tags: ["autodocs"]
+  tags: ["autodocs"],
+  args: {
+    text: "Dit is een paragraaf"
+  }
 } satisfies Meta<typeof Text>
 
 export default meta
 type Story = StoryObj<typeof Text>
 
-export const SMALL: Story = {
+export const Small: Story = {
   args: {
-    text: "Dit is een titel",
     variant: TextVariantEnum.SMALL
   }
 }
 
-export const NORMAL: Story = {
+export const Normal: Story = {
   args: {
-    text: "Dit is een titel",
     variant: TextVariantEnum.NORMAL
   }
 }
 
-export const QUOTE: Story = {
+export const Quote: Story = {
   args: {
-    text: "Dit is een titel",
     variant: TextVariantEnum.QUOTE
   }
 }
 
-export const LEAD: Story = {
+export const Lead: Story = {
   args: {
-    text: "Dit is een titel",
     variant: TextVariantEnum.LEAD
   }
 }
