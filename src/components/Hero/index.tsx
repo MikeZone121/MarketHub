@@ -1,13 +1,14 @@
+import { Navigate } from "react-router-dom"
 import { faBars } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
+import Button from "../Atoms/Button"
+import { BtnVariantEnum } from "../Atoms/Button/types"
 import Hyperlink from "../Atoms/HyperLink"
-import Title from "../Atoms/Title"
-import { TitleSizeEnum } from "../Atoms/Title/types"
 import Text from "../Atoms/Text"
 import { TextVariantEnum } from "../Atoms/Text/types"
-import Button from "../Atoms/Button"
-import { Navigate } from "react-router-dom"
-import { BtnVariantEnum } from "../Atoms/Button/types"
+import Title from "../Atoms/Title"
+import { TitleSizeEnum } from "../Atoms/Title/types"
 
 function Hero() {
   const items = [
@@ -49,20 +50,20 @@ function Hero() {
           <Title text="Browse categories" size={TitleSizeEnum.H5} className="!tw-mb-0 tw-p-0 tw-text-white" />
         </div>
         <ul className="tw-flex tw-flex-col tw-space-y-4 tw-p-4">
-          <Hyperlink text="Cell Phones" />
-          <Hyperlink text="Computer & accessories" />
-          <Hyperlink text="Television & video" />
-          <Hyperlink text="Smartwatches" />
+          <Hyperlink href="" text="Cell Phones" />
+          <Hyperlink href="" text="Computer & accessories" />
+          <Hyperlink href="" text="Television & video" />
+          <Hyperlink href="" text="Smartwatches" />
         </ul>
       </article>
 
       <section className="tw-flex tw-w-full tw-flex-col ">
         <section className="tw-mb-4 tw-flex tw-w-full tw-items-end tw-justify-end ">
           <ul className="tw-hidden tw-space-x-6 lg:tw-flex">
-            <Hyperlink text="Home" />
-            <Hyperlink text="Today deals" />
-            <Hyperlink text="Trending products" />
-            <Hyperlink text="Special offers" />
+            <Hyperlink href="" text="Home" />
+            <Hyperlink href="" text="Today deals" />
+            <Hyperlink href="" text="Trending products" />
+            <Hyperlink href="" text="Special offers" />
           </ul>
         </section>
         <section className="tw-flex tw-w-full tw-flex-col tw-gap-6 md:tw-flex-row">
