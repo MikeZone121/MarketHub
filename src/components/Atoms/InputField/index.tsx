@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { Ref, forwardRef, useState } from "react"
 import { clsx } from "clsx"
 
 import Button from "../Button"
@@ -6,8 +6,7 @@ import { BtnVariantEnum } from "../Button/types"
 
 import TogglePassword from "./TogglePassword"
 import { InputFieldProps, InputFieldTypesEnum } from "./types"
-
-function InputField(props: InputFieldProps) {
+const InputField = forwardRef(function InputField(props: InputFieldProps, ref: Ref<HTMLInputElement>) {
   const {
     id,
     name,
@@ -44,6 +43,7 @@ function InputField(props: InputFieldProps) {
     <div className="tw-relative tw-inline-block">
       <label className={clsx(isDisabled && "tw-cursor-not-allowed tw-bg-transparent tw-text-gray-200")} htmlFor={id}>
         <input
+          ref={ref}
           type={type}
           id={id}
           name={name}
@@ -70,7 +70,7 @@ function InputField(props: InputFieldProps) {
             onClick={() => onClick && onClick()}
             icon={icon}
             isDisabled={isDisabled}
-            className="tw-absolute tw-right-0 tw-top-0 tw-border-0 tw-px-0 hover:tw-border-0 hover:tw-bg-transparent hover:tw-shadow-none"
+            className="tw-absolute tw-bottom-2   tw-right-0 tw-border-0 tw-px-0 hover:tw-border-0 hover:tw-bg-transparent hover:tw-shadow-none"
             variant={BtnVariantEnum.TEXTICON}
           />
         )}
@@ -90,6 +90,6 @@ function InputField(props: InputFieldProps) {
     </div>
     /* TODO: ICONS ARE NOT DISABLED */
   )
-}
+})
 
 export default InputField

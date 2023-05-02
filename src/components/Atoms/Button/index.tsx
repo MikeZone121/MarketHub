@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 
 import { BtnVariantEnum, ButtonProps, PositionEnum } from "./types"
+import { Ref, forwardRef } from "react"
 
 export const positionClassnamesMap = {
   [PositionEnum.LEFT]: "tw-flex-row",
@@ -10,19 +11,20 @@ export const positionClassnamesMap = {
   [PositionEnum.TOP]: "tw-flex-col tw-items-center",
   [PositionEnum.BOTTOM]: "tw-flex-col-reverse tw-items-center"
 }
-function Button({
-  icon,
-  onClick,
-  text,
-  isFullWidth,
-  isLoading,
-  isDisabled,
-  className,
-  iconPosition = PositionEnum.LEFT,
-  iconClassName,
-  iconSize = "1x",
-  variant = BtnVariantEnum.INVERT
-}: ButtonProps) {
+const Button = forwardRef(function Button(props: ButtonProps, ref: Ref<HTMLButtonElement>) {
+  const {
+    icon,
+    onClick,
+    text,
+    isFullWidth,
+    isLoading,
+    isDisabled,
+    className,
+    iconPosition = PositionEnum.LEFT,
+    iconClassName,
+    iconSize = "1x",
+    variant = BtnVariantEnum.INVERT
+  } = props
   const buttonClassnames = clsx(
     isFullWidth && "tw-w-full",
     isDisabled && "tw-opacity-50 tw-cursor-not-allowed tw-pointer-events-none",
@@ -44,8 +46,9 @@ function Button({
   const variantClassnames = clsx(variantClassnamesMap[variant])
   return (
     <button
+      ref={ref}
       disabled={isDisabled}
-      onClick={() => onClick()}
+      onClick={onClick}
       className={clsx(buttonClassnames, positionClassnames, variantClassnames, className)}
     >
       {(isLoading || icon) && (
@@ -68,6 +71,6 @@ function Button({
       <span>{text}</span>
     </button>
   )
-}
+})
 
 export default Button
