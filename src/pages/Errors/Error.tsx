@@ -13,7 +13,7 @@ function Error() {
   }
   return (
     <main>
-      <div className="tw-mx-auto tw-flex tw-h-screen tw-w-11/12 tw-max-w-screen-xl tw-items-center tw-justify-start tw-px-4 md:tw-px-8">
+      <div className="tw-mx-auto tw-flex tw-h-screen tw-w-11/12 tw-max-w-screen-2xl tw-items-center tw-justify-start tw-px-4 md:tw-px-8">
         <div className="tw-mx-auto tw-max-w-lg tw-text-center">
           <div className="tw-pb-6">
             <img src="images/branding/logo.svg" width={150} className="tw-mx-auto" />
