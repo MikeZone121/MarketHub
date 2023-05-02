@@ -1,14 +1,15 @@
 import { useRouteError } from "react-router-dom"
 import { TitleSizeEnum } from "../../components/Atoms/Title/types"
 import Title from "../../components/Atoms/Title"
+import { ErrorType } from "./types"
 
 function Error() {
-  const error: any = useRouteError()
+  const error = useRouteError() as ErrorType
   let message = "Sorry, the page you are looking for could not be found or has been removed."
   let title = "Page not found"
-  if (error.status !== 404) {
+  if (error && error.status && error.status !== 404) {
     title = "Oops"
-    message = error.statusText || error.message
+    message = error.statusText || error.message || "An error occurred"
   }
   return (
     <main>

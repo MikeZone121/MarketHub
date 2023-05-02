@@ -106,7 +106,7 @@ Mike Livis - mike@pau.be
 
 Project Link: [Demo MarketHub](https://github.com/MikeZone121/MarketHub)
 
-Storybook Link: [Component Library MarketHub](https://6443dc8834f188b03c64c511-qotnyqynkj.chromatic.com/)
+Storybook Link: [Component Library MarketHub](https://main--6443dc8834f188b03c64c511.chromatic.com/)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 

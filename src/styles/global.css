@@ -2,47 +2,4 @@
 @tailwind components;
 @tailwind utilities;
 
-.nav-animation {
-  position: relative;
-}
 
-.nav-animation::after {
-  position: absolute;
-  content: "";
-  background-color: #941000;
-  width: 0%;
-  height: 2px;
-  left: 0;
-  bottom: -5px;
-  border-radius: 20px;
-  transition-duration: 300ms;
-}
-
-.nav-animation:hover::after {
-  width: 100%;
-}
-
-.search label > span {
-  display: none;
-}
-
-.inputSearch {
-  -webkit-transition: width 400ms ease, background 400ms ease;
-  transition: width 400ms ease, background 400ms ease;
-  width: 10px;
-  border: 0;
-  padding: 0;
-}
-
-.inputSearch:focus {
-  width: 100px;
-  padding-right: 2rem;
-  padding: 0.5rem;
-  padding-right: 2rem;
-  border-bottom-width: 1px;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.searchInputLg span:nth-child(3) {
-  background-color: transparent;
-}

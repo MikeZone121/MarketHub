@@ -8,7 +8,7 @@ import InputField from "./index"
 import { InputFieldTypesEnum } from "./types"
 
 const meta: Meta<typeof InputField> = {
-  title: "ATOMS/Inputs/Type",
+  title: "UI/Atoms/InputField",
   component: InputField,
   tags: ["autodocs"]
 } satisfies Meta<typeof InputField>
@@ -147,6 +147,22 @@ export const DateTime = () => {
       label=""
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value)}
       type={InputFieldTypesEnum.DATE_TIME}
+    />
+  )
+}
+
+export const Disabled = () => {
+  const [value, setValue] = useState("")
+
+  return (
+    <InputField
+      id="DateTime"
+      name="TimDateTimee"
+      value={value}
+      label=""
+      onChange={(e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value)}
+      type={InputFieldTypesEnum.DATE_TIME}
+      isDisabled
     />
   )
 }
