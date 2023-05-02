@@ -20,7 +20,7 @@ function MainNav() {
   ]
   return (
     <div id="main-nav" className="tw-shadow-sm">
-      <nav className="tw-m-auto tw-flex tw-w-11/12 tw-max-w-screen-xl tw-flex-row tw-items-center tw-justify-between">
+      <nav className="tw-m-auto tw-flex tw-w-11/12 tw-max-w-screen-2xl tw-flex-row tw-items-center tw-justify-between">
         <NavLink
           to="/"
           className="md:block tw-hidden md:tw-flex md:tw-items-center md:tw-text-2xl md:tw-font-bold md:tw-text-primary"

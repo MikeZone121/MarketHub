@@ -19,7 +19,7 @@ function TopNav() {
 
   return (
     <div className="tw-bg-primary">
-      <div className="tw-m-auto tw-flex tw-w-11/12 tw-max-w-screen-xl tw-items-center tw-justify-between tw-py-1 tw-text-white">
+      <div className="tw-m-auto tw-flex tw-w-11/12 tw-max-w-screen-2xl tw-items-center tw-justify-between tw-py-1 tw-text-white">
         <div className="tw-flex tw-flex-row">
           <ContactInformation />
         </div>
