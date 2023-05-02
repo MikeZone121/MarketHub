@@ -5,8 +5,6 @@ import Title from "../Atoms/Title"
 import { TitleSizeEnum } from "../Atoms/Title/types"
 
 const Footer = () => {
-  const now = new Date().getFullYear()
-
   const footerNavs = [
     {
       label: "Company",
@@ -44,6 +42,11 @@ const Footer = () => {
           target: "_blank",
           href: "https://github.com/MikeZone121/MarketHub",
           name: "Github"
+        },
+        {
+          target: "_blank",
+          href: "https://main--6443dc8834f188b03c64c511.chromatic.com",
+          name: "Storybook"
         }
       ]
     },
@@ -90,12 +93,17 @@ const Footer = () => {
           </form>
         </div>
         <div className="tw-mt-10 tw-flex-1 tw-justify-between tw-space-y-6 sm:tw-flex md:tw-mt-0 md:tw-space-y-0">
-          {footerNavs.map((item, idx) => (
+          {footerNavs.map((footerNav, idx) => (
             <ul className="tw-space-y-4" key={idx}>
-              <h4 className="tw-font-medium tw-text-gray-800">{item.label}</h4>
-              {item.items.map((el, index) => (
+              <h4 className="tw-font-medium tw-text-gray-800">{footerNav.label}</h4>
+              {footerNav.items.map((footerItem, index) => (
                 <li key={index}>
-                  <Hyperlink href={el.href} text={el.name} className="!tw-text-gray-600" target={el.target} />
+                  <Hyperlink
+                    href={footerItem.href}
+                    text={footerItem.name}
+                    className="!tw-text-gray-600"
+                    target={footerItem.target}
+                  />
                 </li>
               ))}
             </ul>
@@ -103,7 +111,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="tw-mt-8 tw-items-center tw-justify-between tw-border-t tw-py-6 sm:tw-flex">
-        <div className="tw-mt-4 sm:tw-mt-0">&copy; {now} MarketHub All rights reserved.</div>
+        <div className="tw-mt-4 sm:tw-mt-0">&copy; {new Date().getFullYear()} MarketHub All rights reserved.</div>
       </div>
     </footer>
   )
