@@ -18,9 +18,6 @@ function UI() {
   return (
     <section className="tw-my-10">
       <article className="tw-flex tw-flex-wrap tw-items-center tw-justify-center tw-space-x-5">
-        <Hero />
-      </article>
-      <article className="tw-flex tw-flex-wrap tw-items-center tw-justify-center tw-space-x-5">
         <Button
           onClick={() => null}
           text="Button"

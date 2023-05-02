@@ -21,7 +21,8 @@ function Hero() {
       url: "/shop"
     },
     {
-      image: "images/branding/logo.svg",
+      image:
+        "https://be.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw9652df42/JBL_CHARGE5_HERO_BLACK_0046_x1.png?sw=680&sh=680",
       name: "JBL music speaker",
       description: "",
       label: "Weekend discount",
@@ -30,7 +31,8 @@ function Hero() {
       url: "/shop"
     },
     {
-      image: "images/branding/logo.svg",
+      image:
+        "https://help.apple.com/assets/61AFEC45FA5233173908347B/61B0509E1BF38548362237B5/nl_NL/8502c82d6af341b14307f5c11374bbb6.png",
       name: "Apple Airpods Pro",
       description: "",
       label: "Weekend discount",
@@ -40,8 +42,8 @@ function Hero() {
     }
   ]
   return (
-    <section className="tw-mb-24 tw-flex tw-w-11/12 tw-max-w-screen-xl tw-flex-col tw-gap-2 md:tw-flex-row md:tw-gap-8">
-      <article className="tw-bg-gray-100 md:tw-w-96">
+    <section className="tw-mb-24 tw-flex tw-w-11/12 tw-max-w-screen-xl tw-flex-col tw-gap-2 lg:tw-flex-row lg:tw-gap-8">
+      <article className="tw-bg-gray-100 lg:tw-w-96">
         <div className="tw-flex tw-items-center tw-justify-center tw-space-x-5 tw-bg-primary tw-p-4">
           <FontAwesomeIcon icon={faBars} color="white" className="tw-text-2xl" />
           <Title text="Browse categories" size={TitleSizeEnum.H5} className="!tw-mb-0 tw-p-0 tw-text-white" />
@@ -56,7 +58,7 @@ function Hero() {
 
       <section className="tw-flex tw-w-full tw-flex-col ">
         <section className="tw-mb-4 tw-flex tw-w-full tw-items-end tw-justify-end ">
-          <ul className="tw-hidden tw-space-x-6 md:tw-flex">
+          <ul className="tw-hidden tw-space-x-6 lg:tw-flex">
             <Hyperlink text="Home" />
             <Hyperlink text="Today deals" />
             <Hyperlink text="Trending products" />
@@ -64,8 +66,8 @@ function Hero() {
           </ul>
         </section>
         <section className="tw-flex tw-w-full tw-flex-col tw-gap-6 md:tw-flex-row">
-          <article className="tw-flex tw-w-full tw-flex-col tw-items-center tw-justify-center tw-bg-gray-100 tw-p-10 md:tw-w-2/3 lg:tw-flex-row">
-            <div className="">
+          <article className="tw-flex tw-w-full tw-flex-col tw-items-center tw-justify-center tw-gap-2 tw-bg-gray-100 tw-p-10 md:tw-w-2/3 xl:tw-flex-row">
+            <div>
               <Text text={items?.[0].label} variant={TextVariantEnum.SMALL} />
               <Title text={items?.[0].name} size={TitleSizeEnum.H3} />
               <Text text={items?.[0].description} variant={TextVariantEnum.QUOTE} className="tw-mt-2" />
@@ -76,7 +78,7 @@ function Hero() {
                 className="tw-mt-6"
               />
             </div>
-            <div className="tw-w-64">
+            <div className="tw-w-full tw-max-w-sm">
               <img
                 src={items?.[0].image}
                 onError={({ currentTarget }) => {
@@ -87,23 +89,41 @@ function Hero() {
             </div>
           </article>
           <div className="tw-relative tw-flex tw-grow tw-flex-col tw-gap-6">
-            <article className="tw-flex tw-h-full tw-w-full tw-bg-gray-100">
-              <img
-                src={"images/branding/logo.svg"}
-                onError={({ currentTarget }) => {
-                  currentTarget.src = "images/branding/logo.svg"
-                }}
-                className="tw-w-full tw-object-contain tw-object-center"
-              />
+            <article className="tw-flex tw-h-full tw-w-full tw-flex-col tw-items-center tw-gap-2 tw-bg-gray-100 tw-p-10  lg:tw-flex-row lg:tw-items-stretch">
+              <div className="tw-flex tw-flex-col tw-justify-between">
+                <Title text={items?.[1].name} size={TitleSizeEnum.H3} />
+                <div>
+                  <Text text={items?.[1].label} variant={TextVariantEnum.SMALL} />
+                  <p className="tw-text-3xl tw-font-bold tw-text-primary">€ {items?.[1].price}</p>
+                </div>
+              </div>
+              <div className="tw-w-full tw-max-w-xs">
+                <img
+                  src={items?.[1].image}
+                  onError={({ currentTarget }) => {
+                    currentTarget.src = "images/branding/logo.svg"
+                  }}
+                  className="tw-w-full tw-object-contain tw-object-center"
+                />
+              </div>
             </article>
-            <article className="tw-relative tw-flex tw-h-full tw-w-full tw-bg-gray-100">
-              <img
-                src={"images/branding/logo.svg"}
-                onError={({ currentTarget }) => {
-                  currentTarget.src = "images/branding/logo.svg"
-                }}
-                className="tw-w-full tw-object-contain tw-object-center"
-              />
+            <article className="tw-flex tw-h-full tw-w-full tw-flex-col tw-items-center tw-gap-2 tw-bg-gray-100 tw-p-10 lg:tw-flex-row lg:tw-items-stretch">
+              <div className="tw-flex tw-flex-col tw-justify-between">
+                <Title text={items?.[2].name} size={TitleSizeEnum.H3} />
+                <div>
+                  <Text text={items?.[2].label} variant={TextVariantEnum.SMALL} />
+                  <p className="tw-text-3xl tw-font-bold tw-text-primary">€ {items?.[2].price}</p>
+                </div>
+              </div>
+              <div className="tw-w-full tw-max-w-xs">
+                <img
+                  src={items?.[2].image}
+                  onError={({ currentTarget }) => {
+                    currentTarget.src = "images/branding/logo.svg"
+                  }}
+                  className="tw-w-full tw-object-contain tw-object-center"
+                />
+              </div>
             </article>
           </div>
         </section>
