@@ -2,7 +2,6 @@ import App from "../App"
 import Contact from "../pages/Contact"
 import Error from "../pages/Errors/Error"
 import Home from "../pages/Home"
-import UI from "../pages/Ui"
 
 export const routes = [
   {
@@ -22,10 +21,6 @@ export const routes = [
           {
             path: "contact",
             element: <Contact />
-          },
-          {
-            path: "ui",
-            element: <UI />
           }
         ]
       }

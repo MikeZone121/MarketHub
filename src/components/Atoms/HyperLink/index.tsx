@@ -4,17 +4,23 @@ import { clsx } from "clsx"
 import { positionClassnamesMap } from "../Button"
 import { PositionEnum } from "../Button/types"
 
-import { HyperlinkProps } from "./types"
+import { HyperlinkProps, hyperLinkVariantsEnum } from "./types"
+import { NavLink } from "react-router-dom"
 
 function Hyperlink(props: HyperlinkProps) {
-  const { text, href, className, target = "", icon, iconPosition = PositionEnum.LEFT } = props
+  const { text, href, className, target = "", icon, variant, iconPosition = PositionEnum.LEFT } = props
   const positionClassnames = clsx(positionClassnamesMap[iconPosition])
+  const variantClassnames = clsx(
+    variant === hyperLinkVariantsEnum.PRIMARY && "tw-text-primary tw-text-primary hover:tw-text-red-300",
+    variant === hyperLinkVariantsEnum.SECONDARY && "tw-text-white hover:tw-text-secondary"
+  )
   return (
-    <a
-      href={href}
+    <NavLink
+      to={href ?? ""}
       target={target}
       className={clsx(
-        "tw-flex tw-cursor-pointer tw-items-center tw-text-primary tw-ease-in-out hover:tw-text-red-300",
+        "tw-flex tw-cursor-pointer tw-items-center tw-ease-in-out",
+        variantClassnames,
         positionClassnames,
         className
       )}
@@ -32,7 +38,7 @@ function Hyperlink(props: HyperlinkProps) {
         </span>
       )}
       {text}
-    </a>
+    </NavLink>
   )
 }
 

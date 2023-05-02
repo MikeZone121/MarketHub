@@ -7,82 +7,61 @@ import Button from "./index"
 import { BtnVariantEnum, PositionEnum } from "./types"
 
 const meta: Meta<typeof Button> = {
-  title: "ATOMS/Button",
+  title: "UI/Atoms/Button",
   component: Button,
-  tags: ["autodocs"]
+  tags: ["autodocs"],
+  args: {
+    text: "Button",
+    isFullWidth: false,
+    isLoading: false,
+    isDisabled: false
+  },
+  argTypes: { onClick: { action: "clicked" } }
 } satisfies Meta<typeof Button>
 
 export default meta
 type Story = StoryObj<typeof Button>
 
-export const FULL: Story = {
+export const Full: Story = {
   args: {
-    text: "Button",
-    onClick: () => alert("Clicked!"),
-    variant: BtnVariantEnum.FULL,
-    isFullWidth: false,
-    isLoading: false,
-    isDisabled: false
+    variant: BtnVariantEnum.FULL
   }
 }
 
-export const INVERT: Story = {
+export const Invert: Story = {
   args: {
-    text: "Button",
-    onClick: () => alert("Clicked!"),
-    variant: BtnVariantEnum.INVERT,
-    isFullWidth: false,
-    isLoading: false,
-    isDisabled: false
+    variant: BtnVariantEnum.INVERT
   }
 }
 
-export const TEXTICON: Story = {
+export const TextIcon: Story = {
   args: {
-    text: "Button",
-    onClick: () => alert("Clicked!"),
     iconPosition: PositionEnum.LEFT,
     icon: faCheck,
-    variant: BtnVariantEnum.TEXTICON,
-    isFullWidth: false,
-    isLoading: false,
-    isDisabled: false
+    variant: BtnVariantEnum.TEXTICON
   }
 }
 
-export const OUTLINED: Story = {
+export const Outlined: Story = {
   args: {
-    text: "Button",
-    onClick: () => alert("Clicked!"),
-    variant: BtnVariantEnum.OUTLINED,
-    isFullWidth: false,
-    isLoading: false,
-    isDisabled: false
+    variant: BtnVariantEnum.OUTLINED
   }
 }
 
-export const LOADING: Story = {
+export const Loading: Story = {
   args: {
-    text: "Button",
-    onClick: () => alert("Clicked!"),
     iconPosition: PositionEnum.LEFT,
     icon: faCheck,
     variant: BtnVariantEnum.FULL,
-    isFullWidth: false,
-    isLoading: true,
-    isDisabled: false
+    isLoading: true
   }
 }
 
-export const DISABLED: Story = {
+export const Disabled: Story = {
   args: {
-    text: "Button",
-    onClick: () => alert("Clicked!"),
     iconPosition: PositionEnum.LEFT,
     icon: faClose,
     variant: BtnVariantEnum.FULL,
-    isFullWidth: false,
-    isLoading: false,
     isDisabled: true
   }
 }
