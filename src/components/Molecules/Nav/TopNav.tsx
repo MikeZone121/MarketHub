@@ -57,15 +57,15 @@ function TopNav() {
               </div>
             </div>
             <li className="tw-ml-0 tw-flex tw-flex-grow md:tw-block">
-              <NavLink to="shop" className="tw-flex tw-items-center tw-text-white">
-                <span className="tw-hidden md:tw-block">Login</span>
-                <FontAwesomeIcon icon={faUser} className="tw-ml-2" />
+              <NavLink to="shop" className="tw-flex tw-flex-row-reverse tw-items-center tw-gap-3 tw-text-white">
+                <span>Login</span>
+                <FontAwesomeIcon icon={faUser} />
               </NavLink>
             </li>
             <li className="tw-mr-6 md:tw-mr-0">
-              <NavLink to="ui" className="tw-flex tw-items-center tw-text-white">
+              <NavLink to="ui" className="tw-flex tw-items-center tw-gap-3 tw-text-white">
                 <span className="tw-hidden md:tw-block">Wishlist</span>
-                <FontAwesomeIcon icon={faHeart} className="tw-ml-2" />
+                <FontAwesomeIcon icon={faHeart} />
               </NavLink>
             </li>
             <li>
