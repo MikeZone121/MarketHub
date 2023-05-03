@@ -1,5 +1,6 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
+import { createApi } from "@reduxjs/toolkit/query/react"
 import gql from "graphql-tag"
+import { graphqlRequestBaseQuery } from "@rtk-query/graphql-request-base-query"
 
 const ASSETS = gql`
   query Assets {
@@ -15,13 +16,12 @@ const ASSETS = gql`
 `
 export const productsApi = createApi({
   reducerPath: "productsApi",
-  baseQuery: fetchBaseQuery({
-    baseUrl: import.meta.env.VITE_API_URL
+  baseQuery: graphqlRequestBaseQuery({
+    url: import.meta.env.VITE_API_URL
   }),
   endpoints: builder => ({
     getAllProducts: builder.query<any, any>({
-      query: () =>
-        `?query=query Assets %7Bassets %7B createdAt id publishedAt fileName url updatedAt%7D%7D&operationName=Assets`
+      query: () => ({ document: ASSETS })
     })
   })
 })
