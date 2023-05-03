@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { NavLink } from "react-router-dom"
-import { faCartShopping, faChevronDown, faEnvelope, faHeart, faPhone, faUser } from "@fortawesome/free-solid-svg-icons"
+import { faCartShopping, faChevronDown, faHeart, faUser } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 
