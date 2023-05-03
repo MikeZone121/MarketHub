@@ -74,7 +74,7 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="tw-mx-auto tw-max-w-screen-xl tw-bg-white tw-px-4 tw-py-5 tw-text-gray-500 md:tw-px-8">
+    <footer className="tw-mx-auto tw-w-11/12 tw-max-w-screen-2xl tw-bg-white tw-px-4 tw-py-5 tw-text-gray-500 md:tw-px-8">
       <div className="tw-justify-between tw-gap-6 md:tw-flex">
         <div className="tw-flex-1">
           <div className="tw-max-w-xs">

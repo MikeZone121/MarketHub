@@ -9,10 +9,10 @@ export interface HyperlinkProps {
   target?: string
   icon?: IconProp
   iconPosition?: PositionEnum
-  variant?: hyperLinkVariantsEnum
+  variant?: HyperLinkVariantsEnum
 }
 
-export enum hyperLinkVariantsEnum {
+export enum HyperLinkVariantsEnum {
   PRIMARY = "primary",
-  SECONDARY = "secondary",
+  SECONDARY = "secondary"
 }

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { NavLink } from "react-router-dom"
-import { faCartShopping, faChevronDown, faEnvelope, faHeart, faPhone, faUser } from "@fortawesome/free-solid-svg-icons"
+import { faCartShopping, faChevronDown, faHeart, faUser } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 
@@ -19,7 +19,7 @@ function TopNav() {
 
   return (
     <div className="tw-bg-primary">
-      <div className="tw-m-auto tw-flex tw-w-11/12 tw-max-w-screen-xl tw-items-center tw-justify-between tw-py-1 tw-text-white">
+      <div className="tw-m-auto tw-flex tw-w-11/12 tw-max-w-screen-2xl tw-items-center tw-justify-between tw-text-white">
         <div className="tw-flex tw-flex-row">
           <ContactInformation />
         </div>
@@ -57,15 +57,18 @@ function TopNav() {
               </div>
             </div>
             <li className="tw-ml-0 tw-flex tw-flex-grow md:tw-block">
-              <NavLink to="shop" className="tw-flex tw-items-center tw-text-white">
-                <span className="tw-hidden md:tw-block">Login</span>
-                <FontAwesomeIcon icon={faUser} className="tw-ml-2" />
+              <NavLink
+                to="shop"
+                className="tw-flex tw-flex-row-reverse tw-items-center tw-gap-3 tw-text-white md:tw-flex-row"
+              >
+                <span>Login</span>
+                <FontAwesomeIcon icon={faUser} />
               </NavLink>
             </li>
             <li className="tw-mr-6 md:tw-mr-0">
-              <NavLink to="ui" className="tw-flex tw-items-center tw-text-white">
+              <NavLink to="ui" className="tw-flex tw-items-center tw-gap-3 tw-text-white">
                 <span className="tw-hidden md:tw-block">Wishlist</span>
-                <FontAwesomeIcon icon={faHeart} className="tw-ml-2" />
+                <FontAwesomeIcon icon={faHeart} />
               </NavLink>
             </li>
             <li>
