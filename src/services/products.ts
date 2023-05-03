@@ -13,6 +13,7 @@ const PRODUCTS = gql`
       price
       description
       slug
+      salePrice
       images {
         id
         url
