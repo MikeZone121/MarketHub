@@ -6,8 +6,8 @@ import { HyperLinkVariantsEnum } from "../../Atoms/HyperLink/types"
 
 function ContactInformation() {
   return (
-    <>
-      <div className="tw-hidden md:tw-block">
+    <div className="tw-hidden tw-space-x-4 md:tw-flex">
+      <div>
         <Hyperlink
           icon={faEnvelope}
           iconPosition={PositionEnum.LEFT}
@@ -17,17 +17,17 @@ function ContactInformation() {
           className="tw-ml-2"
         />
       </div>
-      <div className="tw-hidden md:tw-block">
+      <div>
         <Hyperlink
           icon={faPhone}
           iconPosition={PositionEnum.LEFT}
           href="tel:+32412345678"
-          text="0412 34 56 78"
+          text="+32 212 34 56 78"
           variant={HyperLinkVariantsEnum.SECONDARY}
           className="tw-ml-4"
         />
       </div>
-    </>
+    </div>
   )
 }
 
