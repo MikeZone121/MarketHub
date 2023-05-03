@@ -1,6 +1,4 @@
 import { Navigate } from "react-router-dom"
-import { faBars } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 import Button from "../Atoms/Button"
 import { BtnVariantEnum } from "../Atoms/Button/types"
@@ -45,25 +43,40 @@ function Hero() {
   return (
     <section className="tw-mb-24 tw-flex tw-w-11/12 tw-max-w-screen-2xl tw-flex-col tw-gap-2 lg:tw-flex-row lg:tw-gap-8">
       <article className="tw-bg-gray-100 lg:tw-w-96">
-        <div className="tw-flex tw-items-center tw-justify-center tw-space-x-5 tw-bg-primary tw-p-4">
-          <FontAwesomeIcon icon={faBars} color="white" className="tw-text-2xl" />
+        <div className="tw-flex tw-items-center  tw-space-x-5 tw-bg-primary tw-px-4 tw-py-3">
           <Title text="Browse categories" size={TitleSizeEnum.H5} className="!tw-mb-0 tw-p-0 tw-text-white" />
         </div>
-        <ul className="tw-flex tw-flex-col tw-space-y-4 tw-p-4">
-          <Hyperlink href="" text="Cell Phones" />
-          <Hyperlink href="" text="Computer & accessories" />
-          <Hyperlink href="" text="Television & video" />
-          <Hyperlink href="" text="Smartwatches" />
+        <ul className="tw-flex tw-flex-col">
+          <li className="tw-border-b tw-px-4 tw-py-2 tw-transition-all tw-duration-200 tw-ease-in hover:tw-bg-gray-200">
+            <Hyperlink href="" text="Cell Phones" />
+          </li>
+          <li className="tw-border-b tw-px-4 tw-py-2 tw-transition-all tw-duration-200 tw-ease-in hover:tw-bg-gray-200">
+            <Hyperlink href="" text="Computer & accessories" />
+          </li>
+          <li className="tw-border-b tw-px-4 tw-py-2 tw-transition-all tw-duration-200 tw-ease-in hover:tw-bg-gray-200">
+            <Hyperlink href="" text="Television & video" />
+          </li>
+          <li className="tw-px-4 tw-py-2 tw-transition-all tw-duration-200 tw-ease-in hover:tw-bg-gray-200">
+            <Hyperlink href="" text="Smartwatches" />
+          </li>
         </ul>
       </article>
 
       <section className="tw-flex tw-w-full tw-flex-col ">
-        <section className="tw-mb-4 tw-flex tw-w-full tw-items-end tw-justify-end ">
-          <ul className="tw-hidden tw-space-x-6 lg:tw-flex">
-            <Hyperlink href="" text="Home" />
-            <Hyperlink href="" text="Today deals" />
-            <Hyperlink href="" text="Trending products" />
-            <Hyperlink href="" text="Special offers" />
+        <section className=" tw-flex tw-w-full tw-items-end tw-justify-end ">
+          <ul className="tw-hidden tw-space-x-6 tw-py-3 lg:tw-flex">
+            <li className="tw-transition-all tw-duration-200 tw-ease-in hover:tw-text-primary">
+              <Hyperlink href="/" text="Home" />
+            </li>
+            <li className="tw-transition-all tw-duration-200 tw-ease-in hover:tw-text-primary">
+              <Hyperlink href="" text="Today deals" />
+            </li>
+            <li className="tw-transition-all tw-duration-200 tw-ease-in hover:tw-text-primary">
+              <Hyperlink href="" text="Trending products" />
+            </li>
+            <li className="tw-transition-all tw-duration-200 tw-ease-in hover:tw-text-primary">
+              <Hyperlink href="" text="Special offers" />
+            </li>
           </ul>
         </section>
         <section className="tw-flex tw-w-full tw-flex-col tw-gap-6 md:tw-flex-row">
