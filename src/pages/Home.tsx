@@ -1,7 +1,7 @@
 import Title from "../components/Atoms/Title"
 import { TitleSizeEnum } from "../components/Atoms/Title/types"
-import Card from "../components/Card"
 import Hero from "../components/Hero"
+import ProductGrid from "../components/ProductGrid"
 import { useGetAllProductsQuery } from "../services/products"
 
 function Home() {
@@ -11,13 +11,9 @@ function Home() {
       <article className="tw-flex tw-flex-wrap tw-items-center tw-justify-center">
         <Hero items={data?.products} isLoading={isLoading} />
       </article>
-      <article className="tw-m-auto tw-flex tw-w-11/12 tw-max-w-screen-2xl tw-flex-col  tw-justify-center">
+      <article className="tw-m-auto tw-flex tw-w-11/12 tw-max-w-screen-2xl tw-flex-col tw-justify-center">
         <Title size={TitleSizeEnum.H4} text="Popular items" className="!tw-font-bold !tw-text-gray-700" />
-        <div className="tw-m-auto tw-mx-auto tw-my-6 tw-grid tw-grid-cols-1 tw-place-items-center tw-items-stretch tw-justify-items-center tw-gap-6 md:tw-auto-cols-min lg:tw-grid-cols-3 xl:tw-grid-cols-4">
-          {data?.products.map(product => (
-            <Card product={product} key={product.id} />
-          ))}
-        </div>
+        <ProductGrid products={data?.products} isLoading={isLoading} />
       </article>
     </div>
   )

@@ -23,7 +23,9 @@ function Card({ product }: { product: ProductModel }) {
             <Button
               variant={BtnVariantEnum.TEXTICON}
               icon={faHeart}
-              onClick={() => console.log("wishlist")}
+              onClick={(e: Event) => {
+                e.stopPropagation()
+              }}
               iconClassName="tw-text-2xl hover:!tw-text-primary"
             />
           </span>
@@ -35,7 +37,7 @@ function Card({ product }: { product: ProductModel }) {
             className="tw-m-auto tw-w-3/4 tw-object-contain tw-object-center tw-transition-all tw-duration-200 group-hover:tw-scale-105"
           />
         </div>
-        <div className="tw-prod-title tw-mt-4">
+        <div className="tw-prod-title tw-mt-4 tw-flex tw-flex-col tw-items-center md:tw-items-start">
           {categories?.map((category: ProductCategory) => (
             <Text
               key={category.id}
@@ -49,7 +51,7 @@ function Card({ product }: { product: ProductModel }) {
         </div>
       </div>
       <div className="tw-prod-info tw-mt-4 tw-grid tw-gap-4">
-        <div className="tw-flex tw-flex-col tw-items-center tw-justify-between tw-text-gray-900 md:tw-flex-row">
+        <div className="tw-flex  tw-flex-col tw-items-center tw-justify-center tw-space-y-4 tw-text-gray-900 md:tw-flex-row md:tw-justify-between md:tw-space-y-0">
           <p className="tw-flex tw-items-center tw-gap-2 tw-whitespace-nowrap tw-text-3xl tw-font-bold tw-text-primary">
             € {salePrice ? salePrice : price}
             {salePrice && (

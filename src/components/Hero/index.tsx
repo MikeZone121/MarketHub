@@ -14,8 +14,8 @@ function Hero({ items, isLoading }: { items?: ProductModel[]; isLoading: boolean
   const navigate = useNavigate()
   return (
     <section className="tw-mb-12 tw-flex tw-w-11/12 tw-max-w-screen-2xl tw-flex-col tw-gap-4 lg:tw-flex-row lg:tw-gap-8">
-      <article className="tw-bg-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out lg:tw-w-96">
-        <div className="tw-flex tw-items-center  tw-space-x-5 tw-bg-primary tw-px-4 tw-py-3">
+      <article className="tw-overflow-hidden tw-rounded-lg tw-bg-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out lg:tw-w-96">
+        <div className="tw-flex tw-items-center  tw-space-x-5  tw-bg-primary tw-px-4 tw-py-3">
           <Title text="Browse categories" size={TitleSizeEnum.H6} className="!tw-mb-0 tw-p-0 tw-text-white" />
         </div>
         <ul className="tw-flex tw-flex-col">
@@ -57,7 +57,7 @@ function Hero({ items, isLoading }: { items?: ProductModel[]; isLoading: boolean
             onClick={() => navigate(`/shop/${items?.[0].slug ?? ""} `)}
             className={clsx(
               isLoading && "tw-h-full tw-animate-pulse tw-bg-gray-200",
-              "tw-group tw-flex tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-center tw-gap-2 tw-bg-gray-100 tw-px-10 tw-py-6 tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-bg-gray-200 hover:tw-shadow-sm active:tw-scale-90 md:tw-w-2/3 xl:tw-flex-row"
+              "tw-group tw-flex tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-center tw-gap-2 tw-rounded-lg tw-bg-gray-100 tw-px-10 tw-py-6 tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-bg-gray-200 hover:tw-shadow-sm md:tw-w-2/3 lg:active:tw-scale-90 xl:tw-flex-row"
             )}
           >
             {items && (
@@ -104,7 +104,7 @@ function Hero({ items, isLoading }: { items?: ProductModel[]; isLoading: boolean
               onClick={() => navigate(`/shop/${items?.[1].slug ?? ""} `)}
               className={clsx(
                 isLoading && "tw-h-56 tw-animate-pulse tw-bg-gray-200",
-                "tw-group tw-flex tw-h-full tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-between tw-gap-2 tw-bg-gray-100 tw-px-10 tw-py-6 tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-bg-gray-200 hover:tw-shadow-sm active:tw-scale-90 lg:tw-flex-row lg:tw-items-stretch"
+                "tw-group tw-flex tw-h-full tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-between tw-gap-2 tw-rounded-lg tw-bg-gray-100 tw-px-10 tw-py-6 tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-bg-gray-200 hover:tw-shadow-sm active:tw-scale-90 lg:tw-flex-row lg:tw-items-stretch"
               )}
             >
               {items && (
@@ -144,7 +144,7 @@ function Hero({ items, isLoading }: { items?: ProductModel[]; isLoading: boolean
               onClick={() => navigate(`/shop/${items?.[2].slug ?? ""} `)}
               className={clsx(
                 isLoading && "tw-h-56 tw-animate-pulse tw-bg-gray-200",
-                "tw-group tw-flex tw-h-full tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-between tw-gap-2 tw-bg-gray-100 tw-px-10 tw-py-6 tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-bg-gray-200 hover:tw-shadow-sm active:tw-scale-90 lg:tw-flex-row lg:tw-items-stretch"
+                "tw-group tw-flex tw-h-full tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-between tw-gap-2 tw-rounded-lg tw-bg-gray-100 tw-px-10 tw-py-6 tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-bg-gray-200 hover:tw-shadow-sm active:tw-scale-90 lg:tw-flex-row lg:tw-items-stretch"
               )}
             >
               {items && (

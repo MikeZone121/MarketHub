@@ -2,7 +2,7 @@ import { IconProp, SizeProp } from "@fortawesome/fontawesome-svg-core"
 
 export interface ButtonProps {
   text?: string
-  onClick: () => void
+  onClick: (e: Event) => void
   iconPosition?: PositionEnum
   className?: string
   iconClassName?: string
