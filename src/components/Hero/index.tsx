@@ -13,7 +13,7 @@ import { TitleSizeEnum } from "../Atoms/Title/types"
 function Hero({ items, isLoading }: { items?: ProductModel[]; isLoading: boolean }) {
   const navigate = useNavigate()
   return (
-    <section className="tw-mb-24 tw-flex tw-w-11/12 tw-max-w-screen-2xl tw-flex-col tw-gap-4 lg:tw-flex-row lg:tw-gap-8">
+    <section className="tw-mb-12 tw-flex tw-w-11/12 tw-max-w-screen-2xl tw-flex-col tw-gap-4 lg:tw-flex-row lg:tw-gap-8">
       <article className="tw-bg-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out lg:tw-w-96">
         <div className="tw-flex tw-items-center  tw-space-x-5 tw-bg-primary tw-px-4 tw-py-3">
           <Title text="Browse categories" size={TitleSizeEnum.H6} className="!tw-mb-0 tw-p-0 tw-text-white" />
@@ -70,6 +70,14 @@ function Hero({ items, isLoading }: { items?: ProductModel[]; isLoading: boolean
                   />
                   <Title text={items?.[0].name} size={TitleSizeEnum.H3} />
                   <Text text={items?.[0].description} variant={TextVariantEnum.QUOTE} className="tw-mt-2" />
+                  <p className="tw-mt-2 tw-flex tw-items-center tw-gap-2 tw-whitespace-nowrap tw-text-3xl tw-font-bold tw-text-primary">
+                    € {items?.[0].salePrice ? items?.[0].salePrice : items?.[0].price}
+                    {items?.[0].salePrice && (
+                      <span className="tw-text-sm tw-font-semibold tw-text-gray-600 tw-line-through">
+                        € {items?.[0].price}
+                      </span>
+                    )}
+                  </p>
                   <Button
                     onClick={() => navigate(`/shop/${items?.[0].slug ?? ""} `)}
                     text="SHOP NOW"
@@ -109,7 +117,7 @@ function Hero({ items, isLoading }: { items?: ProductModel[]; isLoading: boolean
                         variant={TextVariantEnum.SMALL}
                         className="tw-font-extralight tw-uppercase tw-tracking-widest"
                       />
-                      <p className="tw-flex tw-items-center tw-gap-4 tw-whitespace-nowrap tw-text-3xl tw-font-bold tw-text-primary">
+                      <p className="tw-flex tw-items-center tw-gap-2 tw-whitespace-nowrap tw-text-3xl tw-font-bold tw-text-primary">
                         € {items?.[1].salePrice ? items?.[1].salePrice : items?.[1].price}
                         {items?.[1].salePrice && (
                           <span className="tw-text-sm tw-font-semibold tw-text-gray-600 tw-line-through">
@@ -149,7 +157,7 @@ function Hero({ items, isLoading }: { items?: ProductModel[]; isLoading: boolean
                         variant={TextVariantEnum.SMALL}
                         className="tw-font-extralight tw-uppercase tw-tracking-widest"
                       />
-                      <p className="tw-flex tw-items-center tw-gap-4 tw-whitespace-nowrap tw-text-3xl tw-font-bold tw-text-primary">
+                      <p className="tw-flex tw-items-center tw-gap-2 tw-whitespace-nowrap tw-text-3xl tw-font-bold tw-text-primary">
                         € {items?.[2].salePrice ? items?.[2].salePrice : items?.[2].price}
                         {items?.[2].salePrice && (
                           <span className="tw-text-sm tw-font-semibold tw-text-gray-600 tw-line-through">
