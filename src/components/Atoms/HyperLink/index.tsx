@@ -11,7 +11,7 @@ function Hyperlink(props: HyperlinkProps) {
   const { text, href, className, target = "", icon, variant, iconPosition = PositionEnum.LEFT } = props
   const positionClassnames = clsx(positionClassnamesMap[iconPosition])
   const variantClassnames = clsx(
-    variant === HyperLinkVariantsEnum.PRIMARY && "tw-text-primary tw-text-primary hover:tw-text-red-300",
+    variant === HyperLinkVariantsEnum.PRIMARY && "tw-text-primary  hover:tw-text-red-300",
     variant === HyperLinkVariantsEnum.SECONDARY && "tw-text-white hover:tw-text-secondary"
   )
   return (
@@ -19,7 +19,7 @@ function Hyperlink(props: HyperlinkProps) {
       to={href ?? ""}
       target={target}
       className={clsx(
-        "tw-flex tw-cursor-pointer tw-items-center tw-ease-in-out",
+        "tw-flex tw-cursor-pointer tw-items-center tw-text-sm tw-ease-in-out",
         variantClassnames,
         positionClassnames,
         className
