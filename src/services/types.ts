@@ -31,3 +31,19 @@ export interface ProductCategory {
   id?: string
   name?: string
 }
+
+export interface CartItem extends ProductModel {
+  cartQuantity: number
+}
+
+export interface CartState {
+  cartItems: CartItem[]
+  cartTotalQuantity: number
+  cartTotalAmount: number
+}
+
+export const initialCartState: CartState = {
+  cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")!) : [],
+  cartTotalQuantity: 0,
+  cartTotalAmount: 0
+}
