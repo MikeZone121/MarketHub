@@ -1,3 +1,4 @@
+import { MouseEvent } from "react"
 import { useNavigate } from "react-router-dom"
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
 
@@ -23,7 +24,7 @@ function Card({ product }: { product: ProductModel }) {
             <Button
               variant={BtnVariantEnum.TEXTICON}
               icon={faHeart}
-              onClick={(e: Event) => {
+              onClick={(e: MouseEvent<HTMLButtonElement>) => {
                 e.stopPropagation()
               }}
               iconClassName="tw-text-2xl hover:!tw-text-primary"
