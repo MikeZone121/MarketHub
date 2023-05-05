@@ -8,7 +8,7 @@ function Home() {
   return (
     <div className="tw-mt-10">
       <article className="tw-flex tw-flex-wrap tw-items-center tw-justify-center">
-        {data && <Hero items={data.products} />}
+        <Hero items={data?.products} isLoading={isLoading} />
       </article>
       <div className="tw-mb-24 tw-flex tw-h-full tw-animate-pulse tw-flex-col tw-items-center">
         <img src="images/branding/logo.svg" className="tw-w-32" />
