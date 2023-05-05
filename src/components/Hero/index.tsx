@@ -14,7 +14,7 @@ function Hero({ items, isLoading }: { items?: ProductModel[]; isLoading: boolean
   const navigate = useNavigate()
   return (
     <section className="tw-mb-24 tw-flex tw-w-11/12 tw-max-w-screen-2xl tw-flex-col tw-gap-4 lg:tw-flex-row lg:tw-gap-8">
-      <article className="tw-bg-gray-100 lg:tw-w-96">
+      <article className="tw-bg-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out lg:tw-w-96">
         <div className="tw-flex tw-items-center  tw-space-x-5 tw-bg-primary tw-px-4 tw-py-3">
           <Title text="Browse categories" size={TitleSizeEnum.H6} className="!tw-mb-0 tw-p-0 tw-text-white" />
         </div>

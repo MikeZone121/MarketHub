@@ -1,3 +1,5 @@
+import { ProductCategory } from "../../services/types"
+
 export interface CardProps {
   id?: string
   title?: string
@@ -5,4 +7,5 @@ export interface CardProps {
   description?: string
   image?: string
   price?: string
+  categories?: ProductCategory[]
 }
