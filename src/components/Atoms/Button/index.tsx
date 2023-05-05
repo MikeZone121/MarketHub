@@ -1,9 +1,9 @@
+import { forwardRef, Ref } from "react"
 import { faSpinner } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 
 import { BtnVariantEnum, ButtonProps, PositionEnum } from "./types"
-import { Ref, forwardRef } from "react"
 
 export const positionClassnamesMap = {
   [PositionEnum.LEFT]: "tw-flex-row",
@@ -38,7 +38,7 @@ const Button = forwardRef(function Button(props: ButtonProps, ref: Ref<HTMLButto
       "tw-bg-primary tw-text-white hover:tw-bg-white tw-border tw-border-transparent hover:tw-border-primary hover:tw-text-primary",
     [BtnVariantEnum.INVERT]:
       "tw-bg-white tw-text-primary hover:tw-bg-primary tw-border tw-border-transparent hover:tw-border-primary hover:tw-text-white",
-    [BtnVariantEnum.TEXTICON]: "tw-bg-white tw-text-black tw-border tw-border-transparent hover:tw-text-white",
+    [BtnVariantEnum.TEXTICON]: "tw-text-black tw-border tw-border-transparent hover:tw-text-white",
     [BtnVariantEnum.OUTLINED]:
       "tw-bg-white tw-text-primary tw-border tw-border-primary hover:tw-bg-primary tw-border hover:tw-text-white"
   }
