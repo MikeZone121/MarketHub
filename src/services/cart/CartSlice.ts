@@ -13,7 +13,7 @@ const CartSlice = createSlice({
       const itemIndex = state.cartItems.findIndex(item => item.id === action.payload.id)
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].cartQuantity++
-        toast.info(`Increased ${state.cartItems[itemIndex].name} cart quantity`, toastConfig)
+        toast.success(`Increased ${state.cartItems[itemIndex].name} cart quantity`, toastConfig)
       } else {
         const tempProduct = { ...action.payload, cartQuantity: 1 }
         state.cartItems.push(tempProduct)
@@ -26,19 +26,13 @@ const CartSlice = createSlice({
 
       if (state.cartItems[itemIndex].cartQuantity > 1) {
         state.cartItems[itemIndex].cartQuantity -= 1
-        toast.info(`${action.payload.title} cart quantity decreased`, toastConfig)
+        toast.info(`${action.payload.name} cart quantity decreased`, toastConfig)
       } else if (state.cartItems[itemIndex].cartQuantity === 1) {
         const nextCartItems = state.cartItems.filter(cartItem => cartItem.id !== action.payload.id)
         state.cartItems = nextCartItems
-        toast.error(`${action.payload.title} removed from cart`, toastConfig)
+        toast.error(`${action.payload.name} removed from cart`, toastConfig)
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems))
-    },
-    RemoveFromCart(state, action) {
-      const nextCartItems = state.cartItems.filter(cartItem => cartItem.id !== action.payload.id)
-      state.cartItems = nextCartItems
-      localStorage.setItem("cartItems", JSON.stringify(state.cartItems))
-      toast.success(`${action.payload.title} removed from cart`, toastConfig)
     },
     getTotals(state) {
       const { total, quantity } = state.cartItems.reduce(
@@ -57,6 +51,6 @@ const CartSlice = createSlice({
   }
 })
 
-export const { addToCart, decreaseCart, RemoveFromCart, getTotals } = CartSlice.actions
+export const { addToCart, decreaseCart, getTotals } = CartSlice.actions
 
 export default CartSlice.reducer
