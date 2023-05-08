@@ -49,11 +49,11 @@ function Detail() {
             <img
               alt="Tee"
               src={product?.images[0]?.url}
-              className="tw-h-72 tw-w-full tw-rounded-xl tw-object-contain lg:tw-h-[540px]"
+              className="tw-h-72 tw-w-full tw-rounded-xl tw-object-contain tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-scale-110 lg:tw-h-[540px]"
             />
 
-            <div className="tw-absolute tw-bottom-4 tw-left-1/2 tw-inline-flex tw--translate-x-1/2 tw-items-center tw-rounded-full tw-bg-black/75 tw-px-3 tw-py-1.5 tw-text-white">
-              <span className=" tw-whitespace-nowrap tw-text-xs"> Hover to zoom </span>
+            <div className="tw-absolute tw-bottom-2 tw-left-1/2 tw-inline-flex tw--translate-x-1/2 tw-items-center tw-rounded-full tw-bg-black/75 tw-px-3 tw-py-1.5 tw-text-white">
+              <span className=" tw-whitespace-nowrap tw-text-xs">Hover to zoom</span>
             </div>
           </div>
 
