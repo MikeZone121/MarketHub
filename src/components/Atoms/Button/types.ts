@@ -1,8 +1,9 @@
+import { MouseEvent } from "react"
 import { IconProp, SizeProp } from "@fortawesome/fontawesome-svg-core"
 
 export interface ButtonProps {
   text?: string
-  onClick: () => void
+  onClick: (e: MouseEvent<HTMLButtonElement>) => void
   iconPosition?: PositionEnum
   className?: string
   iconClassName?: string

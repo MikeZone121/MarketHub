@@ -6,7 +6,7 @@ import { ProductsModel } from "./types"
 
 const PRODUCTS = gql`
   query Products {
-    products {
+    products(first: 4) {
       createdAt
       name
       id
