@@ -1,7 +1,7 @@
 import Title from "../components/Atoms/Title"
 import { TitleSizeEnum } from "../components/Atoms/Title/types"
 import Hero from "../components/Hero"
-import ProductGrid from "../components/ProductGrid"
+import ProductGrid from "../components/Organisms/ProductGrid"
 import { useGetAllProductsQuery } from "../services/products"
 
 function Home() {

@@ -1,5 +1,5 @@
-import { ProductModel } from "../../services/types"
-import Card from "../Card"
+import { ProductModel } from "../../../services/types"
+import Card from "../../Card"
 
 function ProductGrid({ products, isLoading }: { products?: ProductModel[]; isLoading: boolean }) {
   return (

@@ -13,7 +13,7 @@ export interface ProductsModel {
 export interface ProductModel {
   id: string
   name?: string
-  price?: number
+  price: number
   salePrice?: number
   description?: string
   slug?: string
