@@ -4,9 +4,9 @@ import gql from "graphql-tag"
 
 import { ProductsModel } from "./types"
 
-const PRODUCTS = gql`
+const productsQuery = (first: number) => gql`
   query Products {
-    products(first: 4) {
+    products(first: ${first}) {
       createdAt
       name
       id
@@ -32,8 +32,8 @@ export const productsApi = createApi({
     url: import.meta.env.VITE_API_URL
   }),
   endpoints: builder => ({
-    getAllProducts: builder.query<ProductsModel, void>({
-      query: () => ({ document: PRODUCTS })
+    getAllProducts: builder.query<ProductsModel, number>({
+      query: (first: number) => ({ document: productsQuery(first) })
     })
   })
 })
