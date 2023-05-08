@@ -1,7 +1,9 @@
 import { MouseEvent } from "react"
+import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
 
+import { addToCart } from "../../services/cart/CartSlice"
 import { ProductCategory, ProductModel } from "../../services/types"
 import Button from "../Atoms/Button"
 import { BtnVariantEnum } from "../Atoms/Button/types"
@@ -11,12 +13,18 @@ import Title from "../Atoms/Title"
 import { TitleSizeEnum } from "../Atoms/Title/types"
 
 function Card({ product }: { product: ProductModel }) {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const { id, name, categories, images, price, salePrice, slug } = product
+  const handleAddToCart = () => {
+    dispatch(addToCart(product))
+    navigate("/cart")
+  }
   return (
     <div
       className="tw-card tw-group tw-flex tw-h-full tw-cursor-pointer tw-flex-col tw-justify-between tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-10 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-bg-gray-200"
       onClick={() => navigate(`/shop/${slug ?? ""} `)}
+      id={`product-${id}`}
     >
       <div>
         <div className="tw-prod-img tw-relative">
@@ -59,7 +67,14 @@ function Card({ product }: { product: ProductModel }) {
               <span className="tw-text-sm tw-font-semibold tw-text-gray-600 tw-line-through">€ {price}</span>
             )}
           </p>
-          <Button variant={BtnVariantEnum.FULL} text="Add to cart" onClick={() => console.log(id)} />
+          <Button
+            variant={BtnVariantEnum.FULL}
+            text="Add to cart"
+            onClick={(e: MouseEvent<HTMLButtonElement>) => {
+              e.stopPropagation()
+              handleAddToCart()
+            }}
+          />
         </div>
       </div>
     </div>

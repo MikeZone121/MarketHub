@@ -9,7 +9,7 @@ function App() {
     return <Maintenance />
   } else {
     return (
-      <div className="App tw-relative tw-overflow-hidden">
+      <div className="App tw-relative">
         <Nav />
         <Outlet />
         <Footer />

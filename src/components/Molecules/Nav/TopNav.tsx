@@ -72,7 +72,7 @@ function TopNav() {
               </NavLink>
             </li>
             <li>
-              <NavLink to="contact" className="tw-text-white">
+              <NavLink to="/cart" className="tw-text-white">
                 <FontAwesomeIcon icon={faCartShopping} />
               </NavLink>
             </li>
