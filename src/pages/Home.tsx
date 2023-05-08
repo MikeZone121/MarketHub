@@ -5,7 +5,7 @@ import ProductGrid from "../components/ProductGrid"
 import { useGetAllProductsQuery } from "../services/products"
 
 function Home() {
-  const { data, isLoading } = useGetAllProductsQuery()
+  const { data, isLoading } = useGetAllProductsQuery(4)
   return (
     <div className="tw-my-10">
       <article className="tw-flex tw-flex-wrap tw-items-center tw-justify-center">
