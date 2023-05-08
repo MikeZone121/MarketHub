@@ -24,6 +24,7 @@ function Card({ product }: { product: ProductModel }) {
     <div
       className="tw-card tw-group tw-flex tw-h-full tw-cursor-pointer tw-flex-col tw-justify-between tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-10 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-bg-gray-200"
       onClick={() => navigate(`/shop/${slug ?? ""} `)}
+      id={`product-${id}`}
     >
       <div>
         <div className="tw-prod-img tw-relative">
@@ -66,7 +67,14 @@ function Card({ product }: { product: ProductModel }) {
               <span className="tw-text-sm tw-font-semibold tw-text-gray-600 tw-line-through">€ {price}</span>
             )}
           </p>
-          <Button variant={BtnVariantEnum.FULL} text="Add to cart" onClick={() => handleAddToCart()} />
+          <Button
+            variant={BtnVariantEnum.FULL}
+            text="Add to cart"
+            onClick={(e: MouseEvent<HTMLButtonElement>) => {
+              e.stopPropagation()
+              handleAddToCart()
+            }}
+          />
         </div>
       </div>
     </div>
