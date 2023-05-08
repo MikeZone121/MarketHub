@@ -58,13 +58,9 @@ function Detail() {
           </div>
 
           <ul className="tw-mt-1 tw-flex tw-gap-1">
-            {product?.images.map((image: ProductImage) => (
-              <li key={image.id}>
-                <img
-                  alt="Tee"
-                  src={product?.images[0]?.url}
-                  className="tw-h-16 tw-w-16 tw-rounded-md tw-object-cover"
-                />
+            {product?.images.map((image: ProductImage, idx) => (
+              <li key={`image-${idx}`}>
+                <img alt={product?.name} src={image.url} className="tw-h-16 tw-w-16 tw-rounded-md tw-object-cover" />
               </li>
             ))}
           </ul>
@@ -75,8 +71,8 @@ function Detail() {
             <fieldset>
               <legend className="tw-text-lg tw-font-bold">Categories</legend>
               <div className="tw-mt-2 tw-flex tw-flex-wrap tw-gap-1">
-                {product?.categories?.map((category: ProductCategory) => (
-                  <label htmlFor="material_cotton" className="tw-cursor-pointer" key={category?.id}>
+                {product?.categories?.map((category: ProductCategory, idx) => (
+                  <label htmlFor="material_cotton" className="tw-cursor-pointer" key={`category-${idx}`}>
                     <input type="radio" id="material_cotton" name="material" className="tw-peer tw-sr-only" checked />
                     <span className="tw-block tw-rounded-full tw-border tw-border-gray-200 tw-px-3 tw-py-1 tw-text-xs peer-checked:tw-bg-gray-100">
                       {category?.name}
