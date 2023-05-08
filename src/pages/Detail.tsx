@@ -66,18 +66,18 @@ function Detail() {
           </ul>
         </div>
 
-        <div className="lg:tw-sticky lg:tw-top-0">
-          <form className="tw-space-y-4 lg:tw-pt-8">
+        <div className="tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-8 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out lg:tw-sticky lg:tw-top-12">
+          <form className="tw-space-y-4">
             <fieldset>
               <legend className="tw-text-lg tw-font-bold">Categories</legend>
               <div className="tw-mt-2 tw-flex tw-flex-wrap tw-gap-1">
                 {product?.categories?.map((category: ProductCategory, idx) => (
-                  <label htmlFor="material_cotton" className="tw-cursor-pointer" key={`category-${idx}`}>
-                    <input type="radio" id="material_cotton" name="material" className="tw-peer tw-sr-only" checked />
-                    <span className="tw-block tw-rounded-full tw-border tw-border-gray-200 tw-px-3 tw-py-1 tw-text-xs peer-checked:tw-bg-gray-100">
-                      {category?.name}
-                    </span>
-                  </label>
+                  <span
+                    className="tw-block tw-rounded-full tw-border tw-border-gray-200 tw-px-3 tw-py-1 tw-text-xs"
+                    key={`category-${idx}`}
+                  >
+                    {category?.name}
+                  </span>
                 ))}
               </div>
             </fieldset>
