@@ -10,7 +10,6 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    svgr(),
     VitePWA({
       registerType: "autoUpdate",
       includeAssets: [
@@ -38,6 +37,7 @@ export default defineConfig({
         background_color: "#ffffff",
         display: "standalone"
       }
-    })
+    }),
+    svgr()
   ]
 })
