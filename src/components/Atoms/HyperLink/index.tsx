@@ -19,7 +19,7 @@ function Hyperlink(props: HyperlinkProps) {
       to={href ?? ""}
       target={target}
       className={clsx(
-        "tw-flex tw-cursor-pointer tw-items-center tw-text-sm tw-ease-in-out",
+        "tw-flex tw-cursor-pointer tw-items-center tw-text-base tw-ease-in-out",
         variantClassnames,
         positionClassnames,
         className

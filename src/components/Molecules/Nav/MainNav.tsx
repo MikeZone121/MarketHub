@@ -32,7 +32,15 @@ function MainNav() {
           {navigationItems.map((item, idx) => {
             return (
               <li key={idx}>
-                <NavLink to={item.path} className={({ isActive }) => clsx(isActive && "tw-text-primary")}>
+                <NavLink
+                  to={item.path}
+                  className={({ isActive }) =>
+                    clsx(
+                      isActive && "tw-text-primary",
+                      "tw-text-base tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-text-primary hover:tw-underline"
+                    )
+                  }
+                >
                   {item.title}
                 </NavLink>
               </li>

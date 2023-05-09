@@ -57,7 +57,7 @@ function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: b
             onClick={() => navigate(`/shop/${products?.[0].slug ?? ""} `)}
             className={clsx(
               isLoading && "tw-h-full tw-animate-pulse tw-bg-gray-200",
-              "tw-group tw-flex tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-center tw-gap-2 tw-rounded-lg tw-bg-gray-100 tw-px-10 tw-py-6 tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-bg-gray-200 hover:tw-shadow-sm md:tw-w-2/3 lg:active:tw-scale-90 xl:tw-flex-row"
+              "tw-group tw-flex tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-center tw-gap-2 tw-rounded-lg tw-border tw-border-gray-100 tw-px-10 tw-py-6 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-bg-gray-100 hover:tw-shadow-sm md:tw-w-2/3 lg:active:tw-scale-90 xl:tw-flex-row"
             )}
           >
             {products && (
@@ -104,7 +104,7 @@ function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: b
               onClick={() => navigate(`/shop/${products?.[1].slug ?? ""} `)}
               className={clsx(
                 isLoading && "tw-h-56 tw-animate-pulse tw-bg-gray-200",
-                "tw-group tw-flex tw-h-full tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-between tw-gap-2 tw-rounded-lg tw-bg-gray-100 tw-px-10 tw-py-6 tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-bg-gray-200 hover:tw-shadow-sm lg:tw-flex-row lg:tw-items-stretch lg:active:tw-scale-90"
+                "tw-group tw-flex tw-h-full tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-between tw-gap-2 tw-rounded-lg  tw-border tw-border-gray-100 tw-px-10 tw-py-6 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-bg-gray-100 hover:tw-shadow-sm lg:tw-flex-row lg:tw-items-stretch lg:active:tw-scale-90"
               )}
             >
               {products && (
@@ -144,7 +144,7 @@ function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: b
               onClick={() => navigate(`/shop/${products?.[2].slug ?? ""} `)}
               className={clsx(
                 isLoading && "tw-h-56 tw-animate-pulse tw-bg-gray-200",
-                "tw-group tw-flex tw-h-full tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-between tw-gap-2 tw-rounded-lg tw-bg-gray-100 tw-px-10 tw-py-6 tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-bg-gray-200 hover:tw-shadow-sm lg:tw-flex-row lg:tw-items-stretch lg:active:tw-scale-90"
+                "tw-gap-2tw-rounded-lg tw-group tw-flex tw-h-full tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-between tw-rounded-lg tw-border  tw-border-gray-100 tw-px-10 tw-py-6 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-bg-gray-100 hover:tw-shadow-sm lg:tw-flex-row lg:tw-items-stretch lg:active:tw-scale-90"
               )}
             >
               {products && (

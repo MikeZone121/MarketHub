@@ -1,7 +1,8 @@
 import { MouseEvent } from "react"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { faHeart } from "@fortawesome/free-solid-svg-icons"
+import { faBasketShopping, faHeart } from "@fortawesome/free-solid-svg-icons"
+import clsx from "clsx"
 
 import { addToCart } from "../../../services/cart/CartSlice"
 import { ProductCategory, ProductModel } from "../../../services/types"
@@ -22,22 +23,23 @@ function Card({ product }: { product: ProductModel }) {
   }
   return (
     <div
-      className="tw-card tw-group tw-flex tw-h-full tw-cursor-pointer tw-flex-col tw-justify-between tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-10 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-bg-gray-200"
+      className="tw-card tw-group tw-relative tw-flex tw-h-full tw-cursor-pointer tw-flex-col tw-justify-between tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-10 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out "
       onClick={() => navigate(`/shop/${slug ?? ""}`)}
       id={`product-${id}`}
     >
+      <span className="tw-absolute tw-right-4 tw-top-4 tw-z-10 ">
+        <Button
+          variant={BtnVariantEnum.TEXTICON}
+          icon={faHeart}
+          onClick={(e: MouseEvent<HTMLButtonElement>) => {
+            e.stopPropagation()
+          }}
+          className="tw-rounded-full tw-bg-white tw-p-2 tw-shadow-md"
+          iconClassName="tw-text-xl !tw-text-gray-300 hover:!tw-text-primary"
+        />
+      </span>
       <div>
         <div className="tw-prod-img tw-relative">
-          <span className="tw-absolute tw-right-0 tw-z-10">
-            <Button
-              variant={BtnVariantEnum.TEXTICON}
-              icon={faHeart}
-              onClick={(e: MouseEvent<HTMLButtonElement>) => {
-                e.stopPropagation()
-              }}
-              iconClassName="tw-text-2xl !tw-text-gray-200 hover:!tw-text-primary"
-            />
-          </span>
           <img
             src={images[0].url}
             onError={({ currentTarget }) => {
@@ -56,20 +58,27 @@ function Card({ product }: { product: ProductModel }) {
             />
           ))}
 
-          <Title className="!tw-font-bold tw-uppercase" size={TitleSizeEnum.H5} text={name} />
+          <Title className="!tw-font-bold tw-uppercase !tw-text-gray-600" size={TitleSizeEnum.H6} text={name} />
         </div>
       </div>
-      <div className="tw-prod-info tw-mt-4 tw-grid tw-gap-4">
-        <div className="tw-flex  tw-flex-col tw-items-center tw-justify-center tw-space-y-4 tw-text-gray-900 md:tw-flex-row md:tw-justify-between md:tw-space-y-0">
-          <p className="tw-flex tw-items-center tw-gap-2 tw-whitespace-nowrap tw-text-3xl tw-font-bold tw-text-primary">
-            € {salePrice ? salePrice : price}
+      <div className="tw-prod-info tw-mt-2  tw-grid tw-gap-4 2xl:tw-mt-4">
+        <div className="tw-flex tw-flex-col tw-items-start tw-justify-center tw-space-y-4 tw-text-gray-900 md:tw-justify-between xl:tw-flex-col 2xl:tw-flex-row 2xl:tw-space-y-0">
+          <Text
+            variant={TextVariantEnum.NORMAL}
+            className={clsx(
+              salePrice && "tw-text-primary",
+              "tw-flex tw-items-center tw-gap-2 tw-whitespace-nowrap tw-text-3xl tw-font-medium tw-text-gray-600"
+            )}
+          >
+            <span className="tw-text-xl">€ {salePrice ? salePrice : price}</span>
             {salePrice && (
               <span className="tw-text-sm tw-font-semibold tw-text-gray-600 tw-line-through">€ {price}</span>
             )}
-          </p>
+          </Text>
           <Button
             variant={BtnVariantEnum.FULL}
             text="Add to cart"
+            icon={faBasketShopping}
             onClick={(e: MouseEvent<HTMLButtonElement>) => {
               e.stopPropagation()
               handleAddToCart()

@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom"
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"
+import { faArrowLeft, faBasketShopping } from "@fortawesome/free-solid-svg-icons"
 import clsx from "clsx"
 
 import Button from "../components/Atoms/Button"
@@ -40,7 +40,7 @@ function Detail() {
           <Title
             className="tw-text-2xl tw-font-bold tw-transition-all tw-duration-200 tw-ease-out group-hover:tw-ml-8 "
             text={product?.name}
-            size={TitleSizeEnum.H2}
+            size={TitleSizeEnum.H3}
           />
         </div>
         <Text>SKU: #{product?.id?.slice(-7)}</Text>
@@ -88,11 +88,11 @@ function Detail() {
               <Text
                 variant={TextVariantEnum.NORMAL}
                 className={clsx(
-                  product?.salePrice && "tw-text-primary ",
+                  product?.salePrice && "tw-text-primary",
                   "tw-flex tw-items-center tw-gap-2 tw-whitespace-nowrap tw-text-3xl tw-font-bold "
                 )}
               >
-                <span className="tw-text-base">€ {product?.salePrice ? product?.salePrice : product?.price}</span>
+                <span className="tw-text-xl">€ {product?.salePrice ? product?.salePrice : product?.price}</span>
                 {product?.salePrice && (
                   <span className="tw-text-sm tw-font-semibold tw-text-gray-600 tw-line-through">
                     € {product?.price}
@@ -109,7 +109,13 @@ function Detail() {
                 </a>
               </Text>
             </div>
-            <Button onClick={handleAddToCart} text="Add to cart" variant={BtnVariantEnum.FULL} isFullWidth />
+            <Button
+              onClick={handleAddToCart}
+              text="Add to cart"
+              variant={BtnVariantEnum.FULL}
+              isFullWidth
+              icon={faBasketShopping}
+            />
             {/* <Button onClick={() => {}} variant={BtnVariantEnum.OUTLINED} text="Notify when on sale" isFullWidth /> */}
           </form>
         </div>

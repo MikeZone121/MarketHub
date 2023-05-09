@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { NavLink } from "react-router-dom"
-import { faCartShopping, faChevronDown, faHeart, faUser } from "@fortawesome/free-solid-svg-icons"
+import { faBasketShopping, faChevronDown, faHeart, faUser } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 
@@ -26,13 +26,13 @@ function TopNav() {
         <div className="tw-w-full md:tw-w-auto">
           <ul className="tw-relative tw-flex tw-items-center tw-p-3 tw-text-black md:tw-space-x-6">
             <div className="tw-hidden md:tw-block">
-              <button className="tw-text-sm tw-text-white" onClick={() => setDropdownLanguageIsOpen(prev => !prev)}>
+              <button className="tw-text-base tw-text-white" onClick={() => setDropdownLanguageIsOpen(prev => !prev)}>
                 {(currentLanguage && languages.find(language => language.languageCode === currentLanguage)?.name) ??
                   "NL"}
                 <FontAwesomeIcon
                   icon={faChevronDown}
                   className={clsx(
-                    "tw-ease tw-ml-1  tw-text-sm tw-transition-all tw-duration-200",
+                    "tw-ease tw-ml-1  tw-text-base tw-transition-all tw-duration-200",
                     !dropDownLanguageIsOpen && "tw--rotate-90"
                   )}
                 />
@@ -41,14 +41,14 @@ function TopNav() {
                 className={clsx(
                   "tw-ease tw-absolute tw-left-0 tw-flex tw-flex-col tw-bg-primary tw-p-3  tw-transition-all tw-duration-200",
                   dropDownLanguageIsOpen
-                    ? "tw-top-10 tw-z-10 tw-opacity-100"
-                    : "tw--top-[100%] tw--z-20 tw-p-0 tw-opacity-0"
+                    ? "tw-visible tw-top-10 tw-z-10 tw-opacity-100"
+                    : "tw-invisible tw--top-[100%] tw--z-20 tw-p-0 tw-opacity-0"
                 )}
               >
                 {languages
                   .filter(language => language.languageCode !== currentLanguage)
                   .map(language => (
-                    <li key={language.id} className="tw-my-1 tw-text-sm">
+                    <li key={language.id} className="tw-my-1 tw-text-base">
                       <NavLink to={`/${language.languageCode}`} className="tw-text-white">
                         {language.name}
                       </NavLink>
@@ -61,19 +61,19 @@ function TopNav() {
                 to="shop"
                 className="tw-flex tw-flex-row-reverse tw-items-center tw-gap-2 tw-text-white md:tw-flex-row"
               >
-                <span className="tw-text-sm">Login</span>
+                <span className="tw-text-base">Login</span>
                 <FontAwesomeIcon icon={faUser} />
               </NavLink>
             </li>
             <li className="tw-mr-6 md:tw-mr-0">
               <NavLink to="ui" className="tw-flex tw-items-center tw-gap-2 tw-text-white">
-                <span className="tw-hidden tw-text-sm md:tw-block">Wishlist</span>
+                <span className="tw-hidden tw-text-base md:tw-block">Wishlist</span>
                 <FontAwesomeIcon icon={faHeart} />
               </NavLink>
             </li>
             <li>
               <NavLink to="/cart" className="tw-text-white">
-                <FontAwesomeIcon icon={faCartShopping} />
+                <FontAwesomeIcon icon={faBasketShopping} />
               </NavLink>
             </li>
           </ul>
