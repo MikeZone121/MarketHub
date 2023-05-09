@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink, useNavigate } from "react-router-dom"
-import { faBasketShopping, faCheck, faHeart, faTrash, faUserLock } from "@fortawesome/free-solid-svg-icons"
+import { faArrowLeft, faBasketShopping, faCheck, faHeart, faTrash, faUserLock } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 
@@ -43,10 +43,19 @@ function Cart() {
         cart.cartTotalQuantity === 0 && "tw-items-center tw-justify-center"
       )}
     >
-      <div className="tw-mt-8 tw-flex tw-items-center tw-justify-center tw-space-x-4">
-        <FontAwesomeIcon icon={faBasketShopping} className="tw-text-left tw-text-2xl tw-text-primary" />
-        <Title size={TitleSizeEnum.H3} text="Shopping Cart" />
+      <div className="tw-group tw-relative tw-flex tw-cursor-pointer" onClick={() => navigate("/")}>
+        <Button
+          onClick={() => navigate("/")}
+          icon={faArrowLeft}
+          className="tw-invisible tw-absolute tw-top-3 tw-text-xl tw-opacity-0 tw-transition-all tw-duration-200 tw-ease-out group-hover:tw-visible group-hover:tw-opacity-100"
+          variant={BtnVariantEnum.TEXTICON}
+        />
+        <div className="tw-flex tw-items-center tw-justify-center tw-space-x-4 tw-transition-all tw-duration-200 tw-ease-out group-hover:tw-ml-8">
+          <FontAwesomeIcon icon={faBasketShopping} className="tw-text-left tw-text-2xl tw-text-primary" />
+          <Title size={TitleSizeEnum.H3} text="Shopping Cart" />
+        </div>
       </div>
+
       {cart.cartTotalQuantity === 0 ? (
         <div className="tw-flex tw-flex-col tw-items-center">
           <Text text="Your cart is empty." variant={TextVariantEnum.NORMAL} className="tw-font-semibold" />
@@ -77,7 +86,7 @@ function Cart() {
                   className="tw-group tw-relative tw-grid tw-grid-cols-2 tw-items-center tw-gap-4 tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-4 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out md:tw-grid-cols-[3fr_1fr_1fr_1fr]"
                   key={cartItem.id}
                 >
-                  <div className="tw-col-span-2 tw-flex tw-flex-col tw-items-center tw-gap-4 md:tw-col-span-1 md:tw-flex-row">
+                  <div className="tw-col-span-2 tw-flex tw-flex-row tw-items-center tw-gap-4 md:tw-col-span-1 md:tw-flex-row">
                     <img
                       className="tw-object-cover tw-transition-all tw-duration-200 group-hover:tw-scale-105"
                       width="100"
@@ -86,8 +95,19 @@ function Cart() {
                     />
                     <div>
                       <NavLink to={`/shop/${cartItem.slug ?? ""}`} className="tw-pointer hover:tw-underline">
-                        <Title size={TitleSizeEnum.H6} className="!tw-text-black" text={cartItem.name} />
-                        <Text variant={TextVariantEnum.SMALL} text={cartItem.description} />
+                        <Title
+                          size={TitleSizeEnum.H6}
+                          className="tw-pr-8 !tw-text-black lg:tw-pr-0"
+                          text={cartItem.name}
+                        />
+                        <Text
+                          variant={TextVariantEnum.SMALL}
+                          text={
+                            cartItem.description && cartItem.description.length > 60
+                              ? cartItem.description?.substring(0, 60) + "..."
+                              : cartItem.description
+                          }
+                        />
                       </NavLink>
                     </div>
                   </div>
