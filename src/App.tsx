@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom"
 
 import ScrollToTop from "./components/Atoms/ScrollToTop"
-import Footer from "./components/Footer"
 import Nav from "./components/Molecules/Nav"
+import Footer from "./components/Organisms/Footer"
 import Maintenance from "./pages/Maintenance"
 
 function App() {

@@ -1,4 +1,4 @@
-import { ProductCategory } from "../../services/types"
+import { ProductCategory } from "../../../services/types"
 
 export interface CardProps {
   id?: string
