@@ -45,7 +45,7 @@ function Card({ product }: { product: ProductModel }) {
             onError={({ currentTarget }) => {
               currentTarget.src = "images/branding/logo.svg"
             }}
-            className="tw-m-auto tw-w-3/4 tw-object-contain tw-object-center tw-transition-all tw-duration-200 group-hover:tw-scale-105"
+            className="tw-m-auto tw-w-3/5 tw-object-contain tw-object-center tw-transition-all tw-duration-200 group-hover:tw-scale-105 md:tw-w-3/4"
           />
         </div>
         <div className="tw-prod-title tw-flex tw-flex-col md:tw-mt-4 md:tw-items-start">
@@ -54,11 +54,15 @@ function Card({ product }: { product: ProductModel }) {
               key={category.id}
               text={category.name}
               variant={TextVariantEnum.SMALL}
-              className="tw-font-extralight tw-uppercase tw-tracking-widest tw-text-gray-400"
+              className="tw-mt-2 tw-text-xs tw-font-extralight tw-uppercase tw-tracking-widest tw-text-gray-400 md:tw-text-sm"
             />
           ))}
 
-          <Title className="!tw-font-bold tw-uppercase !tw-text-gray-600" size={TitleSizeEnum.H6} text={name} />
+          <Title
+            className="tw-text-sm !tw-font-bold tw-uppercase !tw-text-gray-600 md:tw-text-md"
+            size={TitleSizeEnum.H6}
+            text={name}
+          />
         </div>
       </div>
       <div className="tw-mt-2 tw-grid tw-gap-4 2xl:tw-mt-4">
