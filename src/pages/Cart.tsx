@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink, useNavigate } from "react-router-dom"
-import { faCartShopping, faCheck, faTrash } from "@fortawesome/free-solid-svg-icons"
+import { faCartShopping, faCheck, faHeart, faTrash } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 
@@ -126,6 +126,13 @@ function Cart() {
                       className="tw-w-full !tw-border-none !tw-bg-transparent !tw-p-4 !tw-text-xl !tw-text-black hover:!tw-shadow-none"
                     />
                   </div>
+                  <Button
+                    variant={BtnVariantEnum.TEXTICON}
+                    icon={faHeart}
+                    onClick={(onclick = () => console.log("clicked"))}
+                    iconClassName="tw-text-xl !tw-text-gray-200 hover:!tw-text-primary"
+                    className="tw-w-fit"
+                  />
                   <div className="tw-flex tw-items-center tw-justify-end">
                     <Title
                       size={TitleSizeEnum.H5}

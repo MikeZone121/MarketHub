@@ -3,14 +3,14 @@ import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
 
-import { addToCart } from "../../services/cart/CartSlice"
-import { ProductCategory, ProductModel } from "../../services/types"
-import Button from "../Atoms/Button"
-import { BtnVariantEnum } from "../Atoms/Button/types"
-import Text from "../Atoms/Text"
-import { TextVariantEnum } from "../Atoms/Text/types"
-import Title from "../Atoms/Title"
-import { TitleSizeEnum } from "../Atoms/Title/types"
+import { addToCart } from "../../../services/cart/CartSlice"
+import { ProductCategory, ProductModel } from "../../../services/types"
+import Button from "../../Atoms/Button"
+import { BtnVariantEnum } from "../../Atoms/Button/types"
+import Text from "../../Atoms/Text"
+import { TextVariantEnum } from "../../Atoms/Text/types"
+import Title from "../../Atoms/Title"
+import { TitleSizeEnum } from "../../Atoms/Title/types"
 
 function Card({ product }: { product: ProductModel }) {
   const dispatch = useDispatch()

@@ -1,8 +1,8 @@
-import Button from "../Atoms/Button"
-import { BtnVariantEnum } from "../Atoms/Button/types"
-import Hyperlink from "../Atoms/HyperLink"
-import Title from "../Atoms/Title"
-import { TitleSizeEnum } from "../Atoms/Title/types"
+import Button from "../../Atoms/Button"
+import { BtnVariantEnum } from "../../Atoms/Button/types"
+import Hyperlink from "../../Atoms/HyperLink"
+import Title from "../../Atoms/Title"
+import { TitleSizeEnum } from "../../Atoms/Title/types"
 
 const Footer = () => {
   const footerNavs = [
