@@ -1,4 +1,4 @@
-import { MouseEvent } from "react"
+import { MouseEvent, ReactNode } from "react"
 import { IconProp, SizeProp } from "@fortawesome/fontawesome-svg-core"
 
 export interface ButtonProps {
@@ -13,6 +13,7 @@ export interface ButtonProps {
   isFullWidth?: boolean
   isDisabled?: boolean
   isLoading?: boolean
+  children?: ReactNode
 }
 
 export enum PositionEnum {

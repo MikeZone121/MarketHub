@@ -30,7 +30,7 @@ function Detail() {
   return (
     <article className="tw-mx-auto tw-my-10 tw-flex tw-w-11/12 tw-max-w-screen-2xl tw-flex-col tw-justify-center">
       <div>
-        <div className="tw-group tw-relative tw-flex">
+        <div className="tw-group tw-relative tw-flex" onClick={() => navigate(-1)}>
           <Button
             onClick={() => navigate(-1)}
             icon={faArrowLeft}
@@ -38,7 +38,7 @@ function Detail() {
             variant={BtnVariantEnum.TEXTICON}
           />
           <Title
-            className="tw-text-2xl tw-font-bold tw-transition-all tw-duration-200 tw-ease-out group-hover:tw-ml-8 "
+            className="tw-cursor-pointer tw-text-2xl tw-font-bold tw-transition-all tw-duration-200 tw-ease-out group-hover:tw-ml-8"
             text={product?.name}
             size={TitleSizeEnum.H3}
           />

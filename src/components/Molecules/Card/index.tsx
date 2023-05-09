@@ -23,7 +23,7 @@ function Card({ product }: { product: ProductModel }) {
   }
   return (
     <div
-      className="tw-card tw-group tw-relative tw-flex tw-h-full tw-cursor-pointer tw-flex-col tw-justify-between tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-10 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out "
+      className="tw-card tw-group tw-relative tw-flex tw-h-full tw-cursor-pointer tw-flex-col tw-justify-between tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-4 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out md:tw-p-10 "
       onClick={() => navigate(`/shop/${slug ?? ""}`)}
       id={`product-${id}`}
     >
@@ -38,8 +38,8 @@ function Card({ product }: { product: ProductModel }) {
           iconClassName="tw-text-xl !tw-text-gray-300 hover:!tw-text-primary"
         />
       </span>
-      <div>
-        <div className="tw-prod-img tw-relative">
+      <div className="tw-flex tw-flex-col">
+        <div className="tw-prod-img tw-relative md:tw-w-full">
           <img
             src={images[0].url}
             onError={({ currentTarget }) => {
@@ -48,7 +48,7 @@ function Card({ product }: { product: ProductModel }) {
             className="tw-m-auto tw-w-3/4 tw-object-contain tw-object-center tw-transition-all tw-duration-200 group-hover:tw-scale-105"
           />
         </div>
-        <div className="tw-prod-title tw-mt-4 tw-flex tw-flex-col tw-items-center md:tw-items-start">
+        <div className="tw-prod-title tw-flex tw-flex-col md:tw-mt-4 md:tw-items-start">
           {categories?.map((category: ProductCategory) => (
             <Text
               key={category.id}
@@ -61,8 +61,8 @@ function Card({ product }: { product: ProductModel }) {
           <Title className="!tw-font-bold tw-uppercase !tw-text-gray-600" size={TitleSizeEnum.H6} text={name} />
         </div>
       </div>
-      <div className="tw-prod-info tw-mt-2  tw-grid tw-gap-4 2xl:tw-mt-4">
-        <div className="tw-flex tw-flex-col tw-items-start tw-justify-center tw-space-y-4 tw-text-gray-900 md:tw-justify-between xl:tw-flex-col 2xl:tw-flex-row 2xl:tw-space-y-0">
+      <div className="tw-mt-2 tw-grid tw-gap-4 2xl:tw-mt-4">
+        <div className="tw-flex tw-flex-col tw-items-start tw-justify-center tw-gap-4 tw-text-gray-900 md:tw-justify-between xl:tw-flex-col 2xl:tw-flex-row 2xl:tw-space-y-0 2xl:tw-space-y-4">
           <Text
             variant={TextVariantEnum.NORMAL}
             className={clsx(
@@ -77,13 +77,15 @@ function Card({ product }: { product: ProductModel }) {
           </Text>
           <Button
             variant={BtnVariantEnum.FULL}
-            text="Add to cart"
             icon={faBasketShopping}
+            isFullWidth
             onClick={(e: MouseEvent<HTMLButtonElement>) => {
               e.stopPropagation()
               handleAddToCart()
             }}
-          />
+          >
+            Add to cart
+          </Button>
         </div>
       </div>
     </div>

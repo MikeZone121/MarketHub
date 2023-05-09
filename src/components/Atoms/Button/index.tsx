@@ -23,12 +23,13 @@ const Button = forwardRef(function Button(props: ButtonProps, ref: Ref<HTMLButto
     iconPosition = PositionEnum.LEFT,
     iconClassName,
     iconSize = "1x",
-    variant = BtnVariantEnum.INVERT
+    variant = BtnVariantEnum.INVERT,
+    children
   } = props
   const buttonClassnames = clsx(
     isFullWidth && "tw-w-full",
     isDisabled && "tw-opacity-50 tw-cursor-not-allowed tw-pointer-events-none",
-    (!icon || (icon && text)) &&
+    (!icon || (icon && (text || children))) &&
       "tw-flex tw-bg-primary tw-px-4 tw-py-2 tw-rounded-sm tw-items-center tw-justify-center tw-transition-all tw-duration-200 tw-ease-out active:tw-scale-90 hover:tw-shadow-md"
   )
   const positionClassnames = clsx(positionClassnamesMap[iconPosition])
@@ -55,10 +56,10 @@ const Button = forwardRef(function Button(props: ButtonProps, ref: Ref<HTMLButto
         <span
           className={clsx(
             isLoading && "tw-animate-spin",
-            iconPosition === PositionEnum.LEFT && text && "tw-mr-2",
-            iconPosition === PositionEnum.RIGHT && text && "tw-ml-2",
-            iconPosition === PositionEnum.TOP && text && "tw-mb-1",
-            iconPosition === PositionEnum.BOTTOM && text && "tw-mt-1",
+            iconPosition === PositionEnum.LEFT && (text || children) && "tw-mr-2",
+            iconPosition === PositionEnum.RIGHT && (text || children) && "tw-ml-2",
+            iconPosition === PositionEnum.TOP && (text || children) && "tw-mb-1",
+            iconPosition === PositionEnum.BOTTOM && (text || children) && "tw-mt-1",
             variant === BtnVariantEnum.TEXTICON &&
               "tw-flex tw-h-5 tw-w-5 tw-items-center tw-justify-center tw-rounded-full tw-p-1 tw-text-gray-500 tw-transition-all tw-duration-200 tw-ease-out hover:tw-text-black",
             iconClassName
@@ -68,7 +69,7 @@ const Button = forwardRef(function Button(props: ButtonProps, ref: Ref<HTMLButto
           {!isLoading && icon && <FontAwesomeIcon icon={icon} size={iconSize} />}
         </span>
       )}
-      <span>{text}</span>
+      <span>{text ?? children}</span>
     </button>
   )
 })
