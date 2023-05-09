@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink, useNavigate } from "react-router-dom"
-import { faCartShopping, faCheck, faHeart, faTrash, faUserLock } from "@fortawesome/free-solid-svg-icons"
+import { faBasketShopping, faCheck, faHeart, faTrash, faUserLock } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 
@@ -43,8 +43,8 @@ function Cart() {
         cart.cartTotalQuantity === 0 && "tw-items-center tw-justify-center"
       )}
     >
-      <div className="tw-mb-4 tw-flex tw-items-center tw-justify-center tw-space-x-4">
-        <FontAwesomeIcon icon={faCartShopping} className="tw-text-left tw-text-2xl tw-text-primary" />
+      <div className="tw-mt-8 tw-flex tw-items-center tw-justify-center tw-space-x-4">
+        <FontAwesomeIcon icon={faBasketShopping} className="tw-text-left tw-text-2xl tw-text-primary" />
         <Title size={TitleSizeEnum.H3} text="Shopping Cart" />
       </div>
       {cart.cartTotalQuantity === 0 ? (
@@ -64,7 +64,7 @@ function Cart() {
         </div>
       ) : (
         <div className="tw-mt-8 tw-flex tw-w-full tw-flex-col tw-gap-6 lg:tw-flex-row">
-          <div>
+          <div className="lg:tw-flex-grow">
             {/* <div className="tw-hidden tw-grid-cols-[3fr_1fr_1fr_1fr] tw-gap-4 tw-rounded-lg tw-bg-gray-100 tw-p-4 md:tw-grid">
               <Title size={TitleSizeEnum.H6} className="!tw-text-black" text="Product" />
               <Title size={TitleSizeEnum.H6} className="!tw-text-black" text="Price" />
@@ -74,20 +74,20 @@ function Cart() {
             <div className="tw-flex tw-flex-col tw-gap-6">
               {cart.cartItems?.map((cartItem: CartItem) => (
                 <div
-                  className="tw-relative tw-grid tw-grid-cols-2 tw-items-center tw-gap-4 tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-4 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out md:tw-grid-cols-[3fr_1fr_1fr_1fr]"
+                  className="tw-group tw-relative tw-grid tw-grid-cols-2 tw-items-center tw-gap-4 tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-4 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out md:tw-grid-cols-[3fr_1fr_1fr_1fr]"
                   key={cartItem.id}
                 >
-                  <div className="tw-col-span-2 tw-flex tw-flex-col tw-items-center tw-gap-6 md:tw-col-span-1 md:tw-flex-row md:tw-gap-0">
+                  <div className="tw-col-span-2 tw-flex tw-flex-col tw-items-center tw-gap-4 md:tw-col-span-1 md:tw-flex-row">
                     <img
-                      className="tw-mr-8 tw-object-cover"
-                      width="150"
+                      className="tw-object-cover tw-transition-all tw-duration-200 group-hover:tw-scale-105"
+                      width="100"
                       src={cartItem.images[0].url}
                       alt={cartItem.name}
                     />
                     <div>
                       <NavLink to={`/shop/${cartItem.slug ?? ""}`} className="tw-pointer hover:tw-underline">
-                        <Title size={TitleSizeEnum.H5} className="!tw-text-black" text={cartItem.name} />
-                        <Text variant={TextVariantEnum.NORMAL} text={cartItem.description} />
+                        <Title size={TitleSizeEnum.H6} className="!tw-text-black" text={cartItem.name} />
+                        <Text variant={TextVariantEnum.SMALL} text={cartItem.description} />
                       </NavLink>
                     </div>
                   </div>
@@ -107,15 +107,15 @@ function Cart() {
                       />
                     )}
                   </div> */}
-                  <div className="tw-flex tw-w-full tw-max-w-full tw-items-center tw-justify-center tw-rounded tw-border tw-border-gray-200 tw-bg-white">
+                  <div className="tw-flex tw-w-3/4 tw-max-w-full tw-items-center  tw-justify-center tw-rounded tw-border tw-border-gray-200 tw-bg-white">
                     <Button
                       onClick={() => handleDecreaseCart(cartItem)}
                       text={cartItem.cartQuantity <= 1 ? "" : "-"}
                       icon={cartItem.cartQuantity <= 1 ? faTrash : undefined}
                       variant={BtnVariantEnum.FULL}
                       className={clsx(
-                        "tw-w-full !tw-border-none !tw-bg-transparent tw-p-4 tw-text-xl !tw-text-black hover:!tw-shadow-none",
-                        cartItem.cartQuantity <= 1 && " !tw-text-lg !tw-text-primary"
+                        "tw-w-full !tw-border-none !tw-bg-transparent !tw-p-2 tw-text-xl !tw-text-black hover:!tw-shadow-none",
+                        cartItem.cartQuantity <= 1 && "!tw-text-lg !tw-text-primary"
                       )}
                     />
                     <div>{cartItem.cartQuantity}</div>
@@ -123,15 +123,16 @@ function Cart() {
                       onClick={() => handleIncreaseCart(cartItem)}
                       text="+"
                       variant={BtnVariantEnum.FULL}
-                      className="tw-w-full !tw-border-none !tw-bg-transparent !tw-p-4 !tw-text-xl !tw-text-black hover:!tw-shadow-none"
+                      className="tw-w-full !tw-border-none !tw-bg-transparent !tw-p-2 !tw-text-xl !tw-text-black hover:!tw-shadow-none"
                     />
                   </div>
+
                   <Button
                     variant={BtnVariantEnum.TEXTICON}
                     icon={faHeart}
-                    onClick={(onclick = () => console.log("clicked"))}
-                    iconClassName="tw-text-2xl md:tw-text-xl !tw-text-gray-200 hover:!tw-text-primary"
-                    className="tw-absolute tw-right-4 tw-top-4 tw-w-fit"
+                    onClick={() => console.log("bla")}
+                    className="tw-absolute tw-right-4 tw-top-4 tw-w-fit tw-rounded-full tw-bg-white tw-p-1 tw-shadow-md"
+                    iconClassName="tw-text-lg !tw-text-gray-300 hover:!tw-text-primary "
                   />
                   <div className="tw-flex tw-items-center tw-justify-end">
                     <Title
