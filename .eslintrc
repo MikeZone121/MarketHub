@@ -88,7 +88,8 @@
     "@typescript-eslint/no-unsafe-assignment": "off",
     "@typescript-eslint/no-unsafe-return": "off",
     "@typescript-eslint/no-unsafe-member-access": "off",
-    " @typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/restrict-template-expressions": "off",
     "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/ban-types": [
       "error",
