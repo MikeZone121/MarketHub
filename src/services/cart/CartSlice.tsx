@@ -2,8 +2,8 @@
 import { toast } from "react-toastify"
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
+import Undo from "../../components/Atoms/Notification"
 import { toastConfig } from "../../config/Toast"
-import Undo from "../../config/Undo"
 import { initialCartState, ProductModel } from "../types"
 
 const CartSlice = createSlice({

@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux"
 import { toast } from "react-toastify"
 
-import { addToCart } from "../services/cart/CartSlice"
-import { ProductModel } from "../services/types"
+import { addToCart } from "../../../services/cart/CartSlice"
+import { ProductModel } from "../../../services/types"
 
 function Undo({ message, product, toastId }: { message: string; product: ProductModel; toastId: string }) {
   const dispatch = useDispatch()
