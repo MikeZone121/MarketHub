@@ -62,7 +62,7 @@ function Card({ product }: { product: ProductModel }) {
         </div>
       </div>
       <div className="tw-mt-2 tw-grid tw-gap-4 2xl:tw-mt-4">
-        <div className="tw-flex tw-flex-col tw-items-start tw-justify-center tw-gap-4 tw-text-gray-900 md:tw-justify-between xl:tw-flex-col 2xl:tw-flex-row 2xl:tw-space-y-0">
+        <div className="tw-flex tw-flex-row tw-items-center tw-justify-between tw-gap-4 tw-text-gray-900 xl:tw-flex-col 2xl:tw-flex-row 2xl:tw-space-y-0">
           <Text
             variant={TextVariantEnum.NORMAL}
             className={clsx(
@@ -78,13 +78,13 @@ function Card({ product }: { product: ProductModel }) {
           <Button
             variant={BtnVariantEnum.FULL}
             icon={faBasketShopping}
-            isFullWidth
             onClick={(e: MouseEvent<HTMLButtonElement>) => {
               e.stopPropagation()
               handleAddToCart()
             }}
+            iconClassName="!tw-mr-0 md:!tw-mr-2"
           >
-            Add to cart
+            <span className="tw-hidden md:tw-flex">Add to cart</span>
           </Button>
         </div>
       </div>
