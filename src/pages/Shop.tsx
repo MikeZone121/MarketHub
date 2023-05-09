@@ -1,4 +1,4 @@
-import ProductGrid from "../components/ProductGrid"
+import ProductGrid from "../components/Organisms/ProductGrid"
 import { useGetAllProductsQuery } from "../services/products"
 
 function Shop() {

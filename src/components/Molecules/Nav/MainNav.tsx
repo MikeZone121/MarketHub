@@ -25,7 +25,7 @@ function MainNav() {
           to="/"
           className="md:block tw-hidden md:tw-flex md:tw-items-center md:tw-text-2xl md:tw-font-bold md:tw-text-primary"
         >
-          <img src="images/branding/logo.svg" className="tw-w-16" />
+          <img src="/images/branding/logo.svg" className="tw-w-16" />
           <Title size={TitleSizeEnum.H5} className="tw-font-semibold !tw-text-gray-800" text="MarketHub" />
         </NavLink>
         <ul className="tw-hidden md:tw-flex md:tw-justify-end md:tw-space-x-6 md:tw-p-3 md:tw-text-black">

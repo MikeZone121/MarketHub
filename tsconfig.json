@@ -17,6 +17,6 @@
     "jsx": "react-jsx",
     "useUnknownInCatchVariables": false
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "src/custom.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
