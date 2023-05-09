@@ -57,7 +57,7 @@ function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: b
             onClick={() => navigate(`/shop/${products?.[0].slug ?? ""} `)}
             className={clsx(
               isLoading && "tw-h-full tw-animate-pulse tw-bg-gray-200",
-              "tw-group tw-flex tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-center tw-gap-2 tw-rounded-lg tw-border tw-border-gray-100 tw-px-10 tw-py-6 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-bg-gray-100 hover:tw-shadow-sm md:tw-w-2/3 lg:active:tw-scale-90 xl:tw-flex-row"
+              "tw-group tw-flex tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-center tw-gap-2 tw-rounded-lg tw-border tw-border-gray-100 tw-px-10 tw-py-6 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out  hover:tw-shadow-sm md:tw-w-2/3 lg:active:tw-scale-90 xl:tw-flex-row"
             )}
           >
             {products && (
@@ -66,11 +66,11 @@ function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: b
                   <Text
                     text={products?.[0].categories?.[0].name}
                     variant={TextVariantEnum.SMALL}
-                    className="tw-font-extralight tw-uppercase tw-tracking-widest"
+                    className="tw-font-extralight tw-uppercase tw-tracking-widest tw-text-gray-400"
                   />
-                  <Title text={products?.[0].name} size={TitleSizeEnum.H3} />
+                  <Title text={products?.[0].name} size={TitleSizeEnum.H4} className="!tw-text-gray-600" />
                   <Text text={products?.[0].description} variant={TextVariantEnum.QUOTE} className="tw-mt-2" />
-                  <p className="tw-mt-2 tw-flex tw-items-center tw-gap-2 tw-whitespace-nowrap tw-text-3xl tw-font-bold tw-text-primary">
+                  <p className="tw-mt-2 tw-flex tw-items-center tw-gap-2 tw-whitespace-nowrap tw-text-xl tw-font-bold tw-text-primary">
                     € {products?.[0].salePrice ? products?.[0].salePrice : products?.[0].price}
                     {products?.[0].salePrice && (
                       <span className="tw-text-sm tw-font-semibold tw-text-gray-600 tw-line-through">
@@ -104,28 +104,26 @@ function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: b
               onClick={() => navigate(`/shop/${products?.[1].slug ?? ""} `)}
               className={clsx(
                 isLoading && "tw-h-56 tw-animate-pulse tw-bg-gray-200",
-                "tw-group tw-flex tw-h-full tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-between tw-gap-2 tw-rounded-lg  tw-border tw-border-gray-100 tw-px-10 tw-py-6 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-bg-gray-100 hover:tw-shadow-sm lg:tw-flex-row lg:tw-items-stretch lg:active:tw-scale-90"
+                "hover:tw-bg-gray-00 tw-group tw-flex tw-h-full tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-between tw-gap-2  tw-rounded-lg tw-border tw-border-gray-100 tw-px-10 tw-py-6 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-shadow-sm lg:tw-flex-row lg:tw-items-stretch lg:active:tw-scale-90"
               )}
             >
               {products && (
                 <>
                   <div className="tw-flex tw-flex-col tw-justify-center">
-                    <Title text={products?.[1].name} size={TitleSizeEnum.H3} />
-                    <div className="tw-mt-4">
-                      <Text
-                        text={products?.[1].categories?.[0].name}
-                        variant={TextVariantEnum.SMALL}
-                        className="tw-font-extralight tw-uppercase tw-tracking-widest"
-                      />
-                      <p className="tw-flex tw-items-center tw-gap-2 tw-whitespace-nowrap tw-text-3xl tw-font-bold tw-text-primary">
-                        € {products?.[1].salePrice ? products?.[1].salePrice : products?.[1].price}
-                        {products?.[1].salePrice && (
-                          <span className="tw-text-sm tw-font-semibold tw-text-gray-600 tw-line-through">
-                            € {products?.[1].price}
-                          </span>
-                        )}
-                      </p>
-                    </div>
+                    <Text
+                      text={products?.[1].categories?.[0].name}
+                      variant={TextVariantEnum.SMALL}
+                      className="tw-font-extralight tw-uppercase tw-tracking-widest tw-text-gray-400"
+                    />
+                    <Title text={products?.[1].name} size={TitleSizeEnum.H4} className="!tw-text-gray-600" />
+                    <p className="tw-mt-2 tw-flex tw-items-center tw-gap-2 tw-whitespace-nowrap tw-text-xl tw-font-bold tw-text-primary">
+                      € {products?.[1].salePrice ? products?.[1].salePrice : products?.[1].price}
+                      {products?.[1].salePrice && (
+                        <span className="tw-text-sm tw-font-semibold tw-text-gray-600 tw-line-through">
+                          € {products?.[1].price}
+                        </span>
+                      )}
+                    </p>
                   </div>
                   <div className="tw-mt-4 tw-flex  tw-w-1/2 tw-max-w-xs tw-justify-center lg:tw-mt-0">
                     <img
@@ -144,28 +142,26 @@ function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: b
               onClick={() => navigate(`/shop/${products?.[2].slug ?? ""} `)}
               className={clsx(
                 isLoading && "tw-h-56 tw-animate-pulse tw-bg-gray-200",
-                "tw-gap-2tw-rounded-lg tw-group tw-flex tw-h-full tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-between tw-rounded-lg tw-border  tw-border-gray-100 tw-px-10 tw-py-6 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-bg-gray-100 hover:tw-shadow-sm lg:tw-flex-row lg:tw-items-stretch lg:active:tw-scale-90"
+                "tw-group tw-flex tw-h-full tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-between tw-gap-2 tw-rounded-lg tw-border tw-border-gray-100  tw-px-10 tw-py-6 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out  hover:tw-shadow-sm lg:tw-flex-row lg:tw-items-stretch lg:active:tw-scale-90"
               )}
             >
               {products && (
                 <>
                   <div className="tw-flex tw-flex-col tw-justify-center">
-                    <Title text={products?.[2].name} size={TitleSizeEnum.H3} />
-                    <div className="tw-mt-4">
-                      <Text
-                        text={products?.[2].categories?.[0].name}
-                        variant={TextVariantEnum.SMALL}
-                        className="tw-font-extralight tw-uppercase tw-tracking-widest"
-                      />
-                      <p className="tw-flex tw-items-center tw-gap-2 tw-whitespace-nowrap tw-text-3xl tw-font-bold tw-text-primary">
-                        € {products?.[2].salePrice ? products?.[2].salePrice : products?.[2].price}
-                        {products?.[2].salePrice && (
-                          <span className="tw-text-sm tw-font-semibold tw-text-gray-600 tw-line-through">
-                            € {products?.[2].price}
-                          </span>
-                        )}
-                      </p>
-                    </div>
+                    <Text
+                      text={products?.[2].categories?.[0].name}
+                      variant={TextVariantEnum.SMALL}
+                      className="tw-font-extralight tw-uppercase tw-tracking-widest tw-text-gray-400"
+                    />
+                    <Title text={products?.[2].name} size={TitleSizeEnum.H4} className="!tw-text-gray-600" />
+                    <p className="tw-mt-2 tw-flex tw-items-center tw-gap-2 tw-whitespace-nowrap tw-text-xl tw-font-bold tw-text-primary">
+                      € {products?.[2].salePrice ? products?.[2].salePrice : products?.[2].price}
+                      {products?.[2].salePrice && (
+                        <span className="tw-text-sm tw-font-semibold tw-text-gray-600 tw-line-through">
+                          € {products?.[2].price}
+                        </span>
+                      )}
+                    </p>
                   </div>
                   <div className="tw-mt-4 tw-flex  tw-w-1/2 tw-max-w-xs tw-justify-center lg:tw-mt-0">
                     <img
