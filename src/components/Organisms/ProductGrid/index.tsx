@@ -1,9 +1,23 @@
+import clsx from "clsx"
+
 import { ProductModel } from "../../../services/types"
 import Card from "../../Molecules/Card"
 
-function ProductGrid({ products, isLoading }: { products?: ProductModel[]; isLoading: boolean }) {
+function ProductGrid({
+  products,
+  isLoading,
+  columns = 4
+}: {
+  products?: ProductModel[]
+  isLoading: boolean
+  columns?: number
+}) {
   return (
-    <div className="tw-m-auto tw-mx-auto tw-my-4 tw-grid tw-w-full tw-grid-cols-2 tw-place-items-center tw-items-stretch tw-justify-items-center tw-gap-4 md:tw-auto-cols-min md:tw-gap-6 lg:tw-grid-cols-3 2xl:tw-grid-cols-4">
+    <div
+      className={clsx(
+        `tw-m-auto tw-mx-auto tw-grid tw-w-full tw-grid-cols-2 tw-place-items-center tw-items-stretch tw-justify-items-center tw-gap-4 md:tw-auto-cols-min md:tw-gap-6 lg:tw-grid-cols-3 2xl:tw-grid-cols-${columns}`
+      )}
+    >
       {isLoading
         ? [...Array(4)]?.map((value, index) => (
             <div

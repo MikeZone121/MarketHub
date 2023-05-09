@@ -2,8 +2,16 @@ import { createApi } from "@reduxjs/toolkit/query/react"
 import { graphqlRequestBaseQuery } from "@rtk-query/graphql-request-base-query"
 import gql from "graphql-tag"
 
-import { ProductsModel } from "./types"
+import { CategoryModel, ProductsModel } from "./types"
 
+const categoryQuery = () => gql`
+  query Category {
+    categories {
+      id
+      name
+    }
+  }
+`
 const productsQuery = (first: number) => gql`
   query Products {
     products(first: ${first}) {
@@ -54,6 +62,9 @@ export const productsApi = createApi({
     url: import.meta.env.VITE_API_URL
   }),
   endpoints: builder => ({
+    getAllCategories: builder.query<CategoryModel, void>({
+      query: () => ({ document: categoryQuery() })
+    }),
     getAllProducts: builder.query<ProductsModel, number>({
       query: (first: number) => ({ document: productsQuery(first) })
     }),
@@ -63,4 +74,4 @@ export const productsApi = createApi({
   })
 })
 
-export const { useGetAllProductsQuery, useGetProductBySlugQuery } = productsApi
+export const { useGetAllProductsQuery, useGetProductBySlugQuery, useGetAllCategoriesQuery } = productsApi
