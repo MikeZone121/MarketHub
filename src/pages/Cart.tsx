@@ -43,7 +43,7 @@ function Cart() {
         cart.cartTotalQuantity === 0 && "tw-items-center tw-justify-center"
       )}
     >
-      <div className=" tw-mb-4 tw-flex tw-items-center tw-justify-center tw-space-x-4">
+      <div className="tw-mb-4 tw-flex tw-items-center tw-justify-center tw-space-x-4">
         <FontAwesomeIcon icon={faCartShopping} className="tw-text-left tw-text-2xl tw-text-primary" />
         <Title size={TitleSizeEnum.H2} text="Shopping Cart" />
       </div>
@@ -63,18 +63,18 @@ function Cart() {
           />
         </div>
       ) : (
-        <div className="tw-mt-12 tw-flex tw-w-full tw-flex-col md:tw-flex-row">
-          <div className="tw-mr-8 tw-w-full md:tw-w-3/4">
-            <div className="tw-hidden tw-grid-cols-[3fr_1fr_1fr_1fr] tw-gap-4 tw-rounded-lg tw-bg-gray-100 tw-p-4 md:tw-grid">
+        <div className="tw-mt-8 tw-flex tw-w-full tw-flex-col tw-gap-6 md:tw-flex-row">
+          <div>
+            {/* <div className="tw-hidden tw-grid-cols-[3fr_1fr_1fr_1fr] tw-gap-4 tw-rounded-lg tw-bg-gray-100 tw-p-4 md:tw-grid">
               <Title size={TitleSizeEnum.H6} className="!tw-text-black" text="Product" />
               <Title size={TitleSizeEnum.H6} className="!tw-text-black" text="Price" />
               <Title size={TitleSizeEnum.H6} className="!tw-text-black" text={`Quantity (${cart.cartTotalQuantity})`} />
               <Title size={TitleSizeEnum.H6} className="tw-text-right !tw-text-black" text="Total" />
-            </div>
-            <div>
+            </div> */}
+            <div className="tw-flex tw-flex-col tw-gap-6">
               {cart.cartItems?.map((cartItem: CartItem) => (
                 <div
-                  className="tw-mt-8 tw-grid tw-grid-cols-2 tw-items-center tw-gap-4 tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-4 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out md:tw-grid-cols-[3fr_1fr_1fr_1fr]"
+                  className="tw-grid tw-grid-cols-2 tw-items-center tw-gap-4 tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-4 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out md:tw-grid-cols-[3fr_1fr_1fr_1fr]"
                   key={cartItem.id}
                 >
                   <div className="tw-col-span-2 tw-flex tw-items-center md:tw-col-span-1">
@@ -91,7 +91,7 @@ function Cart() {
                       </NavLink>
                     </div>
                   </div>
-                  <div className="tw-hidden md:tw-block">
+                  {/*  <div className="tw-hidden md:tw-block">
                     {cartItem.salePrice ? (
                       <>
                         <Title size={TitleSizeEnum.H5} className="!tw-font-normal" text={`€ ${cartItem.salePrice}`} />
@@ -106,7 +106,7 @@ function Cart() {
                         text={`€ ${cartItem.price}`}
                       />
                     )}
-                  </div>
+                  </div> */}
                   <div className="tw-flex tw-w-full tw-max-w-full tw-items-center tw-justify-center tw-rounded tw-border tw-border-gray-200 tw-bg-white">
                     <Button
                       onClick={() => handleDecreaseCart(cartItem)}
@@ -141,24 +141,23 @@ function Cart() {
               ))}
             </div>
           </div>
-          <div className="tw-w-full md:tw-w-1/4">
-            <div className="block tw-top-12 tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-8 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out md:tw-sticky">
+          <div className="tw-w-full tw-max-w-[24%]">
+            <div className="block tw-top-12 tw-w-full tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-8 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out md:tw-sticky">
               <Title size={TitleSizeEnum.H4} className="tw-pb-8 !tw-text-black" text="Delivery and service" />
               <div className="tw-pb-12">
-                <div className="tw-flex">
+                <div className="tw-mb-2 tw-flex">
                   <FontAwesomeIcon icon={faCheck} className="tw-mr-2 tw-text-left tw-text-lg tw-text-primary" />
                   <Text variant={TextVariantEnum.SMALL} text="Ordered before 23:59, delivered tomorrow" className="" />
                 </div>
-                <div className="tw-flex">
+                <div className="tw-mb-2 tw-flex">
                   <FontAwesomeIcon icon={faCheck} className="tw-mr-2 tw-text-left tw-text-lg tw-text-primary" />
                   <Text
                     variant={TextVariantEnum.SMALL}
-                    text="Choose the day or the time that
-                suits you."
+                    text="Choose the day or the time that suits you."
                     className=""
                   />
                 </div>
-                <div className="tw-flex">
+                <div className="tw-mb-2 tw-flex">
                   <FontAwesomeIcon icon={faCheck} className="tw-mr-2 tw-text-left tw-text-lg tw-text-primary" />
                   <Text
                     variant={TextVariantEnum.SMALL}
@@ -207,7 +206,7 @@ function Cart() {
           </div>
         </div>
       )}
-      <section className="tw-my-20">
+      <section className="tw-m-auto tw-flex tw-w-full tw-flex-col tw-justify-center">
         <Title size={TitleSizeEnum.H4} text="Popular items" className="!tw-font-bold !tw-text-gray-700" />
         <ProductGrid products={data?.products} isLoading={isLoading} />
       </section>
