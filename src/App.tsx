@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom"
 
+import ScrollToTop from "./components/Atoms/ScrollToTop"
 import Footer from "./components/Footer"
 import Nav from "./components/Molecules/Nav"
 import Maintenance from "./pages/Maintenance"
@@ -10,6 +11,7 @@ function App() {
   } else {
     return (
       <div className="App tw-relative">
+        <ScrollToTop />
         <Nav />
         <Outlet />
         <Footer />

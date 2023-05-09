@@ -79,7 +79,7 @@ const Footer = () => {
         <div className="tw-flex-1">
           <div className="tw-max-w-xs">
             <div className="tw-flex tw-items-center">
-              <img src="images/branding/logo.svg" className="tw-w-24" />
+              <img src="/images/branding/logo.svg" className="tw-w-24" />
               <Title text="MarketHub" className="!tw-text-black" size={TitleSizeEnum.H3} />
             </div>
             <p className="tw-mt-2 tw-text-[15px] tw-leading-relaxed">Shop everything in our market.</p>
