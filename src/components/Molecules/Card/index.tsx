@@ -23,7 +23,7 @@ function Card({ product }: { product: ProductModel }) {
   return (
     <div
       className="tw-card tw-group tw-flex tw-h-full tw-cursor-pointer tw-flex-col tw-justify-between tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-10 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-bg-gray-200"
-      onClick={() => navigate(`/shop/${slug ?? ""} `)}
+      onClick={() => navigate(`/shop/${slug ?? ""}`, { state: { product } })}
       id={`product-${id}`}
     >
       <div>
