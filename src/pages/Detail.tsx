@@ -15,8 +15,18 @@ import { useGetAllProductsQuery, useGetProductBySlugQuery } from "../services/pr
 import { ProductCategory, ProductImage } from "../services/types"
 
 function Detail() {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const { slug } = useParams()
-
+  const { data, isLoading } = useGetProductBySlugQuery(slug ?? "")
+  const productsQuery = useGetAllProductsQuery(4)
+  const product = data?.products?.[0]
+  const handleAddToCart = () => {
+    if (product) {
+      dispatch(addToCart(product))
+      navigate("/cart")
+    }
+  }
   return (
     <article className="tw-mx-auto tw-my-10 tw-flex tw-w-11/12 tw-max-w-screen-2xl tw-flex-col tw-justify-center">
       <div>

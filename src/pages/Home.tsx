@@ -1,6 +1,6 @@
 import Title from "../components/Atoms/Title"
 import { TitleSizeEnum } from "../components/Atoms/Title/types"
-import Hero from "../components/Hero"
+import Hero from "../components/Organisms/Hero"
 import ProductGrid from "../components/Organisms/ProductGrid"
 import { useGetAllProductsQuery } from "../services/products"
 

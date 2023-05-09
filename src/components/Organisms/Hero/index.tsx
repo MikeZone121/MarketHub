@@ -1,14 +1,14 @@
 import { useNavigate } from "react-router-dom"
 import clsx from "clsx"
 
-import { ProductModel } from "../../services/types"
-import Button from "../Atoms/Button"
-import { BtnVariantEnum } from "../Atoms/Button/types"
-import Hyperlink from "../Atoms/HyperLink"
-import Text from "../Atoms/Text"
-import { TextVariantEnum } from "../Atoms/Text/types"
-import Title from "../Atoms/Title"
-import { TitleSizeEnum } from "../Atoms/Title/types"
+import { ProductModel } from "../../../services/types"
+import Button from "../../Atoms/Button"
+import { BtnVariantEnum } from "../../Atoms/Button/types"
+import Hyperlink from "../../Atoms/HyperLink"
+import Text from "../../Atoms/Text"
+import { TextVariantEnum } from "../../Atoms/Text/types"
+import Title from "../../Atoms/Title"
+import { TitleSizeEnum } from "../../Atoms/Title/types"
 
 function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: boolean }) {
   const navigate = useNavigate()

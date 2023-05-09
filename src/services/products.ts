@@ -26,6 +26,28 @@ const productsQuery = (first: number) => gql`
     }
   }
 `
+const productQuery = (slug: string) => gql`
+  query Products {
+    products(where: { slug: "${slug}" }) {
+      createdAt
+      name
+      id
+      price
+      description
+      slug
+      salePrice
+      images {
+        id
+        url
+        fileName
+      }
+      categories {
+        id
+        name
+      }
+    }
+  }
+`
 export const productsApi = createApi({
   reducerPath: "productsApi",
   baseQuery: graphqlRequestBaseQuery({
@@ -34,8 +56,11 @@ export const productsApi = createApi({
   endpoints: builder => ({
     getAllProducts: builder.query<ProductsModel, number>({
       query: (first: number) => ({ document: productsQuery(first) })
+    }),
+    getProductBySlug: builder.query<ProductsModel, string>({
+      query: (slug: string) => ({ document: productQuery(slug) })
     })
   })
 })
 
-export const { useGetAllProductsQuery } = productsApi
+export const { useGetAllProductsQuery, useGetProductBySlugQuery } = productsApi
