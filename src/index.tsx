@@ -14,8 +14,8 @@ const router = createBrowserRouter([...routes])
 
 createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <ToastContainer limit={3} />
     <Provider store={store}>
+      <ToastContainer />
       <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>

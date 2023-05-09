@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink, useNavigate } from "react-router-dom"
-import { faCartShopping, faCheck, faHeart, faTrash } from "@fortawesome/free-solid-svg-icons"
+import { faCartShopping, faCheck, faHeart, faTrash, faUserLock } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 
@@ -45,7 +45,7 @@ function Cart() {
     >
       <div className="tw-mb-4 tw-flex tw-items-center tw-justify-center tw-space-x-4">
         <FontAwesomeIcon icon={faCartShopping} className="tw-text-left tw-text-2xl tw-text-primary" />
-        <Title size={TitleSizeEnum.H2} text="Shopping Cart" />
+        <Title size={TitleSizeEnum.H3} text="Shopping Cart" />
       </div>
       {cart.cartTotalQuantity === 0 ? (
         <div className="tw-flex tw-flex-col tw-items-center">
@@ -63,7 +63,7 @@ function Cart() {
           />
         </div>
       ) : (
-        <div className="tw-mt-8 tw-flex tw-w-full tw-flex-col tw-gap-6 md:tw-flex-row">
+        <div className="tw-mt-8 tw-flex tw-w-full tw-flex-col tw-gap-6 lg:tw-flex-row">
           <div>
             {/* <div className="tw-hidden tw-grid-cols-[3fr_1fr_1fr_1fr] tw-gap-4 tw-rounded-lg tw-bg-gray-100 tw-p-4 md:tw-grid">
               <Title size={TitleSizeEnum.H6} className="!tw-text-black" text="Product" />
@@ -74,10 +74,10 @@ function Cart() {
             <div className="tw-flex tw-flex-col tw-gap-6">
               {cart.cartItems?.map((cartItem: CartItem) => (
                 <div
-                  className="tw-grid tw-grid-cols-2 tw-items-center tw-gap-4 tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-4 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out md:tw-grid-cols-[3fr_1fr_1fr_1fr]"
+                  className="tw-relative tw-grid tw-grid-cols-2 tw-items-center tw-gap-4 tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-4 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out md:tw-grid-cols-[3fr_1fr_1fr_1fr]"
                   key={cartItem.id}
                 >
-                  <div className="tw-col-span-2 tw-flex tw-items-center md:tw-col-span-1">
+                  <div className="tw-col-span-2 tw-flex tw-flex-col tw-items-center tw-gap-6 md:tw-col-span-1 md:tw-flex-row md:tw-gap-0">
                     <img
                       className="tw-mr-8 tw-object-cover"
                       width="150"
@@ -130,8 +130,8 @@ function Cart() {
                     variant={BtnVariantEnum.TEXTICON}
                     icon={faHeart}
                     onClick={(onclick = () => console.log("clicked"))}
-                    iconClassName="tw-text-xl !tw-text-gray-200 hover:!tw-text-primary"
-                    className="tw-w-fit"
+                    iconClassName="tw-text-2xl md:tw-text-xl !tw-text-gray-200 hover:!tw-text-primary"
+                    className="tw-absolute tw-right-4 tw-top-4 tw-w-fit"
                   />
                   <div className="tw-flex tw-items-center tw-justify-end">
                     <Title
@@ -148,7 +148,7 @@ function Cart() {
               ))}
             </div>
           </div>
-          <div className="tw-w-full tw-max-w-[24%]">
+          <div className="tw-w-full lg:tw-max-w-[24%]">
             <div className="block tw-top-12 tw-w-full tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-8 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out md:tw-sticky">
               <Title size={TitleSizeEnum.H4} className="tw-pb-8 !tw-text-black" text="Delivery and service" />
               <div className="tw-pb-12">
@@ -183,37 +183,41 @@ function Cart() {
                   <Title size={TitleSizeEnum.H6} className="!tw-text-black" text={`€ ${cart.cartTotalAmount}`} />
                 </div>
                 <Text variant={TextVariantEnum.SMALL} text="(Including VAT and recupel)" className="tw-text-gray-400" />
-                <Button
-                  onClick={() => navigate(`/`)}
-                  text="CONTINUE"
-                  variant={BtnVariantEnum.FULL}
-                  className="tw-border-lg tw-mb-1 tw-mt-6 tw-w-full"
-                />
+                <div className="tw-fixed tw-bottom-0 tw-left-0 tw-z-20 tw-m-auto tw-w-full tw-border-0 tw-bg-white tw-p-4 md:tw-static md:tw-mt-6 md:tw-p-0">
+                  <Button
+                    onClick={() => navigate(`/`)}
+                    text="I'm ready to order"
+                    variant={BtnVariantEnum.FULL}
+                    icon={faUserLock}
+                    isFullWidth
+                  />
+                </div>
                 <NavLink
                   to="/"
                   className="tw-text-sm tw-text-gray-500 tw-underline tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-text-black"
                 >
                   Continue Shopping
                 </NavLink>
-              </div>
-              <div className="tw-mt-8 tw-border-t tw-border-gray-100">
-                <div className="tw-flex tw-flex-row tw-items-center tw-justify-center tw-space-x-4">
-                  <Bancontact />
-                  <Mastercard />
-                  <Visa />
-                  <AmericanExpress />
+
+                <div className="tw-mt-8 tw-border-t tw-border-gray-100">
+                  <div className="tw-flex tw-flex-row tw-items-center tw-justify-center tw-space-x-4">
+                    <Bancontact />
+                    <Mastercard />
+                    <Visa />
+                    <AmericanExpress />
+                  </div>
+                  <Text
+                    variant={TextVariantEnum.SMALL}
+                    text="Or choose convenience with 'Pay afterwards'"
+                    className="tw-text-center"
+                  />
                 </div>
-                <Text
-                  variant={TextVariantEnum.SMALL}
-                  text="Or choose convenience with 'Pay afterwards'"
-                  className="tw-text-center"
-                />
               </div>
             </div>
           </div>
         </div>
       )}
-      <section className="tw-m-auto tw-flex tw-w-full tw-flex-col tw-justify-center">
+      <section className="tw-m-auto tw-mt-12 tw-flex tw-w-full tw-flex-col tw-justify-center">
         <Title size={TitleSizeEnum.H4} text="Popular items" className="!tw-font-bold !tw-text-gray-700" />
         <ProductGrid products={data?.products} isLoading={isLoading} />
       </section>

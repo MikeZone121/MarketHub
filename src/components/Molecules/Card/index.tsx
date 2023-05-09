@@ -35,7 +35,7 @@ function Card({ product }: { product: ProductModel }) {
               onClick={(e: MouseEvent<HTMLButtonElement>) => {
                 e.stopPropagation()
               }}
-              iconClassName="tw-text-2xl hover:!tw-text-primary"
+              iconClassName="tw-text-2xl !tw-text-gray-200 hover:!tw-text-primary"
             />
           </span>
           <img

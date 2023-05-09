@@ -3,3 +3,6 @@
 @tailwind utilities;
 
 
+:root{
+    --toastify-color-error: #D60041;
+}

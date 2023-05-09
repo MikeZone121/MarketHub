@@ -4,7 +4,6 @@ export const toastConfig: ToastOptions = {
   position: "bottom-right",
   autoClose: 4000,
   hideProgressBar: false,
-  closeOnClick: true,
-  draggable: true,
-  theme: "colored"
+  closeOnClick: false,
+  draggable: false
 }
