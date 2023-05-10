@@ -57,8 +57,8 @@ function Wishlist() {
               onClick={() => null}
               variant={BtnVariantEnum.TEXTICON}
               icon={faHeart}
-              className="tw-rounded-full tw-bg-white tw-p-1 tw-shadow-md"
-              iconClassName="tw-text-md tw-text-gray-300 hover:!tw-text-primary"
+              className="tw-rounded-full tw-bg-white tw-p-2 tw-shadow-md active:tw-scale-90"
+              iconClassName="tw-text-lg tw-text-gray-300 hover:!tw-text-primary"
             />
           </div>
           <Button
@@ -84,7 +84,7 @@ function Wishlist() {
         </section>
       )}
       <section className="tw-m-auto tw-mt-12 tw-flex tw-w-full tw-flex-col tw-justify-center">
-        <Title size={TitleSizeEnum.H4} text="Popular items" className="!tw-font-bold !tw-text-gray-700" />
+        <Title size={TitleSizeEnum.H4} text="Popular items" className="tw-mb-6 !tw-font-bold !tw-text-gray-700" />
         <ProductGrid products={data?.products} isLoading={isLoading} />
       </section>
     </section>
