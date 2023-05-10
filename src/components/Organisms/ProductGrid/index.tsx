@@ -1,17 +1,33 @@
+import clsx from "clsx"
+
 import { ProductModel } from "../../../services/types"
 import Card from "../../Molecules/Card"
 
 function ProductGrid({
   products,
   isLoading,
-  hasDescription
+  hasDescription,
+  columns = 4
 }: {
   products?: ProductModel[]
   isLoading: boolean
+  columns?: number
   hasDescription?: boolean
 }) {
+  const columnClassnames = clsx(
+    columns === 5 && "2xl:tw-grid-cols-5",
+    columns === 4 && "2xl:tw-grid-cols-4",
+    columns === 3 && "2xl:tw-grid-cols-3",
+    columns === 2 && "2xl:tw-grid-cols-2",
+    columns === 1 && "2xl:tw-grid-cols-1"
+  )
   return (
-    <div className="tw-m-auto tw-mx-auto tw-my-4 tw-grid tw-w-full tw-grid-cols-2 tw-place-items-center tw-items-stretch tw-justify-items-center tw-gap-4 md:tw-auto-cols-min md:tw-gap-6 lg:tw-grid-cols-3 2xl:tw-grid-cols-4">
+    <div
+      className={clsx(
+        `tw-m-auto tw-mx-auto tw-grid tw-w-full tw-grid-cols-1 tw-place-items-center tw-items-stretch tw-justify-items-center tw-gap-4 sm:tw-grid-cols-2 md:tw-gap-6 xl:tw-grid-cols-3`,
+        columnClassnames
+      )}
+    >
       {isLoading
         ? [...Array(4)]?.map((value, index) => (
             <div

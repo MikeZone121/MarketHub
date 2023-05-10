@@ -19,7 +19,7 @@ function Wishlist() {
   const wishlist = useSelector((state: RootState) => state.wishlistReducer)
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { data, isLoading } = useGetAllProductsQuery(4)
+  const { data, isLoading } = useGetAllProductsQuery({ first: 4 })
 
   useEffect(() => {
     dispatch(getTotals())

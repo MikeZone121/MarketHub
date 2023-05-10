@@ -1,3 +1,12 @@
+export interface FilterModel {
+  first?: number
+  categories?: string[]
+  search?: string
+  orderBy?: "publishedAt_ASC" | "publishedAt_DESC" | string
+  minPrice?: number
+  maxPrice?: number
+}
+
 export interface AllProducts {
   products: []
   total: number
@@ -5,7 +14,9 @@ export interface AllProducts {
   limit: number
   type: string
 }
-
+export interface CategoryModel {
+  categories: ProductCategory[]
+}
 export interface ProductsModel {
   products: ProductModel[]
 }
@@ -28,7 +39,7 @@ export interface ProductImage {
 }
 
 export interface ProductCategory {
-  id?: string
+  id: string
   name?: string
 }
 

@@ -2,51 +2,64 @@ import { createApi } from "@reduxjs/toolkit/query/react"
 import { graphqlRequestBaseQuery } from "@rtk-query/graphql-request-base-query"
 import gql from "graphql-tag"
 
-import { ProductsModel } from "./types"
+import { CategoryModel, FilterModel, ProductsModel } from "./types"
 
-const productsQuery = (first: number) => gql`
-  query Products {
-    products(first: ${first}) {
-      createdAt
-      name
+const categoryFragment = gql`
+  fragment Category_category on Category {
+    id
+    name
+  }
+`
+const productFragment = gql`
+  fragment Product_product on Product {
+    createdAt
+    name
+    id
+    price
+    description
+    slug
+    salePrice
+    images {
       id
-      price
-      description
-      slug
-      salePrice
-      images {
-        id
-        url
-        fileName
-      }
+      url
+      fileName
+    }
+  }
+`
+const categoryQuery = () => gql`
+  query Category {
+    categories {
+      ...Category_category
+    }
+  }
+  ${categoryFragment}
+`
+
+const productsQuery = (query: string) => gql`
+  query Products {
+    products(
+     ${query}
+    ) {
+   ...Product_product
       categories {
-        id
-        name
+        ...Category_category
       }
     }
   }
+  ${productFragment}
+  ${categoryFragment}
 `
 const productQuery = (slug: string) => gql`
   query Products {
     products(where: { slug: "${slug}" }) {
-      createdAt
-      name
-      id
-      price
-      description
-      slug
-      salePrice
-      images {
-        id
-        url
-        fileName
-      }
+      ...Product_product
       categories {
-        id
-        name
+        ...Category_category
       }
     }
   }
+  ${productFragment}
+  ${categoryFragment}
 `
 export const productsApi = createApi({
   reducerPath: "productsApi",
@@ -54,8 +67,22 @@ export const productsApi = createApi({
     url: import.meta.env.VITE_API_URL
   }),
   endpoints: builder => ({
-    getAllProducts: builder.query<ProductsModel, number>({
-      query: (first: number) => ({ document: productsQuery(first) })
+    getAllCategories: builder.query<CategoryModel, void>({
+      query: () => ({ document: categoryQuery() })
+    }),
+    getAllProducts: builder.query<ProductsModel, FilterModel>({
+      query: ({ first, categories, minPrice = 0, maxPrice = 10000, orderBy = "publishedAt_ASC" }: FilterModel) => {
+        const query = `
+            where: { 
+              ${
+                categories && categories?.length > 0 ? `categories_every: { id_in: ${JSON.stringify(categories)}}` : ""
+              }, AND:{price_gte: ${minPrice}, price_lte: ${maxPrice}}
+          }
+        first: ${first}
+        orderBy: ${orderBy}
+        `
+        return { document: productsQuery(query) }
+      }
     }),
     getProductBySlug: builder.query<ProductsModel, string>({
       query: (slug: string) => ({ document: productQuery(slug) })
@@ -63,4 +90,4 @@ export const productsApi = createApi({
   })
 })
 
-export const { useGetAllProductsQuery, useGetProductBySlugQuery } = productsApi
+export const { useGetAllProductsQuery, useGetProductBySlugQuery, useGetAllCategoriesQuery } = productsApi

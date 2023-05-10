@@ -23,7 +23,7 @@ function Cart() {
   const cart = useSelector((state: RootState) => state.cartReducer)
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const { data, isLoading } = useGetAllProductsQuery(4)
+  const { data, isLoading } = useGetAllProductsQuery({ first: 4 })
   const { wishlistItems } = useSelector((state: RootState) => state.wishlistReducer)
 
   useEffect(() => {
@@ -255,7 +255,7 @@ function Cart() {
         </div>
       )}
       <section className="tw-m-auto tw-mt-12 tw-flex tw-w-full tw-flex-col tw-justify-center">
-        <Title size={TitleSizeEnum.H4} text="Popular items" className="!tw-font-bold !tw-text-gray-700" />
+        <Title size={TitleSizeEnum.H4} text="Popular items" className="tw-mb-6 !tw-font-bold !tw-text-gray-700" />
         <ProductGrid products={data?.products} isLoading={isLoading} />
       </section>
     </section>

@@ -63,7 +63,7 @@ function Card({ product, hasDescription }: { product: ProductModel; hasDescripti
             onError={({ currentTarget }) => {
               currentTarget.src = "images/branding/logo.svg"
             }}
-            className="tw-m-auto tw-w-3/4 tw-object-contain tw-object-center tw-transition-all tw-duration-200 group-hover:tw-scale-105"
+            className="tw-m-auto tw-w-3/5 tw-object-contain tw-object-center tw-transition-all tw-duration-200 group-hover:tw-scale-105 md:tw-w-3/4"
           />
         </div>
         <div className="tw-prod-title tw-flex tw-flex-col md:tw-mt-4 md:tw-items-start">
@@ -72,11 +72,15 @@ function Card({ product, hasDescription }: { product: ProductModel; hasDescripti
               key={category.id}
               text={category.name}
               variant={TextVariantEnum.SMALL}
-              className="tw-font-extralight tw-uppercase tw-tracking-widest tw-text-gray-400"
+              className="tw-mt-2 tw-text-xs tw-font-extralight tw-uppercase tw-tracking-widest tw-text-gray-400 md:tw-text-sm"
             />
           ))}
 
-          <Title className="!tw-font-bold tw-uppercase !tw-text-gray-600" size={TitleSizeEnum.H6} text={name} />
+          <Title
+            className="tw-text-sm !tw-font-bold tw-uppercase !tw-text-gray-600  md:tw-text-md"
+            size={TitleSizeEnum.H6}
+            text={name}
+          />
           {hasDescription && (
             <Text
               className="tw-pt-2 !tw-text-gray-600"
@@ -87,7 +91,7 @@ function Card({ product, hasDescription }: { product: ProductModel; hasDescripti
         </div>
       </div>
       <div className="tw-mt-2 tw-grid tw-gap-4 2xl:tw-mt-4">
-        <div className="tw-flex tw-flex-row tw-items-center tw-justify-between tw-gap-4 tw-text-gray-900 xl:tw-flex-col 2xl:tw-flex-row 2xl:tw-space-y-0">
+        <div className="tw-flex tw-flex-row tw-items-center tw-justify-between tw-gap-4 tw-text-gray-900 2xl:tw-flex-row 2xl:tw-space-y-0">
           <Text
             variant={TextVariantEnum.NORMAL}
             className={clsx(
@@ -107,9 +111,9 @@ function Card({ product, hasDescription }: { product: ProductModel; hasDescripti
               e.stopPropagation()
               handleAddToCart()
             }}
-            iconClassName="!tw-mr-0 md:!tw-mr-2"
+            iconClassName="!tw-mr-0 2xl:!tw-mr-2"
           >
-            <span className="tw-hidden md:tw-flex">Add to cart</span>
+            <span className="tw-hidden 2xl:tw-flex">Add to cart</span>
           </Button>
         </div>
       </div>
