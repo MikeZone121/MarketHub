@@ -71,7 +71,7 @@ export const productsApi = createApi({
       query: () => ({ document: categoryQuery() })
     }),
     getAllProducts: builder.query<ProductsModel, FilterModel>({
-      query: ({ first, categories, minPrice = 0, maxPrice = 5000 }: FilterModel) => {
+      query: ({ first, categories, minPrice = 0, maxPrice = 5000, orderBy }: FilterModel) => {
         const query = `
             where: { 
               ${
@@ -79,7 +79,7 @@ export const productsApi = createApi({
               }, AND:{price_gte: ${minPrice}, price_lte: ${maxPrice}}
           }
         first: ${first}
-        orderBy: publishedAt_DESC
+        orderBy: ${orderBy}
         `
         return { document: productsQuery(query) }
       }

@@ -2,8 +2,7 @@ export interface FilterModel {
   first?: number
   categories?: string[]
   search?: string
-  sort?: string
-  sortDirection?: string
+  orderBy?: "publishedAt_ASC" | "publishedAt_DESC" | string
   minPrice?: number
   maxPrice?: number
 }
