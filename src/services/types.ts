@@ -1,3 +1,12 @@
+export interface FilterModel {
+  first?: number
+  categories?: string[]
+  search?: string
+  orderBy?: "publishedAt_ASC" | "publishedAt_DESC" | string
+  minPrice?: number
+  maxPrice?: number
+}
+
 export interface AllProducts {
   products: []
   total: number
@@ -5,7 +14,9 @@ export interface AllProducts {
   limit: number
   type: string
 }
-
+export interface CategoryModel {
+  categories: ProductCategory[]
+}
 export interface ProductsModel {
   products: ProductModel[]
 }
@@ -28,7 +39,7 @@ export interface ProductImage {
 }
 
 export interface ProductCategory {
-  id?: string
+  id: string
   name?: string
 }
 
@@ -46,4 +57,20 @@ export const initialCartState: CartState = {
   cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")!) : [],
   cartTotalQuantity: 0,
   cartTotalAmount: 0
+}
+
+export interface WishlistItem extends ProductModel {
+  wishlistQuantity: number
+}
+
+export interface WishlistState {
+  wishlistItems: WishlistItem[]
+  wishlistTotalQuantity: number
+  wishlistTotalAmount: number
+}
+
+export const initialWishlistState: WishlistState = {
+  wishlistItems: localStorage.getItem("wishlistItems") ? JSON.parse(localStorage.getItem("wishlistItems")!) : [],
+  wishlistTotalQuantity: 0,
+  wishlistTotalAmount: 0
 }
