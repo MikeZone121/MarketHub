@@ -19,7 +19,7 @@ function Detail() {
   const navigate = useNavigate()
   const { slug } = useParams()
   const { data, isLoading } = useGetProductBySlugQuery(slug ?? "")
-  const productsQuery = useGetAllProductsQuery(4)
+  const productsQuery = useGetAllProductsQuery({ first: 4 })
   const product = data?.products?.[0]
   const handleAddToCart = () => {
     if (product) {
@@ -127,7 +127,7 @@ function Detail() {
         </div>
       </div>
       <section className="tw-my-10">
-        <Title size={TitleSizeEnum.H4} text="Popular items" className="!tw-font-bold !tw-text-gray-700" />
+        <Title size={TitleSizeEnum.H4} text="Popular items" className="tw-mb-6 !tw-font-bold !tw-text-gray-700" />
         <ProductGrid products={productsQuery.data?.products} isLoading={isLoading} />
       </section>
     </article>

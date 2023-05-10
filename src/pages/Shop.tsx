@@ -1,16 +1,25 @@
+import { useState } from "react"
+
 import Filter from "../components/Molecules/Filter"
 import ProductGrid from "../components/Organisms/ProductGrid"
 import { useGetAllCategoriesQuery, useGetAllProductsQuery } from "../services/products"
+import { FilterModel } from "../services/types"
 
 function Shop() {
-  const { data, isLoading } = useGetAllProductsQuery(10)
-  const categoriesData = useGetAllCategoriesQuery()
+  const [filter, setFilter] = useState<FilterModel>({
+    first: 10,
+    categories: [],
+    minPrice: 0,
+    maxPrice: 10000
+  })
 
+  const { data, isLoading } = useGetAllProductsQuery(filter)
+  const categoriesData = useGetAllCategoriesQuery()
   return (
     <article className="tw-mx-auto tw-my-10 tw-flex tw-w-11/12 tw-max-w-screen-2xl tw-flex-col tw-justify-center">
-      <div className="tw-flex tw-gap-6">
-        <div className="tw-w-80">
-          <Filter categories={categoriesData?.data?.categories} />
+      <div className="tw-flex tw-flex-col tw-gap-6 lg:tw-flex-row">
+        <div className="tw-w-full lg:tw-w-80">
+          <Filter categories={categoriesData?.data?.categories} filter={filter} setFilter={setFilter} />
         </div>
         <ProductGrid products={data?.products} isLoading={isLoading} columns={3} />
       </div>

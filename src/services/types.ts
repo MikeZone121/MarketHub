@@ -1,3 +1,13 @@
+export interface FilterModel {
+  first?: number
+  categories?: string[]
+  search?: string
+  sort?: string
+  sortDirection?: string
+  minPrice?: number
+  maxPrice?: number
+}
+
 export interface AllProducts {
   products: []
   total: number

@@ -66,7 +66,7 @@ function Card({ product }: { product: ProductModel }) {
         </div>
       </div>
       <div className="tw-mt-2 tw-grid tw-gap-4 2xl:tw-mt-4">
-        <div className="tw-flex tw-flex-row tw-items-center tw-justify-between tw-gap-4 tw-text-gray-900 xl:tw-flex-col 2xl:tw-flex-row 2xl:tw-space-y-0">
+        <div className="tw-flex tw-flex-row tw-items-center tw-justify-between tw-gap-4 tw-text-gray-900 2xl:tw-flex-row 2xl:tw-space-y-0">
           <Text
             variant={TextVariantEnum.NORMAL}
             className={clsx(
@@ -86,9 +86,9 @@ function Card({ product }: { product: ProductModel }) {
               e.stopPropagation()
               handleAddToCart()
             }}
-            iconClassName="!tw-mr-0 md:!tw-mr-2"
+            iconClassName="!tw-mr-0 2xl:!tw-mr-2"
           >
-            <span className="tw-hidden md:tw-flex">Add to cart</span>
+            <span className="tw-hidden 2xl:tw-flex">Add to cart</span>
           </Button>
         </div>
       </div>
