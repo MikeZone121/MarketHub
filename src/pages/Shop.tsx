@@ -1,5 +1,7 @@
 import { ChangeEvent, useState } from "react"
 
+import Title from "../components/Atoms/Title"
+import { TitleSizeEnum } from "../components/Atoms/Title/types"
 import Filter from "../components/Molecules/Filter"
 import SortBy from "../components/Molecules/SortBy"
 import ProductGrid from "../components/Organisms/ProductGrid"
@@ -10,8 +12,6 @@ function Shop() {
   const [filter, setFilter] = useState<FilterModel>({
     first: 10,
     categories: [],
-    minPrice: 0,
-    maxPrice: 10000,
     orderBy: "publishedAt_ASC"
   })
   const handleSortBy = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -21,7 +21,8 @@ function Shop() {
   const categoriesData = useGetAllCategoriesQuery()
   return (
     <article className="tw-mx-auto tw-my-10 tw-flex tw-w-11/12 tw-max-w-screen-2xl tw-flex-col tw-justify-center">
-      <div className="tw-mb-4">
+      <div className="tw-mb-4 tw-flex tw-w-full tw-items-center tw-justify-between">
+        <Title size={TitleSizeEnum.H4} text="Shop" className=" !tw-font-bold !tw-text-gray-700" />
         <SortBy onChange={handleSortBy} />
       </div>
       <div className="tw-flex tw-flex-col tw-gap-6 lg:tw-flex-row">
