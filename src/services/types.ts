@@ -58,3 +58,19 @@ export const initialCartState: CartState = {
   cartTotalQuantity: 0,
   cartTotalAmount: 0
 }
+
+export interface WishlistItem extends ProductModel {
+  wishlistQuantity: number
+}
+
+export interface WishlistState {
+  wishlistItems: WishlistItem[]
+  wishlistTotalQuantity: number
+  wishlistTotalAmount: number
+}
+
+export const initialWishlistState: WishlistState = {
+  wishlistItems: localStorage.getItem("wishlistItems") ? JSON.parse(localStorage.getItem("wishlistItems")!) : [],
+  wishlistTotalQuantity: 0,
+  wishlistTotalAmount: 0
+}

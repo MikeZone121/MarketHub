@@ -16,6 +16,7 @@ import ProductGrid from "../components/Organisms/ProductGrid"
 import { addToCart, decreaseCart, getTotals } from "../services/cart/CartSlice"
 import { useGetAllProductsQuery } from "../services/products"
 import { CartItem, ProductModel } from "../services/types"
+import { addToWishlist, removeFromWishlist } from "../services/wishlist/WishlistSlice"
 import { RootState } from "../store"
 
 function Cart() {
@@ -23,6 +24,7 @@ function Cart() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { data, isLoading } = useGetAllProductsQuery({ first: 4 })
+  const { wishlistItems } = useSelector((state: RootState) => state.wishlistReducer)
 
   useEffect(() => {
     dispatch(getTotals())
@@ -34,6 +36,14 @@ function Cart() {
 
   const handleIncreaseCart = (cartItem: ProductModel) => {
     dispatch(addToCart(cartItem))
+  }
+
+  const handleToggleWishlist = (isInWishlist: boolean, cartItem: ProductModel) => {
+    if (isInWishlist) {
+      dispatch(removeFromWishlist(cartItem))
+    } else {
+      dispatch(addToWishlist(cartItem))
+    }
   }
 
   return (
@@ -58,7 +68,7 @@ function Cart() {
 
       {cart.cartTotalQuantity === 0 ? (
         <div className="tw-flex tw-flex-col tw-items-center">
-          <Text text="Your cart is empty." variant={TextVariantEnum.NORMAL} className="tw-font-semibold" />
+          <Text text="Your cart is empty." variant={TextVariantEnum.NORMAL} className="tw-mt-4 tw-font-semibold" />
           <Text
             text="Go to the store and buy some products!"
             variant={TextVariantEnum.NORMAL}
@@ -81,37 +91,39 @@ function Cart() {
               <Title size={TitleSizeEnum.H6} className="tw-text-right !tw-text-black" text="Total" />
             </div> */}
             <div className="tw-flex tw-flex-col tw-gap-6">
-              {cart.cartItems?.map((cartItem: CartItem) => (
-                <div
-                  className="tw-group tw-relative tw-grid tw-grid-cols-2 tw-items-center tw-gap-4 tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-4 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out md:tw-grid-cols-[3fr_1fr_1fr_1fr]"
-                  key={cartItem.id}
-                >
-                  <div className="tw-col-span-2 tw-flex tw-flex-row tw-items-center tw-gap-4 md:tw-col-span-1 md:tw-flex-row">
-                    <img
-                      className="tw-object-cover tw-transition-all tw-duration-200 group-hover:tw-scale-105"
-                      width="100"
-                      src={cartItem.images[0].url}
-                      alt={cartItem.name}
-                    />
-                    <div>
-                      <NavLink to={`/shop/${cartItem.slug ?? ""}`} className="tw-pointer hover:tw-underline">
-                        <Title
-                          size={TitleSizeEnum.H6}
-                          className="tw-pr-8 !tw-text-black lg:tw-pr-0"
-                          text={cartItem.name}
-                        />
-                        <Text
-                          variant={TextVariantEnum.SMALL}
-                          text={
-                            cartItem.description && cartItem.description.length > 60
-                              ? cartItem.description?.substring(0, 60) + "..."
-                              : cartItem.description
-                          }
-                        />
-                      </NavLink>
+              {cart.cartItems?.map((cartItem: CartItem) => {
+                const isInWishlist = wishlistItems.some(item => item.id === cartItem.id)
+                return (
+                  <div
+                    className="tw-group tw-relative tw-grid tw-grid-cols-2 tw-items-center tw-gap-4 tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-4 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out md:tw-grid-cols-[3fr_1fr_1fr_1fr]"
+                    key={`cart-${cartItem.id}`}
+                  >
+                    <div className="tw-col-span-2 tw-flex tw-flex-row tw-items-center tw-gap-4 md:tw-col-span-1 md:tw-flex-row">
+                      <img
+                        className="tw-object-cover tw-transition-all tw-duration-200 group-hover:tw-scale-105"
+                        width="100"
+                        src={cartItem.images[0].url}
+                        alt={cartItem.name}
+                      />
+                      <div>
+                        <NavLink to={`/shop/${cartItem.slug ?? ""}`} className="tw-pointer hover:tw-underline">
+                          <Title
+                            size={TitleSizeEnum.H6}
+                            className="tw-pr-8 !tw-text-black lg:tw-pr-0"
+                            text={cartItem.name}
+                          />
+                          <Text
+                            variant={TextVariantEnum.SMALL}
+                            text={
+                              cartItem.description && cartItem.description.length > 60
+                                ? cartItem.description?.substring(0, 60) + "..."
+                                : cartItem.description
+                            }
+                          />
+                        </NavLink>
+                      </div>
                     </div>
-                  </div>
-                  {/*  <div className="tw-hidden md:tw-block">
+                    {/*  <div className="tw-hidden md:tw-block">
                     {cartItem.salePrice ? (
                       <>
                         <Title size={TitleSizeEnum.H5} className="!tw-font-normal" text={`€ ${cartItem.salePrice}`} />
@@ -127,46 +139,50 @@ function Cart() {
                       />
                     )}
                   </div> */}
-                  <div className="tw-flex tw-w-3/4 tw-max-w-full tw-items-center  tw-justify-center tw-rounded tw-border tw-border-gray-200 tw-bg-white">
+                    <div className="tw-flex tw-w-3/4 tw-max-w-full tw-items-center  tw-justify-center tw-rounded tw-border tw-border-gray-200 tw-bg-white">
+                      <Button
+                        onClick={() => handleDecreaseCart(cartItem)}
+                        text={cartItem.cartQuantity <= 1 ? "" : "-"}
+                        icon={cartItem.cartQuantity <= 1 ? faTrash : undefined}
+                        variant={BtnVariantEnum.FULL}
+                        className={clsx(
+                          "tw-w-full !tw-border-none !tw-bg-transparent !tw-p-2 tw-text-xl !tw-text-black hover:!tw-shadow-none",
+                          cartItem.cartQuantity <= 1 && "!tw-text-lg !tw-text-primary"
+                        )}
+                      />
+                      <div>{cartItem.cartQuantity}</div>
+                      <Button
+                        onClick={() => handleIncreaseCart(cartItem)}
+                        text="+"
+                        variant={BtnVariantEnum.FULL}
+                        className="tw-w-full !tw-border-none !tw-bg-transparent !tw-p-2 !tw-text-xl !tw-text-black hover:!tw-shadow-none"
+                      />
+                    </div>
+
                     <Button
-                      onClick={() => handleDecreaseCart(cartItem)}
-                      text={cartItem.cartQuantity <= 1 ? "" : "-"}
-                      icon={cartItem.cartQuantity <= 1 ? faTrash : undefined}
-                      variant={BtnVariantEnum.FULL}
-                      className={clsx(
-                        "tw-w-full !tw-border-none !tw-bg-transparent !tw-p-2 tw-text-xl !tw-text-black hover:!tw-shadow-none",
-                        cartItem.cartQuantity <= 1 && "!tw-text-lg !tw-text-primary"
+                      variant={BtnVariantEnum.TEXTICON}
+                      icon={faHeart}
+                      onClick={() => handleToggleWishlist(isInWishlist, cartItem)}
+                      className="tw-absolute tw-right-4 tw-top-4 tw-w-fit tw-rounded-full tw-bg-white tw-p-1 tw-shadow-md"
+                      iconClassName={clsx(
+                        "tw-text-xl hover:!tw-text-primary",
+                        isInWishlist ? "tw-text-primary" : "tw-text-gray-300"
                       )}
                     />
-                    <div>{cartItem.cartQuantity}</div>
-                    <Button
-                      onClick={() => handleIncreaseCart(cartItem)}
-                      text="+"
-                      variant={BtnVariantEnum.FULL}
-                      className="tw-w-full !tw-border-none !tw-bg-transparent !tw-p-2 !tw-text-xl !tw-text-black hover:!tw-shadow-none"
-                    />
+                    <div className="tw-flex tw-items-center tw-justify-end">
+                      <Title
+                        size={TitleSizeEnum.H5}
+                        className="!tw-font-normal !tw-text-black"
+                        text={`€ ${
+                          cartItem.salePrice
+                            ? cartItem.salePrice * cartItem.cartQuantity
+                            : cartItem.price * cartItem.cartQuantity
+                        }`}
+                      />
+                    </div>
                   </div>
-
-                  <Button
-                    variant={BtnVariantEnum.TEXTICON}
-                    icon={faHeart}
-                    onClick={() => console.log("bla")}
-                    className="tw-absolute tw-right-4 tw-top-4 tw-w-fit tw-rounded-full tw-bg-white tw-p-1 tw-shadow-md"
-                    iconClassName="tw-text-lg !tw-text-gray-300 hover:!tw-text-primary "
-                  />
-                  <div className="tw-flex tw-items-center tw-justify-end">
-                    <Title
-                      size={TitleSizeEnum.H5}
-                      className="!tw-font-normal !tw-text-black"
-                      text={`€ ${
-                        cartItem.salePrice
-                          ? cartItem.salePrice * cartItem.cartQuantity
-                          : cartItem.price * cartItem.cartQuantity
-                      }`}
-                    />
-                  </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
           <div className="tw-w-full lg:tw-max-w-[24%]">

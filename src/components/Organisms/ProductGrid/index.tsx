@@ -6,11 +6,13 @@ import Card from "../../Molecules/Card"
 function ProductGrid({
   products,
   isLoading,
+  hasDescription,
   columns = 4
 }: {
   products?: ProductModel[]
   isLoading: boolean
   columns?: number
+  hasDescription?: boolean
 }) {
   const columnClassnames = clsx(
     columns === 5 && "2xl:tw-grid-cols-5",
@@ -33,7 +35,7 @@ function ProductGrid({
               key={index}
             ></div>
           ))
-        : products?.map(product => <Card product={product} key={product.id} />)}
+        : products?.map(product => <Card hasDescription={hasDescription} product={product} key={product.id} />)}
     </div>
   )
 }

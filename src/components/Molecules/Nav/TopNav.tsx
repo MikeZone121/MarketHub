@@ -66,7 +66,7 @@ function TopNav() {
               </NavLink>
             </li>
             <li className="tw-mr-6 md:tw-mr-0">
-              <NavLink to="ui" className="tw-flex tw-items-center tw-gap-2 tw-text-white">
+              <NavLink to="/wishlist" className="tw-flex tw-items-center tw-gap-2 tw-text-white">
                 <span className="tw-hidden tw-text-base md:tw-block">Wishlist</span>
                 <FontAwesomeIcon icon={faHeart} />
               </NavLink>
