@@ -57,7 +57,7 @@ function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: b
             onClick={() => navigate(`/shop/${products?.[0].slug ?? ""} `)}
             className={clsx(
               isLoading && "tw-h-full tw-animate-pulse tw-bg-gray-200",
-              "tw-group tw-flex tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-center tw-gap-2 tw-rounded-lg tw-border tw-border-gray-100 tw-px-10 tw-py-6 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out  hover:tw-shadow-sm md:tw-w-2/3 lg:active:tw-scale-90 xl:tw-flex-row"
+              "tw-group tw-flex tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-center tw-gap-2 tw-rounded-lg tw-border tw-border-gray-100 tw-px-10 tw-py-6 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out  hover:tw-shadow-sm  lg:active:tw-scale-90 xl:tw-flex-row"
             )}
           >
             {products && (
@@ -98,7 +98,7 @@ function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: b
               </>
             )}
           </article>
-          <div className="tw-relative tw-flex tw-grow tw-flex-col tw-gap-6">
+          <div className="tw-relative tw-hidden tw-grow tw-flex-col tw-gap-6 lg:tw-flex">
             {/* PRODUCT 2 */}
             <article
               onClick={() => navigate(`/shop/${products?.[1].slug ?? ""} `)}
