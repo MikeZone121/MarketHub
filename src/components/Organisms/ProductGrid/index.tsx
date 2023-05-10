@@ -27,7 +27,7 @@ function ProductGrid({
       )}
     >
       {isLoading
-        ? [...Array(4)]?.map((value, index) => (
+        ? [...Array(columns)]?.map((value, index) => (
             <div
               className="tw-card tw-group tw-flex tw-h-96 tw-w-full  tw-animate-pulse tw-rounded-lg tw-border tw-border-gray-100 tw-bg-gray-200 tw-p-10 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-bg-gray-200"
               key={index}
