@@ -5,6 +5,7 @@ import Detail from "../pages/Detail"
 import Error from "../pages/Errors/Error"
 import Home from "../pages/Home"
 import Shop from "../pages/Shop"
+import Wishlist from "../pages/Wishlist"
 
 export const routes = [
   {
@@ -28,6 +29,10 @@ export const routes = [
           {
             path: "cart",
             element: <Cart />
+          },
+          {
+            path: "wishlist",
+            element: <Wishlist />
           }
         ]
       }

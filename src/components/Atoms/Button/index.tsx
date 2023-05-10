@@ -30,7 +30,7 @@ const Button = forwardRef(function Button(props: ButtonProps, ref: Ref<HTMLButto
     isFullWidth && "tw-w-full",
     isDisabled && "tw-opacity-50 tw-cursor-not-allowed tw-pointer-events-none",
     (!icon || (icon && (text || children))) &&
-      "tw-flex tw-bg-primary tw-px-4 tw-py-2 tw-rounded-sm tw-items-center tw-justify-center tw-transition-all tw-duration-200 tw-ease-out active:tw-scale-90 hover:tw-shadow-md"
+      "tw-flex tw-bg-primary tw-px-4 tw-py-2 tw-rounded-md tw-items-center tw-justify-center tw-transition-all tw-duration-200 tw-ease-out active:tw-scale-90 hover:tw-shadow-md"
   )
   const positionClassnames = clsx(positionClassnamesMap[iconPosition])
 
