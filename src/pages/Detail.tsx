@@ -1,6 +1,8 @@
+import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom"
-import { faArrowLeft, faBasketShopping } from "@fortawesome/free-solid-svg-icons"
+import { faArrowLeft, faBasketShopping, faCheck, faCopy } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 
 import Button from "../components/Atoms/Button"
@@ -9,6 +11,7 @@ import Text from "../components/Atoms/Text"
 import { TextVariantEnum } from "../components/Atoms/Text/types"
 import Title from "../components/Atoms/Title"
 import { TitleSizeEnum } from "../components/Atoms/Title/types"
+import Breadcrumbs from "../components/Molecules/Breadcrumbs"
 import ProductGrid from "../components/Organisms/ProductGrid"
 import Review from "../components/Organisms/Review"
 import { addToCart } from "../services/cart/CartSlice"
@@ -19,6 +22,7 @@ function Detail() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { slug } = useParams()
+  const [isCopied, setIsCopied] = useState(false)
   const { data, isLoading } = useGetProductBySlugQuery(slug ?? "")
   const productsQuery = useGetAllProductsQuery({ first: 4 })
   const product = data?.products?.[0]
@@ -28,10 +32,20 @@ function Detail() {
       navigate("/cart")
     }
   }
+  const handleCopyToClipboard = async () => {
+    if ("clipboard" in navigator && product?.id) {
+      setIsCopied(true)
+      setTimeout(() => {
+        setIsCopied(false)
+      }, 2000)
+      return navigator.clipboard.writeText(product?.id?.slice(-7))
+    }
+  }
   return (
     <article className="tw-mx-auto tw-my-10 tw-flex tw-w-11/12 tw-max-w-screen-2xl tw-flex-col tw-justify-center">
       <div>
-        <div className="tw-group tw-relative tw-flex" onClick={() => navigate(-1)}>
+        <Breadcrumbs product={product} />
+        <span className="tw-group tw-relative tw-mt-2 tw-flex" onClick={() => navigate(-1)}>
           <Button
             onClick={() => navigate(-1)}
             icon={faArrowLeft}
@@ -43,8 +57,19 @@ function Detail() {
             text={product?.name}
             size={TitleSizeEnum.H3}
           />
-        </div>
-        <Text>SKU: #{product?.id?.slice(-7)}</Text>
+        </span>
+        <Text>
+          <span
+            className="tw-group tw-flex tw-cursor-pointer tw-items-center tw-gap-2 tw-py-1 tw-text-gray-500"
+            onClick={handleCopyToClipboard}
+          >
+            SKU: {product?.id?.slice(-7)}
+            <FontAwesomeIcon
+              icon={isCopied ? faCheck : faCopy}
+              className="tw-hidden tw-text-gray-600 group-hover:tw-block"
+            />
+          </span>
+        </Text>
       </div>
       <div className="tw-grid tw-gap-8 lg:tw-grid-cols-4 lg:tw-items-start">
         <div className="lg:tw-col-span-3">
