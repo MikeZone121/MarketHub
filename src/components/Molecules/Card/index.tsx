@@ -49,7 +49,7 @@ function Card({ product, hasDescription }: { product: ProductModel; hasDescripti
             e.stopPropagation()
             handleToggleWishlist()
           }}
-          className="tw-rounded-full tw-bg-white tw-p-2 tw-shadow-md"
+          className="tw-rounded-full tw-bg-white tw-p-2 tw-shadow-md active:tw-scale-90 "
           iconClassName={clsx(
             "tw-text-xl  hover:!tw-text-primary",
             isInWishlist ? "tw-text-primary" : "tw-text-gray-300"

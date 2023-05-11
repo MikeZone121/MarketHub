@@ -12,7 +12,7 @@ function Shop() {
   const [filter, setFilter] = useState<FilterModel>({
     first: 10,
     categories: [],
-    orderBy: "publishedAt_ASC"
+    orderBy: "publishedAt_DESC"
   })
   const handleSortBy = (e: ChangeEvent<HTMLSelectElement>) => {
     setFilter({ ...filter, orderBy: e.target.value })

@@ -163,7 +163,7 @@ function Cart() {
                       variant={BtnVariantEnum.TEXTICON}
                       icon={faHeart}
                       onClick={() => handleToggleWishlist(isInWishlist, cartItem)}
-                      className="tw-absolute tw-right-4 tw-top-4 tw-w-fit tw-rounded-full tw-bg-white tw-p-1 tw-shadow-md"
+                      className="tw-absolute tw-right-4 tw-top-4 tw-w-fit tw-rounded-full tw-bg-white tw-p-2 tw-shadow-md active:tw-scale-90"
                       iconClassName={clsx(
                         "tw-text-xl hover:!tw-text-primary",
                         isInWishlist ? "tw-text-primary" : "tw-text-gray-300"

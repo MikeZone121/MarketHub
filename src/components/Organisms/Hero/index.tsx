@@ -12,6 +12,9 @@ import { TitleSizeEnum } from "../../Atoms/Title/types"
 
 function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: boolean }) {
   const navigate = useNavigate()
+  console.log(products)
+
+  const [firstProduct, secondProduct, thirdProduct] = products ?? []
   return (
     <section className="tw-mb-12 tw-flex tw-w-11/12 tw-max-w-screen-2xl tw-flex-col tw-gap-4 lg:tw-flex-row lg:tw-gap-8">
       <article className="tw-overflow-hidden tw-rounded-lg tw-bg-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out lg:tw-w-96">
@@ -54,32 +57,34 @@ function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: b
         <section className="tw-flex tw-w-full tw-flex-col tw-gap-6 md:tw-flex-row">
           {/* PRODUCT 1 */}
           <article
-            onClick={() => navigate(`/shop/${products?.[0].slug ?? ""} `)}
+            onClick={() => navigate(`/shop/${firstProduct?.slug ?? ""} `)}
             className={clsx(
               isLoading && "tw-h-full tw-animate-pulse tw-bg-gray-200",
-              "tw-group tw-flex tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-center tw-gap-2 tw-rounded-lg tw-border tw-border-gray-100 tw-px-10 tw-py-6 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out  hover:tw-shadow-sm  lg:active:tw-scale-90 xl:tw-flex-row"
+              "tw-group tw-flex tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-center tw-gap-4 tw-rounded-lg tw-border tw-border-gray-100 tw-px-10 tw-py-6 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out  hover:tw-shadow-sm  lg:active:tw-scale-90 xl:tw-flex-row"
             )}
           >
             {products && (
               <>
                 <div>
-                  <Text
-                    text={products?.[0].categories?.[0].name}
-                    variant={TextVariantEnum.SMALL}
-                    className="tw-font-extralight tw-uppercase tw-tracking-widest tw-text-gray-400"
-                  />
-                  <Title text={products?.[0].name} size={TitleSizeEnum.H4} className="!tw-text-gray-600" />
-                  <Text text={products?.[0].description} variant={TextVariantEnum.QUOTE} className="tw-mt-2" />
+                  {firstProduct?.categories && (
+                    <Text
+                      text={firstProduct?.categories?.[0].name}
+                      variant={TextVariantEnum.SMALL}
+                      className="tw-font-extralight tw-uppercase tw-tracking-widest tw-text-gray-400"
+                    />
+                  )}
+                  <Title text={firstProduct?.name} size={TitleSizeEnum.H4} className="!tw-text-gray-600" />
+                  <Text text={firstProduct?.description} variant={TextVariantEnum.QUOTE} className="tw-mt-2" />
                   <p className="tw-mt-2 tw-flex tw-items-center tw-gap-2 tw-whitespace-nowrap tw-text-xl tw-font-bold tw-text-primary">
-                    € {products?.[0].salePrice ? products?.[0].salePrice : products?.[0].price}
-                    {products?.[0].salePrice && (
+                    € {firstProduct?.salePrice ? firstProduct?.salePrice : firstProduct?.price}
+                    {firstProduct?.salePrice && (
                       <span className="tw-text-sm tw-font-semibold tw-text-gray-600 tw-line-through">
-                        € {products?.[0].price}
+                        € {firstProduct?.price}
                       </span>
                     )}
                   </p>
                   <Button
-                    onClick={() => navigate(`/shop/${products?.[0].slug ?? ""} `)}
+                    onClick={() => navigate(`/shop/${firstProduct?.slug ?? ""} `)}
                     text="SHOP NOW"
                     variant={BtnVariantEnum.FULL}
                     className="tw-mt-6"
@@ -87,11 +92,11 @@ function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: b
                 </div>
                 <div className="tw-mt-10 tw-w-full tw-max-w-xs xl:tw-mt-0">
                   <img
-                    src={products?.[0].images?.[0].url}
+                    src={firstProduct?.images?.[0].url}
                     onError={({ currentTarget }) => {
                       currentTarget.src = "images/branding/logo.svg"
                     }}
-                    alt={products?.[0].images?.[0].fileName}
+                    alt={firstProduct?.images?.[0].fileName}
                     className="tw-w-full tw-object-contain tw-object-center tw-transition-all tw-duration-200 group-hover:tw-scale-105"
                   />
                 </div>
@@ -101,7 +106,7 @@ function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: b
           <div className="tw-relative tw-hidden tw-grow tw-flex-col tw-gap-6 lg:tw-flex">
             {/* PRODUCT 2 */}
             <article
-              onClick={() => navigate(`/shop/${products?.[1].slug ?? ""} `)}
+              onClick={() => navigate(`/shop/${secondProduct?.slug ?? ""} `)}
               className={clsx(
                 isLoading && "tw-h-56 tw-animate-pulse tw-bg-gray-200",
                 "hover:tw-bg-gray-00 tw-group tw-flex tw-h-full tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-between tw-gap-2  tw-rounded-lg tw-border tw-border-gray-100 tw-px-10 tw-py-6 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-shadow-sm lg:tw-flex-row lg:tw-items-stretch lg:active:tw-scale-90"
@@ -110,24 +115,26 @@ function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: b
               {products && (
                 <>
                   <div className="tw-flex tw-flex-col tw-justify-center">
-                    <Text
-                      text={products?.[1].categories?.[0].name}
-                      variant={TextVariantEnum.SMALL}
-                      className="tw-font-extralight tw-uppercase tw-tracking-widest tw-text-gray-400"
-                    />
-                    <Title text={products?.[1].name} size={TitleSizeEnum.H4} className="!tw-text-gray-600" />
+                    {secondProduct?.categories && (
+                      <Text
+                        text={secondProduct?.categories?.[0].name}
+                        variant={TextVariantEnum.SMALL}
+                        className="tw-font-extralight tw-uppercase tw-tracking-widest tw-text-gray-400"
+                      />
+                    )}
+                    <Title text={secondProduct?.name} size={TitleSizeEnum.H4} className="!tw-text-gray-600" />
                     <p className="tw-mt-2 tw-flex tw-items-center tw-gap-2 tw-whitespace-nowrap tw-text-xl tw-font-bold tw-text-primary">
-                      € {products?.[1].salePrice ? products?.[1].salePrice : products?.[1].price}
-                      {products?.[1].salePrice && (
+                      € {secondProduct?.salePrice ? secondProduct?.salePrice : secondProduct?.price}
+                      {secondProduct?.salePrice && (
                         <span className="tw-text-sm tw-font-semibold tw-text-gray-600 tw-line-through">
-                          € {products?.[1].price}
+                          € {secondProduct?.price}
                         </span>
                       )}
                     </p>
                   </div>
                   <div className="tw-mt-4 tw-flex  tw-w-1/2 tw-max-w-xs tw-justify-center lg:tw-mt-0">
                     <img
-                      src={products?.[1].images?.[0].url}
+                      src={secondProduct?.images?.[0].url}
                       onError={({ currentTarget }) => {
                         currentTarget.src = "images/branding/logo.svg"
                       }}
@@ -139,7 +146,7 @@ function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: b
             </article>
             {/* PRODUCT 3 */}
             <article
-              onClick={() => navigate(`/shop/${products?.[2].slug ?? ""} `)}
+              onClick={() => navigate(`/shop/${thirdProduct?.slug ?? ""} `)}
               className={clsx(
                 isLoading && "tw-h-56 tw-animate-pulse tw-bg-gray-200",
                 "tw-group tw-flex tw-h-full tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-between tw-gap-2 tw-rounded-lg tw-border tw-border-gray-100  tw-px-10 tw-py-6 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out  hover:tw-shadow-sm lg:tw-flex-row lg:tw-items-stretch lg:active:tw-scale-90"
@@ -148,24 +155,26 @@ function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: b
               {products && (
                 <>
                   <div className="tw-flex tw-flex-col tw-justify-center">
-                    <Text
-                      text={products?.[2].categories?.[0].name}
-                      variant={TextVariantEnum.SMALL}
-                      className="tw-font-extralight tw-uppercase tw-tracking-widest tw-text-gray-400"
-                    />
-                    <Title text={products?.[2].name} size={TitleSizeEnum.H4} className="!tw-text-gray-600" />
+                    {thirdProduct?.categories && (
+                      <Text
+                        text={thirdProduct?.categories?.[0].name}
+                        variant={TextVariantEnum.SMALL}
+                        className="tw-font-extralight tw-uppercase tw-tracking-widest tw-text-gray-400"
+                      />
+                    )}
+                    <Title text={thirdProduct?.name} size={TitleSizeEnum.H4} className="!tw-text-gray-600" />
                     <p className="tw-mt-2 tw-flex tw-items-center tw-gap-2 tw-whitespace-nowrap tw-text-xl tw-font-bold tw-text-primary">
-                      € {products?.[2].salePrice ? products?.[2].salePrice : products?.[2].price}
-                      {products?.[2].salePrice && (
+                      € {thirdProduct?.salePrice ? thirdProduct?.salePrice : thirdProduct?.price}
+                      {thirdProduct?.salePrice && (
                         <span className="tw-text-sm tw-font-semibold tw-text-gray-600 tw-line-through">
-                          € {products?.[2].price}
+                          € {thirdProduct?.price}
                         </span>
                       )}
                     </p>
                   </div>
                   <div className="tw-mt-4 tw-flex  tw-w-1/2 tw-max-w-xs tw-justify-center lg:tw-mt-0">
                     <img
-                      src={products?.[2].images?.[0].url}
+                      src={thirdProduct?.images?.[0].url}
                       onError={({ currentTarget }) => {
                         currentTarget.src = "images/branding/logo.svg"
                       }}

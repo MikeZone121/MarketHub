@@ -1,7 +1,7 @@
 function SortBy({ onChange }: { onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void }) {
   const sortByValues = [
-    { label: "New products", value: "publishedAt_ASC" },
-    { label: "Old products", value: "publishedAt_DESC" },
+    { label: "Old products", value: "publishedAt_ASC" },
+    { label: "New products", value: "publishedAt_DESC" },
     { label: "price Low - High", value: "price_ASC" },
     { label: "price High - Low", value: "price_DESC" }
   ]
