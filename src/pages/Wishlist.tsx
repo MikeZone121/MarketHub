@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { faArrowLeft, faBasketShopping, faHeart } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 
 import Button from "../components/Atoms/Button"
@@ -40,6 +41,7 @@ function Wishlist() {
           variant={BtnVariantEnum.TEXTICON}
         />
         <div className="tw-flex tw-items-center tw-justify-center tw-space-x-4 tw-transition-all tw-duration-200 tw-ease-out group-hover:tw-ml-8">
+          <FontAwesomeIcon icon={faHeart} className="tw-text-left tw-text-2xl tw-text-primary" />
           <Title size={TitleSizeEnum.H3} text="My Wishlist" />
         </div>
       </div>
