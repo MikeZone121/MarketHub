@@ -10,6 +10,7 @@ export interface HyperlinkProps {
   icon?: IconProp
   iconPosition?: PositionEnum
   variant?: HyperLinkVariantsEnum
+  children?: React.ReactNode
 }
 
 export enum HyperLinkVariantsEnum {

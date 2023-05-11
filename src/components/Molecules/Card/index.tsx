@@ -26,9 +26,9 @@ function Card({ product, hasDescription }: { product: ProductModel; hasDescripti
   }
 
   return (
-    <div
+    <a
       className="tw-card tw-group tw-relative tw-flex tw-h-full tw-cursor-pointer tw-flex-col tw-justify-between tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-4 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out md:tw-p-10 "
-      onClick={() => navigate(`/shop/${slug ?? ""}`)}
+      href={`/shop/${slug}`}
       id={`product-${id}`}
     >
       <Heart product={product} />
@@ -92,7 +92,7 @@ function Card({ product, hasDescription }: { product: ProductModel; hasDescripti
           </Button>
         </div>
       </div>
-    </div>
+    </a>
   )
 }
 

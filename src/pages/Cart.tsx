@@ -17,7 +17,6 @@ import ProductGrid from "../components/Organisms/ProductGrid"
 import { addToCart, decreaseCart, getTotals } from "../services/cart/CartSlice"
 import { useGetAllProductsQuery } from "../services/products"
 import { CartItem, ProductModel } from "../services/types"
-import { addToWishlist, removeFromWishlist } from "../services/wishlist/WishlistSlice"
 import { RootState } from "../store"
 
 function Cart() {
@@ -37,14 +36,6 @@ function Cart() {
 
   const handleIncreaseCart = (cartItem: ProductModel) => {
     dispatch(addToCart(cartItem))
-  }
-
-  const handleToggleWishlist = (isInWishlist: boolean, cartItem: ProductModel) => {
-    if (isInWishlist) {
-      dispatch(removeFromWishlist(cartItem))
-    } else {
-      dispatch(addToWishlist(cartItem))
-    }
   }
 
   return (
