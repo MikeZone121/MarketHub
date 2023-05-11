@@ -24,7 +24,7 @@ function ProductGrid({
   return (
     <div
       className={clsx(
-        `tw-m-auto tw-mx-auto tw-grid tw-w-full tw-grid-cols-1 tw-place-items-center tw-items-stretch tw-justify-items-center tw-gap-4 sm:tw-grid-cols-2 md:tw-gap-6 xl:tw-grid-cols-3`,
+        `tw-m-auto tw-mx-auto tw-grid tw-w-full tw-grid-cols-1 tw-place-items-center tw-justify-items-center tw-gap-4 sm:tw-grid-cols-2 md:tw-items-stretch md:tw-gap-6 xl:tw-grid-cols-3`,
         columnClassnames
       )}
     >
