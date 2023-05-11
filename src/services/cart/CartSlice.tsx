@@ -11,6 +11,7 @@ const CartSlice = createSlice({
   initialState: initialCartState,
   reducers: {
     addToCart(state, action: PayloadAction<ProductModel>) {
+      // TODO: remove quantity count, only save ids
       const itemIndex = state.cartItems.findIndex(item => item.id === action.payload.id)
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].cartQuantity++

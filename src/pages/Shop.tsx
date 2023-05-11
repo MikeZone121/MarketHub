@@ -15,8 +15,13 @@ function Shop() {
     orderBy: "publishedAt_DESC"
   })
   const handleSortBy = (e: ChangeEvent<HTMLSelectElement>) => {
+    // TODO: use previousState
+    // setFilter(previousState => {
+    //   return { ...previousState, orderBy: e.target.value }
+    // })
     setFilter({ ...filter, orderBy: e.target.value })
   }
+  // TODO: useGetAllProductsQuery, rename to getProducts iso allProducts
   const { data, isLoading } = useGetAllProductsQuery(filter)
   const categoriesData = useGetAllCategoriesQuery()
   return (

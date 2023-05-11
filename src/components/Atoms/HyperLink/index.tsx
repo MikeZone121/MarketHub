@@ -16,6 +16,7 @@ function Hyperlink(props: HyperlinkProps) {
   )
   return (
     <NavLink
+      // TODO: if href is mandatory just do `to={href}`
       to={href ?? ""}
       target={target}
       className={clsx(

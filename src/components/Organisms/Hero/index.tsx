@@ -10,8 +10,10 @@ import { TextVariantEnum } from "../../Atoms/Text/types"
 import Title from "../../Atoms/Title"
 import { TitleSizeEnum } from "../../Atoms/Title/types"
 
+// TODO: divide component into smaller components
 function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: boolean }) {
   const navigate = useNavigate()
+  // TODO: rm console
   console.log(products)
 
   const [firstProduct, secondProduct, thirdProduct] = products ?? []
@@ -22,6 +24,7 @@ function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: b
           <Title text="Browse categories" size={TitleSizeEnum.H6} className="!tw-mb-0 tw-p-0 tw-text-white" />
         </div>
         <ul className="tw-flex tw-flex-col">
+          {/* TODO: avoid string duplication */}
           <li className="tw-border-b tw-px-4 tw-py-2 tw-transition-all tw-duration-200 tw-ease-in hover:tw-bg-gray-200">
             <Hyperlink href="" text="Cell Phones" />
           </li>
@@ -57,6 +60,7 @@ function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: b
         <section className="tw-flex tw-w-full tw-flex-col tw-gap-6 md:tw-flex-row">
           {/* PRODUCT 1 */}
           <article
+            // TODO: avoid pasting an empty string
             onClick={() => navigate(`/shop/${firstProduct?.slug ?? ""} `)}
             className={clsx(
               isLoading && "tw-h-full tw-animate-pulse tw-bg-gray-200",
@@ -83,6 +87,7 @@ function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: b
                       </span>
                     )}
                   </p>
+                  {/* TODO: must be a link if you direct */}
                   <Button
                     onClick={() => navigate(`/shop/${firstProduct?.slug ?? ""} `)}
                     text="SHOP NOW"

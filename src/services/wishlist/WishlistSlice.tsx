@@ -10,13 +10,15 @@ const WishlistSlice = createSlice({
   initialState: initialWishlistState,
   reducers: {
     addToWishlist(state, action: PayloadAction<ProductModel>) {
-      const tempProduct = { ...action.payload, wishlistQuantity: 1 }
-      state.wishlistItems.push(tempProduct)
-      toast.success(`${action.payload.name} added to wishlist`, {
-        ...toastConfig,
-        toastId: `${action.payload.id}-added-wishlist`
-      })
-      localStorage.setItem("wishlistItems", JSON.stringify(state.wishlistItems))
+      // TODO: remove quantity count, only save ids
+      // const tempProduct = { ...action.payload, wishlistQuantity: 1 }
+      state.wishlistItems.push(action.payload)
+      // TODO: move toast and storages to react component, check status in store
+      // toast.success(`${action.payload.name} added to wishlist`, {
+      //   ...toastConfig,
+      //   toastId: `${action.payload.id}-added-wishlist`
+      // })
+      // localStorage.setItem("wishlistItems", JSON.stringify(state.wishlistItems))
     },
 
     removeFromWishlist(state, action) {

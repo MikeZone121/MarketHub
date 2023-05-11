@@ -11,6 +11,7 @@ function App() {
   } else {
     return (
       <div className="App tw-relative">
+        {/* TODO: create custom hook useScrollToTop */}
         <ScrollToTop />
         <Nav />
         <Outlet />
