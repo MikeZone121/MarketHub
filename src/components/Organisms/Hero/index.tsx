@@ -68,13 +68,16 @@ function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: b
                 <div>
                   {firstProduct?.categories && (
                     <Text
-                      text={firstProduct?.categories?.[0].name}
                       variant={TextVariantEnum.SMALL}
                       className="tw-font-extralight tw-uppercase tw-tracking-widest tw-text-gray-400"
-                    />
+                    >
+                      {firstProduct?.categories?.[0].name}
+                    </Text>
                   )}
                   <Title text={firstProduct?.name} size={TitleSizeEnum.H4} className="!tw-text-gray-600" />
-                  <Text text={firstProduct?.description} variant={TextVariantEnum.QUOTE} className="tw-mt-2" />
+                  <Text variant={TextVariantEnum.QUOTE} className="tw-mt-2">
+                    {firstProduct?.description}{" "}
+                  </Text>
                   <p className="tw-mt-2 tw-flex tw-items-center tw-gap-2 tw-whitespace-nowrap tw-text-xl tw-font-bold tw-text-primary">
                     € {firstProduct?.salePrice ? firstProduct?.salePrice : firstProduct?.price}
                     {firstProduct?.salePrice && (
@@ -117,10 +120,11 @@ function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: b
                   <div className="tw-flex tw-flex-col tw-justify-center">
                     {secondProduct?.categories && (
                       <Text
-                        text={secondProduct?.categories?.[0].name}
                         variant={TextVariantEnum.SMALL}
                         className="tw-font-extralight tw-uppercase tw-tracking-widest tw-text-gray-400"
-                      />
+                      >
+                        {secondProduct?.categories?.[0].name}
+                      </Text>
                     )}
                     <Title text={secondProduct?.name} size={TitleSizeEnum.H4} className="!tw-text-gray-600" />
                     <p className="tw-mt-2 tw-flex tw-items-center tw-gap-2 tw-whitespace-nowrap tw-text-xl tw-font-bold tw-text-primary">
@@ -157,10 +161,11 @@ function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: b
                   <div className="tw-flex tw-flex-col tw-justify-center">
                     {thirdProduct?.categories && (
                       <Text
-                        text={thirdProduct?.categories?.[0].name}
                         variant={TextVariantEnum.SMALL}
                         className="tw-font-extralight tw-uppercase tw-tracking-widest tw-text-gray-400"
-                      />
+                      >
+                        {thirdProduct?.categories?.[0].name}
+                      </Text>
                     )}
                     <Title text={thirdProduct?.name} size={TitleSizeEnum.H4} className="!tw-text-gray-600" />
                     <p className="tw-mt-2 tw-flex tw-items-center tw-gap-2 tw-whitespace-nowrap tw-text-xl tw-font-bold tw-text-primary">

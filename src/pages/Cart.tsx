@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink, useNavigate } from "react-router-dom"
-import { faArrowLeft, faBasketShopping, faCheck, faHeart, faTrash, faUserLock } from "@fortawesome/free-solid-svg-icons"
+import { faArrowLeft, faBasketShopping, faCheck, faTrash, faUserLock } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 
@@ -12,6 +12,7 @@ import Text from "../components/Atoms/Text"
 import { TextVariantEnum } from "../components/Atoms/Text/types"
 import Title from "../components/Atoms/Title"
 import { TitleSizeEnum } from "../components/Atoms/Title/types"
+import Heart from "../components/Molecules/Heart"
 import ProductGrid from "../components/Organisms/ProductGrid"
 import { addToCart, decreaseCart, getTotals } from "../services/cart/CartSlice"
 import { useGetAllProductsQuery } from "../services/products"
@@ -68,12 +69,12 @@ function Cart() {
 
       {cart.cartTotalQuantity === 0 ? (
         <div className="tw-flex tw-flex-col tw-items-center">
-          <Text text="Your cart is empty." variant={TextVariantEnum.NORMAL} className="tw-mt-4 tw-font-semibold" />
-          <Text
-            text="Go to the store and buy some products!"
-            variant={TextVariantEnum.NORMAL}
-            className="tw-font-semibold"
-          />
+          <Text variant={TextVariantEnum.NORMAL} className="tw-mt-4 tw-font-semibold">
+            Your cart is empty.
+          </Text>
+          <Text variant={TextVariantEnum.NORMAL} className="tw-font-semibold">
+            Go to the store and buy some products!
+          </Text>
           <Button
             onClick={() => navigate(`/`)}
             text="START SHOPPING"
@@ -112,14 +113,11 @@ function Cart() {
                             className="tw-pr-8 !tw-text-black lg:tw-pr-0"
                             text={cartItem.name}
                           />
-                          <Text
-                            variant={TextVariantEnum.SMALL}
-                            text={
-                              cartItem.description && cartItem.description.length > 60
-                                ? cartItem.description?.substring(0, 60) + "..."
-                                : cartItem.description
-                            }
-                          />
+                          <Text variant={TextVariantEnum.SMALL}>
+                            {cartItem.description && cartItem.description.length > 60
+                              ? cartItem.description?.substring(0, 60) + "..."
+                              : cartItem.description}
+                          </Text>
                         </NavLink>
                       </div>
                     </div>
@@ -159,16 +157,7 @@ function Cart() {
                       />
                     </div>
 
-                    <Button
-                      variant={BtnVariantEnum.TEXTICON}
-                      icon={faHeart}
-                      onClick={() => handleToggleWishlist(isInWishlist, cartItem)}
-                      className="tw-absolute tw-right-4 tw-top-4 tw-w-fit tw-rounded-full tw-bg-white tw-p-2 tw-shadow-md active:tw-scale-90"
-                      iconClassName={clsx(
-                        "tw-text-xl hover:!tw-text-primary",
-                        isInWishlist ? "tw-text-primary" : "tw-text-gray-300"
-                      )}
-                    />
+                    <Heart product={cartItem} />
                     <div className="tw-flex tw-items-center tw-justify-end">
                       <Title
                         size={TitleSizeEnum.H5}
@@ -191,23 +180,15 @@ function Cart() {
               <div className="tw-pb-12">
                 <div className="tw-mb-2 tw-flex">
                   <FontAwesomeIcon icon={faCheck} className="tw-mr-2 tw-text-left tw-text-lg tw-text-primary" />
-                  <Text variant={TextVariantEnum.SMALL} text="Ordered before 23:59, delivered tomorrow" className="" />
+                  <Text variant={TextVariantEnum.SMALL}>Ordered before 23:59, delivered tomorrow</Text>
                 </div>
                 <div className="tw-mb-2 tw-flex">
                   <FontAwesomeIcon icon={faCheck} className="tw-mr-2 tw-text-left tw-text-lg tw-text-primary" />
-                  <Text
-                    variant={TextVariantEnum.SMALL}
-                    text="Choose the day or the time that suits you."
-                    className=""
-                  />
+                  <Text variant={TextVariantEnum.SMALL}>Choose the day or the time that suits you.</Text>
                 </div>
                 <div className="tw-mb-2 tw-flex">
                   <FontAwesomeIcon icon={faCheck} className="tw-mr-2 tw-text-left tw-text-lg tw-text-primary" />
-                  <Text
-                    variant={TextVariantEnum.SMALL}
-                    text="Pick up at bPost pickup points or Markethub stores."
-                    className=""
-                  />
+                  <Text variant={TextVariantEnum.SMALL}>Pick up at bPost pickup points or Markethub stores.</Text>
                 </div>
               </div>
               <div>
@@ -219,7 +200,9 @@ function Cart() {
                   <Title size={TitleSizeEnum.H6} className="!tw-text-black" text="Subtotal:" />
                   <Title size={TitleSizeEnum.H6} className="!tw-text-black" text={`€ ${cart.cartTotalAmount}`} />
                 </div>
-                <Text variant={TextVariantEnum.SMALL} text="(Including VAT and recupel)" className="tw-text-gray-400" />
+                <Text variant={TextVariantEnum.SMALL} className="tw-text-gray-400">
+                  (Including VAT and recupel)
+                </Text>
                 <div className="tw-fixed tw-bottom-0 tw-left-0 tw-z-20 tw-m-auto tw-w-full tw-border-0 tw-bg-white tw-p-4 md:tw-static md:tw-mt-6 md:tw-p-0">
                   <Button
                     onClick={() => navigate(`/`)}
@@ -243,11 +226,9 @@ function Cart() {
                     <Visa />
                     <AmericanExpress />
                   </div>
-                  <Text
-                    variant={TextVariantEnum.SMALL}
-                    text="Or choose convenience with 'Pay afterwards'"
-                    className="tw-text-center"
-                  />
+                  <Text variant={TextVariantEnum.SMALL} className="tw-text-center">
+                    Or choose convenience with &lsquo;Pay afterwards&rsquo;
+                  </Text>
                 </div>
               </div>
             </div>

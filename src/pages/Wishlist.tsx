@@ -48,13 +48,13 @@ function Wishlist() {
 
       {wishlist.wishlistTotalQuantity === 0 ? (
         <div className="tw-flex tw-flex-col tw-items-center">
-          <Text
-            text="There's nothing on your wish list."
-            variant={TextVariantEnum.NORMAL}
-            className="tw-mt-4 tw-font-semibold"
-          />
+          <Text variant={TextVariantEnum.NORMAL} className="tw-mt-4 tw-font-semibold">
+            There&apos;s nothing on your wish list.
+          </Text>
           <div className="tw-flex tw-flex-row tw-items-center tw-space-x-2">
-            <Text text="Add products by clicking " variant={TextVariantEnum.NORMAL} className="tw-font-semibold" />
+            <Text variant={TextVariantEnum.NORMAL} className="tw-font-semibold">
+              Add products by clicking{" "}
+            </Text>
             <Button
               onClick={() => null}
               variant={BtnVariantEnum.TEXTICON}
