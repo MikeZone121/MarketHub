@@ -31,9 +31,7 @@ const Review = ({ reviews }: { reviews: ReviewModel[] }) => {
                   {[...Array(5)]?.map((value, index) => (
                     <FontAwesomeIcon
                       key={`review-stars-average-${index}`}
-                      icon={
-                        Math.floor(averageScore) === index && Math.floor(averageScore) % 0.5 == 0 ? faStarHalf : faStar
-                      }
+                      icon={Math.floor(averageScore) === index && averageScore % 1 != 0 ? faStarHalf : faStar}
                       className={clsx(averageScore > index ? "  tw-text-yellow-300" : "tw-text-gray-200")}
                     />
                   ))}
@@ -45,7 +43,7 @@ const Review = ({ reviews }: { reviews: ReviewModel[] }) => {
           <div className="tw-mt-6 tw-grid tw-grid-cols-1 tw-gap-x-16 tw-gap-y-12 lg:tw-grid-cols-2">
             {reviews.map(review => (
               <blockquote key={review.id}>
-                <header className="sm:tw-flex sm:tw-items-center sm:tw-gap-4">
+                <header className="tw-flex-col sm:tw-flex sm:tw-items-start sm:tw-gap-2">
                   {!!review.rating && (
                     <div className="tw-flex tw-gap-1">
                       {[...Array(5)]?.map((value, index) => (
@@ -57,11 +55,12 @@ const Review = ({ reviews }: { reviews: ReviewModel[] }) => {
                       ))}
                     </div>
                   )}
-                  <p className="tw-mt-2 tw-font-medium sm:tw-mt-0">{review.headline}</p>
+                  <Title size={TitleSizeEnum.H6} className="tw-mt-2 tw-font-medium !tw-text-gray-600 ">
+                    {review.headline}
+                  </Title>
+
+                  <Text>{review.content}</Text>
                 </header>
-
-                <Text className="tw-mt-1">{review.content}</Text>
-
                 <footer className="tw-mt-2">
                   <Text className="tw-text-gray-400" variant={TextVariantEnum.SMALL}>
                     {review.name} - <ReactTimeAgo date={new Date(review?.createdAt)} locale="en-US" timeStyle="round" />
