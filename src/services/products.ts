@@ -10,6 +10,17 @@ const categoryFragment = gql`
     name
   }
 `
+const reviewFragment = gql`
+  fragment Review_review on Review {
+    id
+    name
+    email
+    headline
+    content
+    rating
+    createdAt
+  }
+`
 const productFragment = gql`
   fragment Product_product on Product {
     createdAt
@@ -56,8 +67,12 @@ const productQuery = (slug: string) => gql`
       categories {
         ...Category_category
       }
+      reviews( orderBy: publishedAt_DESC) {
+        ...Review_review
+      }
     }
   }
+  ${reviewFragment}
   ${productFragment}
   ${categoryFragment}
 `

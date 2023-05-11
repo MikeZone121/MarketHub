@@ -1,3 +1,5 @@
+import { ReviewModel } from "../components/Organisms/Review/types"
+
 export interface FilterModel {
   first?: number
   categories?: string[]
@@ -30,6 +32,7 @@ export interface ProductModel {
   slug?: string
   images: ProductImage[]
   categories?: ProductCategory[]
+  reviews?: ReviewModel[]
 }
 
 export interface ProductImage {

@@ -10,6 +10,7 @@ import { TextVariantEnum } from "../components/Atoms/Text/types"
 import Title from "../components/Atoms/Title"
 import { TitleSizeEnum } from "../components/Atoms/Title/types"
 import ProductGrid from "../components/Organisms/ProductGrid"
+import Review from "../components/Organisms/Review"
 import { addToCart } from "../services/cart/CartSlice"
 import { useGetAllProductsQuery, useGetProductBySlugQuery } from "../services/products"
 import { ProductCategory, ProductImage } from "../services/types"
@@ -122,7 +123,11 @@ function Detail() {
 
         <div className="lg:tw-col-span-3">
           <div className="tw-prose tw-max-w-none">
+            <Title size={TitleSizeEnum.H5} className="tw-mb-4 !tw-text-gray-600">
+              Description
+            </Title>
             <p>{product?.description}</p>
+            <Review reviews={product?.reviews ?? []} />
           </div>
         </div>
       </div>
