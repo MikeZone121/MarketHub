@@ -3,7 +3,7 @@ import clsx from "clsx"
 
 import { TitleProps, TitleSizeEnum } from "./types"
 
-function Title({ text, size = TitleSizeEnum.H2, className }: TitleProps) {
+function Title({ text, size = TitleSizeEnum.H2, className, children }: TitleProps) {
   const titleClassName = clsx(
     size === TitleSizeEnum.H1 && "tw-m-0 tw-text-5xl tw-font-medium tw-leading-tight tw-text-primary",
     size === TitleSizeEnum.H2 && "tw-m-0 tw-text-4xl tw-font-medium tw-leading-tight tw-text-primary",
@@ -13,7 +13,7 @@ function Title({ text, size = TitleSizeEnum.H2, className }: TitleProps) {
     size === TitleSizeEnum.H6 && "tw-m-0 tw-text-lg tw-font-medium tw-leading-tight tw-text-primary",
     className
   )
-  return createElement(size, { className: titleClassName }, text)
+  return createElement(size, { className: titleClassName }, text ?? children)
 }
 
 export default Title

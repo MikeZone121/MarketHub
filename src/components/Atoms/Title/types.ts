@@ -1,7 +1,10 @@
+import { ReactNode } from "react"
+
 export interface TitleProps {
   text?: string
   size?: TitleSizeEnum
   className?: string
+  children?: ReactNode
 }
 
 export enum TitleSizeEnum {
