@@ -1,4 +1,6 @@
 import { Dispatch, SetStateAction } from "react"
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 import { FilterModel, ProductCategory } from "../../../services/types"
 import Text from "../../Atoms/Text"
@@ -22,16 +24,7 @@ function Filter({
         <summary className="tw-flex tw-cursor-pointer tw-items-center tw-justify-between tw-gap-2 tw-bg-white tw-p-4 tw-text-gray-900 tw-transition">
           <Text variant={TextVariantEnum.NORMAL}>Categories</Text>
           <span className="tw-transition group-open:tw--rotate-180">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="tw-h-4 tw-w-4"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-            </svg>
+            <FontAwesomeIcon icon={faChevronDown} className="tw-text-sm tw-text-gray-600" />
           </span>
         </summary>
 
@@ -85,16 +78,7 @@ function Filter({
         <summary className="tw-flex tw-cursor-pointer tw-items-center tw-justify-between tw-gap-2 tw-bg-white tw-p-4 tw-text-gray-900 tw-transition">
           <span className="tw-text-base tw-font-medium">Price</span>
           <span className="tw-transition group-open:tw--rotate-180">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="tw-h-4 tw-w-4"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-            </svg>
+            <FontAwesomeIcon icon={faChevronDown} className="tw-text-sm tw-text-gray-600" />
           </span>
         </summary>
         <div className="tw-border-t tw-border-gray-200 tw-bg-white">

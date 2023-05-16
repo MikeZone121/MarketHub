@@ -1,14 +1,17 @@
 import { useState } from "react"
 import { NavLink } from "react-router-dom"
-import { faBasketShopping, faChevronDown, faHeart, faUser } from "@fortawesome/free-solid-svg-icons"
+import { useAuth0 } from "@auth0/auth0-react"
+import { faBasketShopping, faChevronDown, faHeart } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
+
+import { LoginButton, Profile } from "../LoginButton"
 
 import ContactInformation from "./ContactInformation"
 
 function TopNav() {
   const [dropDownLanguageIsOpen, setDropdownLanguageIsOpen] = useState(false)
-
+  const { loginWithRedirect, isAuthenticated } = useAuth0()
   const languages = [
     { id: "en", languageCode: "en-EN", name: "EN" },
     { id: "nl", languageCode: "nl-NL", name: "NL" },
@@ -57,13 +60,7 @@ function TopNav() {
               </div>
             </div>
             <li className="tw-ml-0 tw-flex tw-flex-grow md:tw-block">
-              <NavLink
-                to="shop"
-                className="tw-flex tw-flex-row-reverse tw-items-center tw-gap-2 tw-text-white md:tw-flex-row"
-              >
-                <span className="tw-text-base">Login</span>
-                <FontAwesomeIcon icon={faUser} />
-              </NavLink>
+              {isAuthenticated ? <Profile /> : <LoginButton />}
             </li>
             <li className="tw-mr-6 md:tw-mr-0">
               <NavLink to="/wishlist" className="tw-flex tw-items-center tw-gap-2 tw-text-white">
