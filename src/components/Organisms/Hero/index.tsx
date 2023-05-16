@@ -12,7 +12,6 @@ import { TitleSizeEnum } from "../../Atoms/Title/types"
 
 function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: boolean }) {
   const navigate = useNavigate()
-  console.log(products)
 
   const [firstProduct, secondProduct, thirdProduct] = products ?? []
   return (

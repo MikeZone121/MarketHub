@@ -12,6 +12,7 @@ import { TextVariantEnum } from "../components/Atoms/Text/types"
 import Title from "../components/Atoms/Title"
 import { TitleSizeEnum } from "../components/Atoms/Title/types"
 import Breadcrumbs from "../components/Molecules/Breadcrumbs"
+import Heart from "../components/Molecules/Heart"
 import ProductGrid from "../components/Organisms/ProductGrid"
 import Review from "../components/Organisms/Review"
 import { addToCart } from "../services/cart/CartSlice"
@@ -72,6 +73,7 @@ function Detail() {
         </Text>
       </div>
       <div className="tw-grid tw-gap-8 lg:tw-grid-cols-4 lg:tw-items-start">
+        {product && <Heart product={product} />}
         <div className="lg:tw-col-span-3">
           <div className="tw-relative tw-mt-4">
             <img
