@@ -54,12 +54,14 @@ export interface CartState {
   cartItems: CartItem[]
   cartTotalQuantity: number
   cartTotalAmount: number
+  cartPopUpIsOpen: boolean
 }
 
 export const initialCartState: CartState = {
   cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")!) : [],
   cartTotalQuantity: 0,
-  cartTotalAmount: 0
+  cartTotalAmount: 0,
+  cartPopUpIsOpen: false
 }
 
 export interface WishlistItem extends ProductModel {

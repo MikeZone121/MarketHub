@@ -10,6 +10,9 @@ const CartSlice = createSlice({
   name: "cart",
   initialState: initialCartState,
   reducers: {
+    toggleCartPopUp(state, action: PayloadAction<boolean>) {
+      state.cartPopUpIsOpen = action.payload
+    },
     addToCart(state, action: PayloadAction<ProductModel>) {
       const itemIndex = state.cartItems.findIndex(item => item.id === action.payload.id)
       if (itemIndex >= 0) {
@@ -68,6 +71,6 @@ const CartSlice = createSlice({
   }
 })
 
-export const { addToCart, decreaseCart, getTotals } = CartSlice.actions
+export const { addToCart, decreaseCart, getTotals, toggleCartPopUp } = CartSlice.actions
 
 export default CartSlice.reducer

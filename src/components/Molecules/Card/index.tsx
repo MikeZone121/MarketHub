@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { faBasketShopping } from "@fortawesome/free-solid-svg-icons"
 import clsx from "clsx"
 
-import { addToCart } from "../../../services/cart/CartSlice"
+import { addToCart, toggleCartPopUp } from "../../../services/cart/CartSlice"
 import { ProductCategory, ProductModel } from "../../../services/types"
 import { removeFromWishlist } from "../../../services/wishlist/WishlistSlice"
 import Button from "../../Atoms/Button"
@@ -23,6 +23,7 @@ function Card({ product, hasDescription }: { product: ProductModel; hasDescripti
   const handleAddToCart = () => {
     dispatch(addToCart(product))
     dispatch(removeFromWishlist(product))
+    dispatch(toggleCartPopUp(true))
   }
 
   return (

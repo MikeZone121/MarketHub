@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink, useNavigate } from "react-router-dom"
-import { faArrowLeft, faBasketShopping, faCheck, faTrash, faUserLock } from "@fortawesome/free-solid-svg-icons"
+import { faArrowLeft, faBasketShopping, faCheck, faTrashAlt, faUserLock } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 
@@ -16,7 +16,7 @@ import Heart from "../components/Molecules/Heart"
 import ProductGrid from "../components/Organisms/ProductGrid"
 import { addToCart, decreaseCart, getTotals } from "../services/cart/CartSlice"
 import { useGetAllProductsQuery } from "../services/products"
-import { CartItem, ProductModel } from "../services/types"
+import { ProductModel } from "../services/types"
 import { RootState } from "../store"
 
 function Cart() {
@@ -24,7 +24,6 @@ function Cart() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { data, isLoading } = useGetAllProductsQuery({ first: 4 })
-  const { wishlistItems } = useSelector((state: RootState) => state.wishlistReducer)
 
   useEffect(() => {
     dispatch(getTotals())
@@ -83,8 +82,7 @@ function Cart() {
               <Title size={TitleSizeEnum.H6} className="tw-text-right !tw-text-black" text="Total" />
             </div> */}
             <div className="tw-flex tw-flex-col tw-gap-6">
-              {cart.cartItems?.map((cartItem: CartItem) => {
-                const isInWishlist = wishlistItems.some(item => item.id === cartItem.id)
+              {cart.cartItems?.map(cartItem => {
                 return (
                   <div
                     className="tw-group tw-relative tw-grid tw-grid-cols-2 tw-items-center tw-gap-4 tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-4 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out md:tw-grid-cols-[3fr_1fr_1fr_1fr]"
@@ -132,11 +130,11 @@ function Cart() {
                       <Button
                         onClick={() => handleDecreaseCart(cartItem)}
                         text={cartItem.cartQuantity <= 1 ? "" : "-"}
-                        icon={cartItem.cartQuantity <= 1 ? faTrash : undefined}
+                        icon={cartItem.cartQuantity <= 1 ? faTrashAlt : undefined}
                         variant={BtnVariantEnum.FULL}
                         className={clsx(
                           "tw-w-full !tw-border-none !tw-bg-transparent !tw-p-2 tw-text-xl !tw-text-black hover:!tw-shadow-none",
-                          cartItem.cartQuantity <= 1 && "!tw-text-lg !tw-text-primary"
+                          cartItem.cartQuantity <= 1 && "!tw-text-md !tw-text-primary"
                         )}
                       />
                       <div>{cartItem.cartQuantity}</div>
