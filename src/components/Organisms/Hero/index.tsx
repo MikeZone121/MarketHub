@@ -56,7 +56,7 @@ function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: b
         <section className="tw-flex tw-w-full tw-flex-col tw-gap-6 md:tw-flex-row">
           {/* PRODUCT 1 */}
           <article
-            onClick={() => navigate(`/shop/${firstProduct?.slug ?? ""} `)}
+            onClick={() => navigate(`/shop/${firstProduct?.slug} `)}
             className={clsx(
               isLoading && "tw-h-full tw-animate-pulse tw-bg-gray-200",
               "tw-group tw-flex tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-center tw-gap-4 tw-rounded-lg tw-border tw-border-gray-100 tw-px-10 tw-py-6 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out  hover:tw-shadow-sm  lg:active:tw-scale-90 xl:tw-flex-row"
@@ -86,7 +86,7 @@ function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: b
                     )}
                   </p>
                   <Button
-                    onClick={() => navigate(`/shop/${firstProduct?.slug ?? ""} `)}
+                    onClick={() => navigate(`/shop/${firstProduct?.slug} `)}
                     text="SHOP NOW"
                     variant={BtnVariantEnum.FULL}
                     className="tw-mt-6"
@@ -108,7 +108,7 @@ function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: b
           <div className="tw-relative tw-hidden tw-grow tw-flex-col tw-gap-6 lg:tw-flex">
             {/* PRODUCT 2 */}
             <article
-              onClick={() => navigate(`/shop/${secondProduct?.slug ?? ""} `)}
+              onClick={() => navigate(`/shop/${secondProduct?.slug} `)}
               className={clsx(
                 isLoading && "tw-h-56 tw-animate-pulse tw-bg-gray-200",
                 "hover:tw-bg-gray-00 tw-group tw-flex tw-h-full tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-between tw-gap-2  tw-rounded-lg tw-border tw-border-gray-100 tw-px-10 tw-py-6 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-shadow-sm lg:tw-flex-row lg:tw-items-stretch lg:active:tw-scale-90"
@@ -149,7 +149,7 @@ function Hero({ products, isLoading }: { products?: ProductModel[]; isLoading: b
             </article>
             {/* PRODUCT 3 */}
             <article
-              onClick={() => navigate(`/shop/${thirdProduct?.slug ?? ""} `)}
+              onClick={() => navigate(`/shop/${thirdProduct?.slug} `)}
               className={clsx(
                 isLoading && "tw-h-56 tw-animate-pulse tw-bg-gray-200",
                 "tw-group tw-flex tw-h-full tw-w-full tw-cursor-pointer tw-flex-col tw-items-center tw-justify-between tw-gap-2 tw-rounded-lg tw-border tw-border-gray-100  tw-px-10 tw-py-6 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out  hover:tw-shadow-sm lg:tw-flex-row lg:tw-items-stretch lg:active:tw-scale-90"

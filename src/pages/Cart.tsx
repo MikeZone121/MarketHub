@@ -96,7 +96,7 @@ function Cart() {
                         alt={cartItem.name}
                       />
                       <div>
-                        <NavLink to={`/shop/${cartItem.slug ?? ""}`} className="tw-pointer hover:tw-underline">
+                        <NavLink to={`/shop/${cartItem.slug}`} className="tw-pointer hover:tw-underline">
                           <Title
                             size={TitleSizeEnum.H6}
                             className="tw-pr-8 !tw-text-black lg:tw-pr-0"
