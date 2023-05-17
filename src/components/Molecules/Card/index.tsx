@@ -15,9 +15,30 @@ import Title from "../../Atoms/Title"
 import { TitleSizeEnum } from "../../Atoms/Title/types"
 import Heart from "../Heart"
 
-function Card({ product, hasDescription }: { product: ProductModel; hasDescription?: boolean }) {
+function Card({
+  product,
+  hasDescription,
+  direction = "col",
+  isLoading,
+  imageSize = "md",
+  hasButtonText = true,
+  hasHeart = true
+}: {
+  product: ProductModel
+  hasDescription?: boolean
+  direction?: "row" | "col" | "row-reverse" | "col-reverse"
+  isLoading?: boolean
+  imageSize?: "sm" | "md" | "lg" | "xl"
+  hasButtonText?: boolean
+  hasHeart?: boolean
+}) {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  if (isLoading) {
+    return (
+      <div className="tw-card tw-align-start tw-group tw-flex tw-h-96 tw-w-full tw-animate-pulse tw-rounded-lg tw-border tw-border-gray-100 tw-bg-gray-200 tw-p-10 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out hover:tw-bg-gray-200"></div>
+    )
+  }
   const { id, name, categories, description, images, price, salePrice, slug } = product
 
   const handleAddToCart = () => {
@@ -28,19 +49,33 @@ function Card({ product, hasDescription }: { product: ProductModel; hasDescripti
 
   return (
     <div
-      className="tw-card tw-group tw-relative tw-flex tw-h-full tw-cursor-pointer tw-flex-col tw-justify-between tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-4 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out md:tw-p-10 "
+      className="tw-card tw-group tw-relative tw-flex tw-h-full tw-cursor-pointer tw-flex-col tw-justify-between tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-4 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out md:tw-p-10 xl:active:tw-scale-95"
       onClick={() => navigate(`/shop/${slug}`)}
       id={`product-${id}`}
     >
-      <Heart product={product} />
-      <div className="tw-flex tw-flex-col">
+      {hasHeart && <Heart product={product} />}
+      <div
+        className={clsx(
+          direction === "row" && "tw-flex-row",
+          direction === "col" && "tw-flex-col",
+          direction === "col-reverse" && "tw-flex-col-reverse",
+          direction === "row-reverse" && "tw-flex-row-reverse",
+          "tw-flex"
+        )}
+      >
         <div className="tw-prod-img tw-relative md:tw-w-full">
           <img
             src={images[0].url}
             onError={({ currentTarget }) => {
               currentTarget.src = "images/branding/logo.svg"
             }}
-            className="tw-m-auto tw-w-3/5 tw-object-contain tw-object-center tw-transition-all tw-duration-200 group-hover:tw-scale-105 md:tw-w-3/4"
+            className={clsx(
+              imageSize === "sm" && "tw-w-2/4",
+              imageSize === "md" && "tw-w-3/5 md:tw-w-3/4",
+              imageSize === "lg" && "tw-w-3/6",
+              imageSize === "xl" && "tw-w-3/7",
+              "tw-m-auto tw-object-contain tw-object-center tw-transition-all tw-duration-200 group-hover:tw-scale-105"
+            )}
           />
         </div>
         <div className="tw-prod-title tw-flex tw-flex-col md:tw-mt-4 md:tw-items-start">
@@ -66,7 +101,7 @@ function Card({ product, hasDescription }: { product: ProductModel; hasDescripti
           )}
         </div>
       </div>
-      <div className="tw-mt-2 tw-grid tw-gap-4 2xl:tw-mt-4">
+      <div className="tw-mt-2 tw-grid tw-gap-4">
         <div className="tw-flex tw-flex-row tw-items-center tw-justify-between tw-gap-4 tw-text-gray-900 2xl:tw-flex-row 2xl:tw-space-y-0">
           <Text
             variant={TextVariantEnum.NORMAL}
@@ -87,9 +122,9 @@ function Card({ product, hasDescription }: { product: ProductModel; hasDescripti
               e.stopPropagation()
               handleAddToCart()
             }}
-            iconClassName="!tw-mr-0 2xl:!tw-mr-2"
+            iconClassName={clsx(hasButtonText && "2xl:!tw-mr-2", "!tw-mr-0")}
           >
-            <span className="tw-hidden 2xl:tw-flex">Add to cart</span>
+            <span className="tw-hidden 2xl:tw-flex">{hasButtonText ? "Add to cart" : ""}</span>
           </Button>
         </div>
       </div>
