@@ -16,7 +16,7 @@ function Hyperlink(props: HyperlinkProps) {
   )
   return (
     <NavLink
-      to={href ?? ""}
+      to={href}
       target={target}
       className={clsx(
         "tw-flex tw-cursor-pointer tw-items-center tw-text-base tw-ease-in-out",

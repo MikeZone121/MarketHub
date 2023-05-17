@@ -72,7 +72,7 @@ function CartPopUp() {
                   />
 
                   <div className="tw-flex tw-w-full tw-items-center tw-justify-between tw-gap-2">
-                    <NavLink to={`/shop/${cartItem.slug ?? ""}`} className="tw-pointer hover:tw-underline">
+                    <NavLink to={`/shop/${cartItem.slug}`} className="tw-pointer hover:tw-underline">
                       <Title text={cartItem.name} size={TitleSizeEnum.H6} className="!tw-text-gray-600" />
                     </NavLink>
                     <div className="tw-flex tw-w-full tw-max-w-[100px] tw-items-center tw-justify-center tw-rounded tw-border tw-border-gray-200 tw-bg-white">

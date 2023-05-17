@@ -44,6 +44,7 @@ export interface ProductImage {
 export interface ProductCategory {
   id: string
   name?: string
+  slug?: string
 }
 
 export interface CartItem extends ProductModel {

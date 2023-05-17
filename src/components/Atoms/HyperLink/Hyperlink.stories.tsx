@@ -1,9 +1,9 @@
 // Button.stories.ts|tsx
 
+import { BrowserRouter } from "react-router-dom"
 import type { Meta, StoryObj } from "@storybook/react"
 
 import Hyperlink from "./index"
-import { BrowserRouter } from "react-router-dom"
 
 const meta: Meta<typeof Hyperlink> = {
   title: "UI/Atoms/Hyperlink",

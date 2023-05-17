@@ -8,6 +8,7 @@ const categoryFragment = gql`
   fragment Category_category on Category {
     id
     name
+    slug
   }
 `
 const reviewFragment = gql`
