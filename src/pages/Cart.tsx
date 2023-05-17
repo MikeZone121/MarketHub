@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink, useNavigate } from "react-router-dom"
 import { faArrowLeft, faBasketShopping, faCheck, faTrashAlt, faUserLock } from "@fortawesome/free-solid-svg-icons"
@@ -14,8 +13,8 @@ import Title from "../components/Atoms/Title"
 import { TitleSizeEnum } from "../components/Atoms/Title/types"
 import Heart from "../components/Molecules/Heart"
 import ProductGrid from "../components/Organisms/ProductGrid"
-import { addToCart, decreaseCart, getTotals } from "../services/cart/CartSlice"
-import { useGetAllProductsQuery } from "../services/products"
+import { addToCart, decreaseCart } from "../services/cart/CartSlice"
+import { useGetAllProductsQuery, useGetProductsByIdQuery } from "../services/products"
 import { ProductModel } from "../services/types"
 import { RootState } from "../store"
 
@@ -24,10 +23,11 @@ function Cart() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { data, isLoading } = useGetAllProductsQuery({ first: 4 })
+  const cartItems = useGetProductsByIdQuery(cart.cartItems)
 
-  useEffect(() => {
+  /*  useEffect(() => {
     dispatch(getTotals())
-  }, [cart])
+  }, [cart]) */
 
   const handleDecreaseCart = (cartItem: ProductModel) => {
     dispatch(decreaseCart(cartItem))
@@ -57,7 +57,7 @@ function Cart() {
         </div>
       </div>
 
-      {cart.cartTotalQuantity === 0 ? (
+      {cartItems.data?.products.length === 0 ? (
         <div className="tw-flex tw-flex-col tw-items-center">
           <Text variant={TextVariantEnum.NORMAL} className="tw-mt-4 tw-font-semibold">
             Your cart is empty.
@@ -82,7 +82,8 @@ function Cart() {
               <Title size={TitleSizeEnum.H6} className="tw-text-right !tw-text-black" text="Total" />
             </div> */}
             <div className="tw-flex tw-flex-col tw-gap-6">
-              {cart.cartItems?.map(cartItem => {
+              {cartItems.data?.products?.map(cartItem => {
+                const reduxCartItem = cart.cartItems.find(item => item.id === cartItem.id)!.cartQuantity
                 return (
                   <div
                     className="tw-group tw-relative tw-grid tw-grid-cols-2 tw-items-center tw-gap-4 tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-4 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out md:tw-grid-cols-[3fr_1fr_1fr_1fr]"
@@ -129,15 +130,15 @@ function Cart() {
                     <div className="tw-flex tw-w-3/4 tw-max-w-full tw-items-center  tw-justify-center tw-rounded tw-border tw-border-gray-200 tw-bg-white">
                       <Button
                         onClick={() => handleDecreaseCart(cartItem)}
-                        text={cartItem.cartQuantity <= 1 ? "" : "-"}
-                        icon={cartItem.cartQuantity <= 1 ? faTrashAlt : undefined}
+                        text={reduxCartItem <= 1 ? "" : "-"}
+                        icon={reduxCartItem <= 1 ? faTrashAlt : undefined}
                         variant={BtnVariantEnum.FULL}
                         className={clsx(
                           "tw-w-full !tw-border-none !tw-bg-transparent !tw-p-2 tw-text-xl !tw-text-black hover:!tw-shadow-none",
-                          cartItem.cartQuantity <= 1 && "!tw-text-md !tw-text-primary"
+                          reduxCartItem <= 1 && "!tw-text-md !tw-text-primary"
                         )}
                       />
-                      <div>{cartItem.cartQuantity}</div>
+                      <div>{reduxCartItem}</div>
                       <Button
                         onClick={() => handleIncreaseCart(cartItem)}
                         text="+"
@@ -152,9 +153,7 @@ function Cart() {
                         size={TitleSizeEnum.H5}
                         className="!tw-font-normal !tw-text-black"
                         text={`€ ${
-                          cartItem.salePrice
-                            ? cartItem.salePrice * cartItem.cartQuantity
-                            : cartItem.price * cartItem.cartQuantity
+                          cartItem.salePrice ? cartItem.salePrice * reduxCartItem : cartItem.price * reduxCartItem
                         }`}
                       />
                     </div>

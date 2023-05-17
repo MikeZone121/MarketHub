@@ -17,17 +17,9 @@ const CartSlice = createSlice({
       const itemIndex = state.cartItems.findIndex(item => item.id === action.payload.id)
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].cartQuantity++
-        toast.success(`Increased ${state.cartItems[itemIndex].name} cart quantity`, {
-          ...toastConfig,
-          toastId: `${action.payload.id}-increased`
-        })
       } else {
-        const tempProduct = { ...action.payload, cartQuantity: 1 }
+        const tempProduct = { id: action.payload.id, cartQuantity: 1 }
         state.cartItems.push(tempProduct)
-        toast.success(`${action.payload.name} added to cart`, {
-          ...toastConfig,
-          toastId: `${action.payload.id}-added`
-        })
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems))
     },
@@ -36,10 +28,6 @@ const CartSlice = createSlice({
 
       if (state.cartItems[itemIndex].cartQuantity > 1) {
         state.cartItems[itemIndex].cartQuantity -= 1
-        toast.info(`${action.payload.name} cart quantity decreased`, {
-          ...toastConfig,
-          toastId: `${action.payload.id}-decreased`
-        })
       } else if (state.cartItems[itemIndex].cartQuantity === 1) {
         const nextCartItems = state.cartItems.filter(cartItem => cartItem.id !== action.payload.id)
         state.cartItems = nextCartItems
@@ -53,8 +41,8 @@ const CartSlice = createSlice({
         )
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems))
-    },
-    getTotals(state) {
+    }
+    /*     getTotals(state) {
       const { total, quantity } = state.cartItems.reduce(
         (cartTotal, cartItem) => {
           const { price, salePrice, cartQuantity } = cartItem
@@ -67,10 +55,10 @@ const CartSlice = createSlice({
       )
       state.cartTotalAmount = total
       state.cartTotalQuantity = quantity
-    }
+    } */
   }
 })
 
-export const { addToCart, decreaseCart, getTotals, toggleCartPopUp } = CartSlice.actions
+export const { addToCart, decreaseCart, toggleCartPopUp } = CartSlice.actions
 
 export default CartSlice.reducer

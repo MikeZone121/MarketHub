@@ -2,7 +2,7 @@ import { createApi } from "@reduxjs/toolkit/query/react"
 import { graphqlRequestBaseQuery } from "@rtk-query/graphql-request-base-query"
 import gql from "graphql-tag"
 
-import { CategoryModel, FilterModel, ProductsModel } from "./types"
+import { CartItem, CategoryModel, FilterModel, ProductsModel } from "./types"
 
 const categoryFragment = gql`
   fragment Category_category on Category {
@@ -38,6 +38,19 @@ const productFragment = gql`
     }
   }
 `
+const productsIdQuery = (ids: string[]) => gql`
+  query Products {
+    products(where: { id_in: ${JSON.stringify(ids)} }) {
+      ...Product_product
+      categories {
+        ...Category_category
+      }
+    }
+  }
+  ${productFragment}
+  ${categoryFragment}
+`
+
 const categoryQuery = () => gql`
   query Category {
     categories {
@@ -83,6 +96,9 @@ export const productsApi = createApi({
     url: import.meta.env.VITE_API_URL
   }),
   endpoints: builder => ({
+    getProductsById: builder.query<ProductsModel, CartItem[]>({
+      query: (cartItems: CartItem[]) => ({ document: productsIdQuery(cartItems.map(({ id }) => id)) })
+    }),
     getAllCategories: builder.query<CategoryModel, void>({
       query: () => ({ document: categoryQuery() })
     }),
@@ -106,4 +122,5 @@ export const productsApi = createApi({
   })
 })
 
-export const { useGetAllProductsQuery, useGetProductBySlugQuery, useGetAllCategoriesQuery } = productsApi
+export const { useGetAllProductsQuery, useGetProductBySlugQuery, useGetProductsByIdQuery, useGetAllCategoriesQuery } =
+  productsApi

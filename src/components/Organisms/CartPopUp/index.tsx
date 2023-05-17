@@ -1,10 +1,9 @@
-import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink, useNavigate } from "react-router-dom"
 import { faBasketShopping, faClose, faCreditCardAlt, faTrashAlt } from "@fortawesome/free-solid-svg-icons"
 import clsx from "clsx"
 
-import { addToCart, decreaseCart, getTotals, toggleCartPopUp } from "../../../services/cart/CartSlice"
+import { addToCart, decreaseCart, toggleCartPopUp } from "../../../services/cart/CartSlice"
 import { ProductModel } from "../../../services/types"
 import { RootState } from "../../../store"
 import Button from "../../Atoms/Button"
@@ -29,9 +28,9 @@ function CartPopUp() {
     dispatch(addToCart(cartItem))
   }
 
-  useEffect(() => {
+  /*   useEffect(() => {
     dispatch(getTotals())
-  }, [cart])
+  }, [cart]) */
 
   return (
     <>

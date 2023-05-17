@@ -47,7 +47,8 @@ export interface ProductCategory {
   slug?: string
 }
 
-export interface CartItem extends ProductModel {
+export interface CartItem {
+  id: string
   cartQuantity: number
 }
 
