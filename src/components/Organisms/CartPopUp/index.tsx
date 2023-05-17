@@ -4,6 +4,7 @@ import { faBasketShopping, faClose, faCreditCardAlt, faTrashAlt } from "@fortawe
 import clsx from "clsx"
 
 import { addToCart, decreaseCart, toggleCartPopUp } from "../../../services/cart/CartSlice"
+import { useGetProductsByIdQuery } from "../../../services/products"
 import { ProductModel } from "../../../services/types"
 import { RootState } from "../../../store"
 import Button from "../../Atoms/Button"
@@ -15,6 +16,7 @@ function CartPopUp() {
   const cart = useSelector((state: RootState) => state.cartReducer)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const cartItems = useGetProductsByIdQuery(cart.cartItems)
 
   const handleCartPopUpOpen = () => {
     dispatch(toggleCartPopUp(false))
@@ -56,7 +58,8 @@ function CartPopUp() {
           />
           <Title text={`Your cart (${cart.cartTotalQuantity})`} size={TitleSizeEnum.H5} className="!tw-text-gray-600" />
           <ul className="tw-space-y-6">
-            {cart.cartItems?.map(cartItem => {
+            {cartItems.data?.products?.map(cartItem => {
+              const cartQuantity = cart.cartItems.find(item => item.id === cartItem.id)!.cartQuantity
               return (
                 <li
                   key={`cart-pop-up-${cartItem.name}`}
@@ -77,15 +80,15 @@ function CartPopUp() {
                     <div className="tw-flex tw-w-full tw-max-w-[100px] tw-items-center tw-justify-center tw-rounded tw-border tw-border-gray-200 tw-bg-white">
                       <Button
                         onClick={() => handleDecreaseCart(cartItem)}
-                        text={cartItem.cartQuantity <= 1 ? "" : "-"}
-                        icon={cartItem.cartQuantity <= 1 ? faTrashAlt : undefined}
+                        text={cartQuantity <= 1 ? "" : "-"}
+                        icon={cartQuantity <= 1 ? faTrashAlt : undefined}
                         variant={BtnVariantEnum.FULL}
                         className={clsx(
                           "tw-w-full !tw-border-none !tw-bg-transparent !tw-p-2 tw-text-xl !tw-text-black hover:!tw-shadow-none",
-                          cartItem.cartQuantity <= 1 && "!tw-text-md !tw-text-primary"
+                          cartQuantity <= 1 && "!tw-text-md !tw-text-primary"
                         )}
                       />
-                      <div>{cartItem.cartQuantity}</div>
+                      <div>{cartQuantity}</div>
                       <Button
                         onClick={() => handleIncreaseCart(cartItem)}
                         text="+"

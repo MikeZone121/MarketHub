@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom"
 
 import Nav from "./components/Molecules/Nav"
+import CartPopUp from "./components/Organisms/CartPopUp"
 import Footer from "./components/Organisms/Footer"
 import useScrollToTop from "./hooks/ScrollToTop"
 import Maintenance from "./pages/Maintenance"
@@ -13,7 +14,7 @@ function App() {
     return (
       <div className="App tw-relative">
         <Nav />
-        {/* <CartPopUp /> */}
+        <CartPopUp />
         <Outlet />
         <Footer />
       </div>

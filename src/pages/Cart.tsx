@@ -83,7 +83,7 @@ function Cart() {
             </div> */}
             <div className="tw-flex tw-flex-col tw-gap-6">
               {cartItems.data?.products?.map(cartItem => {
-                const reduxCartItem = cart.cartItems.find(item => item.id === cartItem.id)!.cartQuantity
+                const cartQuantity = cart.cartItems.find(item => item.id === cartItem.id)!.cartQuantity
                 return (
                   <div
                     className="tw-group tw-relative tw-grid tw-grid-cols-2 tw-items-center tw-gap-4 tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-4 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out md:tw-grid-cols-[3fr_1fr_1fr_1fr]"
@@ -130,15 +130,15 @@ function Cart() {
                     <div className="tw-flex tw-w-3/4 tw-max-w-full tw-items-center  tw-justify-center tw-rounded tw-border tw-border-gray-200 tw-bg-white">
                       <Button
                         onClick={() => handleDecreaseCart(cartItem)}
-                        text={reduxCartItem <= 1 ? "" : "-"}
-                        icon={reduxCartItem <= 1 ? faTrashAlt : undefined}
+                        text={cartQuantity <= 1 ? "" : "-"}
+                        icon={cartQuantity <= 1 ? faTrashAlt : undefined}
                         variant={BtnVariantEnum.FULL}
                         className={clsx(
                           "tw-w-full !tw-border-none !tw-bg-transparent !tw-p-2 tw-text-xl !tw-text-black hover:!tw-shadow-none",
-                          reduxCartItem <= 1 && "!tw-text-md !tw-text-primary"
+                          cartQuantity <= 1 && "!tw-text-md !tw-text-primary"
                         )}
                       />
-                      <div>{reduxCartItem}</div>
+                      <div>{cartQuantity}</div>
                       <Button
                         onClick={() => handleIncreaseCart(cartItem)}
                         text="+"
@@ -153,7 +153,7 @@ function Cart() {
                         size={TitleSizeEnum.H5}
                         className="!tw-font-normal !tw-text-black"
                         text={`€ ${
-                          cartItem.salePrice ? cartItem.salePrice * reduxCartItem : cartItem.price * reduxCartItem
+                          cartItem.salePrice ? cartItem.salePrice * cartQuantity : cartItem.price * cartQuantity
                         }`}
                       />
                     </div>
