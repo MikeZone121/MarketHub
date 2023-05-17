@@ -15,7 +15,7 @@ function Shop() {
     orderBy: "publishedAt_DESC"
   })
   const handleSortBy = (e: ChangeEvent<HTMLSelectElement>) => {
-    setFilter({ ...filter, orderBy: e.target.value })
+    setFilter(prev => ({ ...prev, orderBy: e.target.value }))
   }
   const { data, isLoading } = useGetAllProductsQuery(filter)
   const categoriesData = useGetAllCategoriesQuery()

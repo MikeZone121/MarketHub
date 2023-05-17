@@ -8,7 +8,7 @@ import { PositionEnum } from "../Button/types"
 import { HyperlinkProps, HyperLinkVariantsEnum } from "./types"
 
 function Hyperlink(props: HyperlinkProps) {
-  const { text, href, className, target = "", icon, variant, iconPosition = PositionEnum.LEFT } = props
+  const { text, href, className, target = "", icon, variant, iconPosition = PositionEnum.LEFT, children } = props
   const positionClassnames = clsx(positionClassnamesMap[iconPosition])
   const variantClassnames = clsx(
     variant === HyperLinkVariantsEnum.PRIMARY && "tw-text-primary  hover:tw-text-red-300",
@@ -37,7 +37,7 @@ function Hyperlink(props: HyperlinkProps) {
           <FontAwesomeIcon icon={icon} />
         </span>
       )}
-      {text}
+      {text ?? children}
     </NavLink>
   )
 }

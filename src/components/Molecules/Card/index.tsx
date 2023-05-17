@@ -48,9 +48,9 @@ function Card({
   }
 
   return (
-    <div
+    <a
       className="tw-card tw-group tw-relative tw-flex tw-h-full tw-cursor-pointer tw-flex-col tw-justify-between tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-p-4 tw-shadow-md tw-shadow-gray-100 tw-transition-all tw-duration-200 tw-ease-in-out md:tw-p-10 xl:active:tw-scale-95"
-      onClick={() => navigate(`/shop/${slug}`)}
+      href={`/shop/${slug}`}
       id={`product-${id}`}
     >
       {hasHeart && <Heart product={product} />}
@@ -120,6 +120,7 @@ function Card({
             icon={faBasketShopping}
             onClick={(e: MouseEvent<HTMLButtonElement>) => {
               e.stopPropagation()
+              e.preventDefault()
               handleAddToCart()
             }}
             iconClassName={clsx(hasButtonText && "2xl:!tw-mr-2", "!tw-mr-0")}
@@ -128,7 +129,7 @@ function Card({
           </Button>
         </div>
       </div>
-    </div>
+    </a>
   )
 }
 
